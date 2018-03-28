@@ -87,12 +87,13 @@
 <meta property="og:site_name" content="The7sins">
 <meta property="og:description" content="前言 最近在刷题的时候又遇到了php://filter这个协议，想着之前也遇到过许多次，就想着做一次总结，把这个问题搞懂，也是第一次用MD来写博客，就做的慢一点，熟悉一下MD的语法，也算是给自己的博客生涯开一个好头吧！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/03/images/1.jpg">
-<meta property="og:updated_time" content="2018-03-27T15:53:25.250Z">
+<meta property="og:image" content="http://yoursite.com/ctf/1.jpg">
+<meta property="og:image" content="http://yoursite.com/ctf/fca81469385894.png">
+<meta property="og:updated_time" content="2018-03-28T16:07:35.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于php:&#x2F;&#x2F;filter和xxe漏洞">
 <meta name="twitter:description" content="前言 最近在刷题的时候又遇到了php://filter这个协议，想着之前也遇到过许多次，就想着做一次总结，把这个问题搞懂，也是第一次用MD来写博客，就做的慢一点，熟悉一下MD的语法，也算是给自己的博客生涯开一个好头吧！">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/images/1.jpg">
+<meta name="twitter:image" content="http://yoursite.com/ctf/1.jpg">
 
 
 
@@ -358,7 +359,15 @@
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>最近在刷题的时候又遇到了php://filter这个协议，想着之前也遇到过许多次，就想着做一次总结，把这个问题搞懂，也是第一次用MD来写博客，就做的慢一点，熟悉一下MD的语法，也算是给自己的博客生涯开一个好头吧！<br><a id="more"></a></p>
 </blockquote>
-<p>#关于php://filter协议<br>php://filter协议是php语言中的一个特有的协议流，它的作用是作为一个中间流来处理其他流。比如我们可以用一行代码将post请求内容转换成base64编码输出<br><code>readfile(&quot;php://filter/read=convert.base64-encode/resource=php://input&quot;);</code><br><img src="../../images/1.jpg" alt="Alt rext"></p>
+<h1 id="关于php-filter协议"><a href="#关于php-filter协议" class="headerlink" title="关于php://filter协议"></a>关于php://filter协议</h1><p>php://filter协议是php语言中的一个特有的协议流，它的作用是作为一个中间流来处理其他流。比如我们可以用一行代码将post请求内容转换成base64编码输出<br><code>readfile(&quot;php://filter/read=convert.base64-encode/resource=php://input&quot;);</code><br><img src="/ctf/1.jpg" alt=""></p>
+<h2 id="XXE中的使用"><a href="#XXE中的使用" class="headerlink" title="XXE中的使用"></a>XXE中的使用</h2><p>php://filter最常出现的地方就是xxe漏洞。犹豫xxe漏洞的特殊性，我们在读取html，php等文件时可能出现此类错误<code>parser error : StartTag: invalid element name</code>。其原因就是，PHP是给予标记语言，&lt;?php …  ?&gt;这个语法也与xml相符合，所以在解析xml的时候会误认为时xml，而其中（比如特殊字符）又有可能和标准xml冲突，所以导致了出错。<br>那么，为了读取包含有敏感信息的PHP等源文件，我们就要先将“可能引发冲突的PHP代码”编码一遍，这里就会用到php://filter。<br><code>php://filter/read=convert.base64-encode/resource=./xxe.php</code> </p>
+<h2 id="巧用编码和解码"><a href="#巧用编码和解码" class="headerlink" title="巧用编码和解码"></a>巧用编码和解码</h2><pre><code>content = &apos;&lt;?php exit; ?&gt;&apos;;    
+$content .= $_POST[&apos;txt&apos;];   
+file_put_contents($_POST[&apos;filename&apos;], $content);
+</code></pre><p>在实战中经常会遇到在缓存、配置文件等等地方时，不允许用户直接访问的文件，都会被加上if(!defined(xxx))exit;之类的限制，则可以用php://filter流中的base64-decode方法，将$content解码，利用base64_decode函数特性去除“死亡exit”。其实base64_decode可以理解为以下代码<br>    &lt;?php<br>    $_GET[‘txt’] = preg_replace(‘|[^a-z0-9A-Z+/]|s’, ‘’, $_Get[‘txt’]);<br>    base64_decode($_GET[‘txt’]);<br>    ?&gt;<br>php://filter/write=convert.base64-decode 来首先对其解码。在解码的过程中，字符&lt;、?、;、&gt;、空格等一共有7个字符不符合base64编码的字符范围将被忽略，所以最终被解码的字符仅有“phpexit”和我们传入的其他字符。“phpexit”一共7个字符，因为base64算法解码时是4个byte一组，所以给他增加1个“a”一共8个字符。这样，”phpexita”被正常解码，而后面我们传入的webshell的base64内容也被正常解码。结果就是&lt;?php exit; ?&gt;没有了。<br><img src="/ctf/fca81469385894.png" alt="">  </p>
+<p>内容来自于<a href="https://www.leavesongs.com/PENETRATION/php-filter-magic.html" target="_blank" rel="noopener">https://www.leavesongs.com/PENETRATION/php-filter-magic.html</a></p>
+<h1 id="XXE漏洞"><a href="#XXE漏洞" class="headerlink" title="XXE漏洞"></a>XXE漏洞</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>如果在产品功能项目设计中，用来解析的xml是外部可控的，则有可能能形成文件读取，dos，csrf漏洞。各种语言都有支持xml的组件及函数。在PHP中默认处理的函数为: xml_parse和simplexml_load。 xml_parse的实现方式为expat库，默认情况不会解析外部实体,simplexml_load默认情况下会解析外部实体,造成安全威胁(xxe漏洞无法复现的原因就是在新版本中，已经不再默认解析实体了，需要在simplexml_load_file函数中指定第三个参数为LIBXML_NOENT，不然不会解析实体的)</p>
+<h2 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h2><p>读取任意文件<br>执行系统命令<br>探测内网端口<br>攻击内网网站<br>详细操作参考：<a href="https://www.waitalone.cn/xxe-attack.html" target="_blank" rel="noopener">https://www.waitalone.cn/xxe-attack.html</a></p>
 
       
     </div>
@@ -513,7 +522,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于php-filter协议"><span class="nav-number"></span> <span class="nav-text">关于php://filter协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XXE中的使用"><span class="nav-number">1.</span> <span class="nav-text">XXE中的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#巧用编码和解码"><span class="nav-number">2.</span> <span class="nav-text">巧用编码和解码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XXE漏洞"><span class="nav-number"></span> <span class="nav-text">XXE漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#危害"><span class="nav-number">2.</span> <span class="nav-text">危害</span></a></li></ol></div>
             
 
           </div>
@@ -533,8 +542,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -544,12 +552,7 @@
 </div>
 
 <!--
-<div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:<span id="busuanzi_value_site_uv"></span>
-</span>
-</div>
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
