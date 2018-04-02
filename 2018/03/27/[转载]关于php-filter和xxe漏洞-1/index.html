@@ -83,13 +83,13 @@
 <meta name="keywords" content="Web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于php:&#x2F;&#x2F;filter和xxe漏洞">
-<meta property="og:url" content="http://yoursite.com/2018/03/27/关于php-filter和xxe漏洞-1/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/03/27/[转载]关于php-filter和xxe漏洞-1/index.html">
 <meta property="og:site_name" content="The7sins">
 <meta property="og:description" content="前言 最近在刷题的时候又遇到了php://filter这个协议，想着之前也遇到过许多次，就想着做一次总结，把这个问题搞懂，也是第一次用MD来写博客，就做的慢一点，熟悉一下MD的语法，也算是给自己的博客生涯开一个好头吧！">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/ctf/1.jpg">
 <meta property="og:image" content="http://yoursite.com/ctf/fca81469385894.png">
-<meta property="og:updated_time" content="2018-03-28T16:07:35.601Z">
+<meta property="og:updated_time" content="2018-04-02T13:37:12.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于php:&#x2F;&#x2F;filter和xxe漏洞">
 <meta name="twitter:description" content="前言 最近在刷题的时候又遇到了php://filter这个协议，想着之前也遇到过许多次，就想着做一次总结，把这个问题搞懂，也是第一次用MD来写博客，就做的慢一点，熟悉一下MD的语法，也算是给自己的博客生涯开一个好头吧！">
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/27/关于php-filter和xxe漏洞-1/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/27/[转载]关于php-filter和xxe漏洞-1/"/>
 
 
 
@@ -267,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/关于php-filter和xxe漏洞-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/[转载]关于php-filter和xxe漏洞-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="The7sins">
@@ -359,7 +359,8 @@
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>最近在刷题的时候又遇到了php://filter这个协议，想着之前也遇到过许多次，就想着做一次总结，把这个问题搞懂，也是第一次用MD来写博客，就做的慢一点，熟悉一下MD的语法，也算是给自己的博客生涯开一个好头吧！<br><a id="more"></a></p>
 </blockquote>
-<h1 id="关于php-filter协议"><a href="#关于php-filter协议" class="headerlink" title="关于php://filter协议"></a>关于php://filter协议</h1><p>php://filter协议是php语言中的一个特有的协议流，它的作用是作为一个中间流来处理其他流。比如我们可以用一行代码将post请求内容转换成base64编码输出<br><code>readfile(&quot;php://filter/read=convert.base64-encode/resource=php://input&quot;);</code><br><img src="/ctf/1.jpg" alt=""></p>
+<h1 id="关于php-filter协议"><a href="#关于php-filter协议" class="headerlink" title="关于php://filter协议"></a>关于php://filter协议</h1><p>php://filter协议是php语言中的一个特有的协议流，它的作用是作为一个中间流来处理其他流。比如我们可以用一行代码将post请求内容转换成base64编码输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">readfile(&quot;php://filter/read=convert.base64-encode/resource=php://input&quot;);</span><br></pre></td></tr></table></figure></p>
+<p><img src="/ctf/1.jpg" alt=""></p>
 <h2 id="XXE中的使用"><a href="#XXE中的使用" class="headerlink" title="XXE中的使用"></a>XXE中的使用</h2><p>php://filter最常出现的地方就是xxe漏洞。犹豫xxe漏洞的特殊性，我们在读取html，php等文件时可能出现此类错误<code>parser error : StartTag: invalid element name</code>。其原因就是，PHP是给予标记语言，&lt;?php …  ?&gt;这个语法也与xml相符合，所以在解析xml的时候会误认为时xml，而其中（比如特殊字符）又有可能和标准xml冲突，所以导致了出错。<br>那么，为了读取包含有敏感信息的PHP等源文件，我们就要先将“可能引发冲突的PHP代码”编码一遍，这里就会用到php://filter。<br><code>php://filter/read=convert.base64-encode/resource=./xxe.php</code> </p>
 <h2 id="巧用编码和解码"><a href="#巧用编码和解码" class="headerlink" title="巧用编码和解码"></a>巧用编码和解码</h2><pre><code>content = &apos;&lt;?php exit; ?&gt;&apos;;    
 $content .= $_POST[&apos;txt&apos;];   
@@ -394,6 +395,22 @@ file_put_contents($_POST[&apos;filename&apos;], $content);
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/31/菜鸡对sql注入的一些简单总结/" rel="prev" title="菜鸡对sql注入的一些简单总结">
+                菜鸡对sql注入的一些简单总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -467,7 +484,7 @@ file_put_contents($_POST[&apos;filename&apos;], $content);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
