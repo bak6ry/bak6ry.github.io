@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="前言 关于sql注入也了解了一些，也做了一些题。所以就想对简单的sql注入进行一些简单的总结，本人菜鸡，所以请各位大佬提出一些建议">
+<meta name="description" content="前言 关于sql注入也了解了一些，也做了一些题。所以就想对简单的sql注入进行一些简单的总结，本人菜鸡，所以请各位大佬提出一些建议。">
 <meta name="keywords" content="Web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="菜鸡对sql注入的一些简单总结">
 <meta property="og:url" content="http://yoursite.com/2018/03/31/菜鸡对sql注入的一些简单总结/index.html">
 <meta property="og:site_name" content="The7sins">
-<meta property="og:description" content="前言 关于sql注入也了解了一些，也做了一些题。所以就想对简单的sql注入进行一些简单的总结，本人菜鸡，所以请各位大佬提出一些建议">
+<meta property="og:description" content="前言 关于sql注入也了解了一些，也做了一些题。所以就想对简单的sql注入进行一些简单的总结，本人菜鸡，所以请各位大佬提出一些建议。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-02T14:54:32.930Z">
+<meta property="og:updated_time" content="2018-04-03T09:23:41.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="菜鸡对sql注入的一些简单总结">
-<meta name="twitter:description" content="前言 关于sql注入也了解了一些，也做了一些题。所以就想对简单的sql注入进行一些简单的总结，本人菜鸡，所以请各位大佬提出一些建议">
+<meta name="twitter:description" content="前言 关于sql注入也了解了一些，也做了一些题。所以就想对简单的sql注入进行一些简单的总结，本人菜鸡，所以请各位大佬提出一些建议。">
 
 
 
@@ -354,7 +354,7 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>关于sql注入也了解了一些，也做了一些题。所以就想对简单的sql注入进行一些简单的总结，本人菜鸡，所以请各位大佬提出一些建议<br><a id="more"></a></p>
+<p>关于sql注入也了解了一些，也做了一些题。所以就想对简单的sql注入进行一些简单的总结，本人菜鸡，所以请各位大佬提出一些建议。<br><a id="more"></a></p>
 </blockquote>
 <h1 id="什么是sql注入"><a href="#什么是sql注入" class="headerlink" title="什么是sql注入"></a>什么是sql注入</h1><p>sql注入就是一种通过操纵输入来修改后台sql语句以达到利用代码进行攻击目的的技术。攻击者通过影响传递给数据库的内容来修改sql自身的语法和功能，并且会影响到sql所支持的数据库和操作系统的功能和灵活性</p>
 <h1 id="理解sql注入产生的过程"><a href="#理解sql注入产生的过程" class="headerlink" title="理解sql注入产生的过程"></a>理解sql注入产生的过程</h1><ul>
@@ -369,7 +369,12 @@
 </ul>
 <h1 id="发现sql注入"><a href="#发现sql注入" class="headerlink" title="发现sql注入"></a>发现sql注入</h1><p>这一部分以后在进行补充（皮这一下，我很快乐）</p>
 <h1 id="利用sql注入"><a href="#利用sql注入" class="headerlink" title="利用sql注入"></a>利用sql注入</h1><h2 id="识别数据库"><a href="#识别数据库" class="headerlink" title="识别数据库"></a>识别数据库</h2><p>web应用技术将为我们提供第一步线索，如.asp和.net通常是使用Microsoft SQL Server作为后台数据库，而php应用则很有可能使用MySQL注入或PostgreSQL。如果应用是java编写的，那么很用有可能是Oracle或MySQL,而且底层操作系统也可以提供一些线索：安装IIS作为服务器平台很有可能使用的是SQL server，而运行Apache和PHP的Linux服务器则很有可能使用的是开源数据库，如MySQL或者PostgreSQL。</p>
-<h3 id="非盲跟踪"><a href="#非盲跟踪" class="headerlink" title="非盲跟踪"></a>非盲跟踪</h3><h3 id="盲跟踪"><a href="#盲跟踪" class="headerlink" title="盲跟踪"></a>盲跟踪</h3><h2 id="基于联合查询的sql注入"><a href="#基于联合查询的sql注入" class="headerlink" title="基于联合查询的sql注入"></a>基于联合查询的sql注入</h2><p>由于mysql_fetch_array函数只被调用了<br>一次，所以union select语句就只显示了前一个表的数据（即只显示了union select右边的数字串中的一些数字）显示第二个表的数据，那么我们只要让第一行查询的结果是空集（即union左边的select子句查询结果为空），那么我们union右边的查询结果自然就成为了第一行，就打印在网页上了，这个id他一般传的是数字，而且一般都是从1开始自增的，我们可以把id值设为非正数（负数或0），浮点数，字符型或字符串都行。要想union操作符正确工作，需满足两个条件：两个查询返回的列数必须相同（所以先用order by来查询列数–使用 order by 5正确   order by 6错误，就意味着查询中包含5列）  </p>
+<h3 id="非盲跟踪"><a href="#非盲跟踪" class="headerlink" title="非盲跟踪"></a>非盲跟踪</h3><h3 id="盲跟踪"><a href="#盲跟踪" class="headerlink" title="盲跟踪"></a>盲跟踪</h3><h2 id="基于联合查询的sql注入"><a href="#基于联合查询的sql注入" class="headerlink" title="基于联合查询的sql注入"></a>基于联合查询的sql注入</h2><ul>
+<li>由于mysql_fetch_array函数只被调用了<br>一次，所以union select语句就只显示了前一个表的数据（即只显示了union select右边的数字串中的一些数字）显示第二个表的数据，那么我们只要让第一行查询的结果是空集（即union左边的select子句查询结果为空），那么我们union右边的查询结果自然就成为了第一行，就打印在网页上了，这个id他一般传的是数字，而且一般都是从1开始自增的，我们可以把id值设为非正数（负数或0），浮点数，字符型或字符串都行。要想union操作符正确工作，需满足两个条件：两个查询返回的列数必须相同（所以先用order by来查询列数–使用 order by 5正确   order by 6错误，就意味着查询中包含5列）   </li>
+<li>了解一下mysql的系统函数<br>user()  当前使用者的用户名<br>database()  当前数据库名<br>version()  当前使用的数据库版本<br>concat()  连接一个或者多个字符<br>group_concat()  连接一个组的所有字符串，并以逗号分隔每一个数据（查询数据库的各种信息了（可以看到只有第2列和第3列的结果显示在网页上），所以我们就只能用2,3这个位置了，但是两个位置应该是不够用的，这时我们就用到数据库的连接函数了，常用的就concat和concat_ws,其中concat_ws的第一个参数是连接字符串的分隔符，还会用到group__concat(可以把查询出来的多行连接起来)）  </li>
+<li>理解schema，sechmata，schema_name，table_schema<br>SCHEMATA表:储存mysql所有数据库的基本信息，包括数据库名，编码类型路径等，show databases的结果取之此表。<br>TABLES表:储存mysql中的表信息，（当然也有数据库名这一列，这样才能找到哪个数据库有哪些表嘛）包括这个表是基本表还是系统表，数据库的引擎是什么，表有多少行，创建时间，最后更新时间等。show tables from schemaname的结果取之此表。<br>COLUMNS表：提供了表中的列信息，（当然也有数据库名和表名称这两列）详细表述了某张表的所有列以及每个列的信息，包括该列是那个表中的第几列，列的数据类型，列的编码类型，列的权限，注释等。是show columns from schemaname.tablename的结果取之此表。  </li>
+<li>下面我们就要查询敏感信息了，就要用到上面所说的系统函数了<br>and 1=2 union select 1,version(),database()可以爆出当前使用的版本和数据库名<br>and 1=2 union select 1,2,schema_name from information_schema.schemata limit 1,1 %23爆出数据库名，依次使用limit2，1往下爆库名，也可以使用group_concat函数全部爆出来 and 1=2 union select 1,2,group_concat(schema_name) from information_schema.schemata%23 。<br>我们假设其中有flag库<br>and 1=2 union select 1,2,group_concat(table_name) from information_schema.tables where schema_name=’flag’ 爆出flag库下的所有的表，假设其中有flagtable表<br>and 1=2 union select 1,2,group_concat(column_name) from information_schema.columns where table_name =’flagtale’爆出flagtable下的所有字段，假设有name和password字段<br>and 1=2 union select 1,2,group_concat(name,password) from flag.flagtable爆出flag下的flagtable表的name和password的内容</li>
+</ul>
 <h2 id="基于错误回显的sql注入"><a href="#基于错误回显的sql注入" class="headerlink" title="基于错误回显的sql注入"></a>基于错误回显的sql注入</h2><p>SQLServer</p>
 <p>一、利用错误消息提取信息</p>
 <p>　　输入 ‘having 1=1 –（having一般要与group by一起来使用，group by是用来进行分组的，having后面是用来进行判断的），如果网站存在使数据库回显到页面上，那么可以通过页面的回显得到一些想要的数据库字段。通过一次次错误回显来查询出当前表的所有列名（直到没有错误为止）。</p>
@@ -421,7 +426,12 @@
 <li>%DF’ ：会被PHP当中的addslashes函数转义为“%DF\’” ，“\”既URL里的“%5C”，那么也就是说，“%DF’”会被转成“%DF%5C%27”倘若网站的字符集是GBK，MYSQL使用的编码也是GBK的话，就会认为“%DF%5C%27”是一个宽字符。也就是“縗’”   </li>
 <li>输入%df和函数执行添加的%5C，被合并成%df%5C。由于GBK是两字节，这个%df%5C被MYSQL识别为GBK。导致本应的%df\变成%df%5C。%df%5C在GBK编码中没有对应，所以被当成无效字符。</li>
 </ul>
-<h2 id="基于约束的sql注入"><a href="#基于约束的sql注入" class="headerlink" title="基于约束的sql注入"></a>基于约束的sql注入</h2><h2 id="双查询注入"><a href="#双查询注入" class="headerlink" title="双查询注入"></a>双查询注入</h2><h2 id="基于user-agent的sql注入"><a href="#基于user-agent的sql注入" class="headerlink" title="基于user-agent的sql注入"></a>基于user-agent的sql注入</h2><h2 id="基于feferer的sql注入"><a href="#基于feferer的sql注入" class="headerlink" title="基于feferer的sql注入"></a>基于feferer的sql注入</h2><h2 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h2>
+<h2 id="基于约束条件的sql注入"><a href="#基于约束条件的sql注入" class="headerlink" title="基于约束条件的sql注入"></a>基于约束条件的sql注入</h2><ul>
+<li>在处理SQL中的字符串时，字符串末尾的空格将会被删除</li>
+<li>在任意INSERT查询中，SQL会根据varchar(n)来限制字符串的最大长度，也就是说，如果字符串的长度大于“n”个字符的话，那么仅使用字符串的前“n”个字符。 </li>
+</ul>
+<p>现在，假设一个易受攻击的网站使用了前面提到的PHP代码来处理用户的注册和登录。为了入侵任意用户的帐户(就本例来说，用户名为“vampire”)，只需使用用户名“vampire[一些空白字符]1”和一个随机密码进行注册即可。对于选择的用户名，前25个字符应该只包含vampire和空白字符。这样做的好处是，将有助于绕过检查特定用户名是否已存在的查询 </p>
+<h2 id="基于user-agent的sql注入"><a href="#基于user-agent的sql注入" class="headerlink" title="基于user-agent的sql注入"></a>基于user-agent的sql注入</h2><h2 id="基于feferer的sql注入"><a href="#基于feferer的sql注入" class="headerlink" title="基于feferer的sql注入"></a>基于feferer的sql注入</h2><h2 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h2>
       
     </div>
     
@@ -447,22 +457,6 @@
       
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/03/27/[转载]关于php-filter和xxe漏洞-1/" rel="next" title="关于php://filter和xxe漏洞">
-                <i class="fa fa-chevron-left"></i> 关于php://filter和xxe漏洞
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -536,7 +530,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -591,7 +585,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是sql注入"><span class="nav-number"></span> <span class="nav-text">什么是sql注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解sql注入产生的过程"><span class="nav-number"></span> <span class="nav-text">理解sql注入产生的过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些常见的注入叫法"><span class="nav-number"></span> <span class="nav-text">一些常见的注入叫法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发现sql注入"><span class="nav-number"></span> <span class="nav-text">发现sql注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用sql注入"><span class="nav-number"></span> <span class="nav-text">利用sql注入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#识别数据库"><span class="nav-number">1.</span> <span class="nav-text">识别数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非盲跟踪"><span class="nav-number">1.1.</span> <span class="nav-text">非盲跟踪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盲跟踪"><span class="nav-number">1.2.</span> <span class="nav-text">盲跟踪</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于联合查询的sql注入"><span class="nav-number">2.</span> <span class="nav-text">基于联合查询的sql注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于错误回显的sql注入"><span class="nav-number">3.</span> <span class="nav-text">基于错误回显的sql注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于盲注的sql注入，分时间盲注和布尔型的盲注"><span class="nav-number">4.</span> <span class="nav-text">基于盲注的sql注入，分时间盲注和布尔型的盲注</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于布尔型的sql盲注："><span class="nav-number">4.1.</span> <span class="nav-text">基于布尔型的sql盲注：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于时间的盲注"><span class="nav-number">4.2.</span> <span class="nav-text">基于时间的盲注</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宽字节注入"><span class="nav-number">5.</span> <span class="nav-text">宽字节注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">5.1.</span> <span class="nav-text">原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于约束的sql注入"><span class="nav-number">6.</span> <span class="nav-text">基于约束的sql注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双查询注入"><span class="nav-number">7.</span> <span class="nav-text">双查询注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于user-agent的sql注入"><span class="nav-number">8.</span> <span class="nav-text">基于user-agent的sql注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于feferer的sql注入"><span class="nav-number">9.</span> <span class="nav-text">基于feferer的sql注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二次注入"><span class="nav-number">10.</span> <span class="nav-text">二次注入</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是sql注入"><span class="nav-number"></span> <span class="nav-text">什么是sql注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解sql注入产生的过程"><span class="nav-number"></span> <span class="nav-text">理解sql注入产生的过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些常见的注入叫法"><span class="nav-number"></span> <span class="nav-text">一些常见的注入叫法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发现sql注入"><span class="nav-number"></span> <span class="nav-text">发现sql注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用sql注入"><span class="nav-number"></span> <span class="nav-text">利用sql注入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#识别数据库"><span class="nav-number">1.</span> <span class="nav-text">识别数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非盲跟踪"><span class="nav-number">1.1.</span> <span class="nav-text">非盲跟踪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盲跟踪"><span class="nav-number">1.2.</span> <span class="nav-text">盲跟踪</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于联合查询的sql注入"><span class="nav-number">2.</span> <span class="nav-text">基于联合查询的sql注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于错误回显的sql注入"><span class="nav-number">3.</span> <span class="nav-text">基于错误回显的sql注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于盲注的sql注入，分时间盲注和布尔型的盲注"><span class="nav-number">4.</span> <span class="nav-text">基于盲注的sql注入，分时间盲注和布尔型的盲注</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于布尔型的sql盲注："><span class="nav-number">4.1.</span> <span class="nav-text">基于布尔型的sql盲注：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于时间的盲注"><span class="nav-number">4.2.</span> <span class="nav-text">基于时间的盲注</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宽字节注入"><span class="nav-number">5.</span> <span class="nav-text">宽字节注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">5.1.</span> <span class="nav-text">原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于约束条件的sql注入"><span class="nav-number">6.</span> <span class="nav-text">基于约束条件的sql注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于user-agent的sql注入"><span class="nav-number">7.</span> <span class="nav-text">基于user-agent的sql注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于feferer的sql注入"><span class="nav-number">8.</span> <span class="nav-text">基于feferer的sql注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二次注入"><span class="nav-number">9.</span> <span class="nav-text">二次注入</span></a></li></ol></div>
             
 
           </div>
