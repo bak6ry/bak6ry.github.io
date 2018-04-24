@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="2018-4-23————2018.4.24刷了bugku的代码审计的题目，下面写一下writeup 0x01 extract变量覆盖需要get的shiyan的值与flag的值相同，则可以让他们都等于空。extract()会将$flag的值覆盖，将shiyan变量的值设置为空,flag为不存在的文件时满足$shiyan == $content(都是空)即可bypasspayload：？shiyan">
+<meta property="og:type" content="article">
 <meta property="og:title" content="The7sins">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/第一次周记/index.html">
 <meta property="og:site_name" content="The7sins">
+<meta property="og:description" content="2018-4-23————2018.4.24刷了bugku的代码审计的题目，下面写一下writeup 0x01 extract变量覆盖需要get的shiyan的值与flag的值相同，则可以让他们都等于空。extract()会将$flag的值覆盖，将shiyan变量的值设置为空,flag为不存在的文件时满足$shiyan == $content(都是空)即可bypasspayload：？shiyan">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-24T04:27:02.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The7sins">
+<meta name="twitter:description" content="2018-4-23————2018.4.24刷了bugku的代码审计的题目，下面写一下writeup 0x01 extract变量覆盖需要get的shiyan的值与flag的值相同，则可以让他们都等于空。extract()会将$flag的值覆盖，将shiyan变量的值设置为空,flag为不存在的文件时满足$shiyan == $content(都是空)即可bypasspayload：？shiyan">
 
 
 
@@ -115,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/24/第一次周记/"/>
 
 
 
@@ -131,7 +135,7 @@
   </script>
 
 
-  <title>The7sins</title>
+  <title> | The7sins</title>
   
 
 
@@ -150,8 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/The7sins"  class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -245,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -277,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/24/第一次周记/" itemprop="url">未命名</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -329,9 +330,7 @@
       
 
       
-        
-          
-            <h2 id="2018-4-23————2018-4-24"><a href="#2018-4-23————2018-4-24" class="headerlink" title="2018-4-23————2018.4.24"></a>2018-4-23————2018.4.24</h2><p>刷了bugku的代码审计的题目，下面写一下writeup</p>
+        <h2 id="2018-4-23————2018-4-24"><a href="#2018-4-23————2018-4-24" class="headerlink" title="2018-4-23————2018.4.24"></a>2018-4-23————2018.4.24</h2><p>刷了bugku的代码审计的题目，下面写一下writeup</p>
 <h3 id="0x01-extract变量覆盖"><a href="#0x01-extract变量覆盖" class="headerlink" title="0x01 extract变量覆盖"></a>0x01 extract变量覆盖</h3><p>需要get的shiyan的值与flag的值相同，则可以让他们都等于空。extract()会将$flag的值覆盖，将shiyan变量的值设置为空,flag为不存在的文件时满足$shiyan == $content(都是空)即可bypass<br>payload：<code>？shiyan=&amp;flag=</code>  </p>
 <h3 id="0x02-strcmp比较字符串"><a href="#0x02-strcmp比较字符串" class="headerlink" title="0x02 strcmp比较字符串"></a>0x02 strcmp比较字符串</h3><p>任意数组通过strcmp和任意字符串相比较的结果都是NULL（数组绕过)<br>payload：<code>?a[]</code></p>
 <h3 id="0x03-urldecode二次编码绕过"><a href="#0x03-urldecode二次编码绕过" class="headerlink" title="0x03 urldecode二次编码绕过"></a>0x03 urldecode二次编码绕过</h3><p>所以payload中不能有hackerDJ，下边使用urldecode对id的值进行解码，所以可以让id得到的值是hackerDJ的url编码，由于浏览器会自行解码一次，所以编码两次就好(D编码一次是%44，编码两次是%2544)<br>payload<code>?id=hacker%2544J</code></p>
@@ -344,8 +343,6 @@
 <h3 id="0x10-ereg正则-00截断"><a href="#0x10-ereg正则-00截断" class="headerlink" title="0x10 ereg正则%00截断"></a>0x10 ereg正则%00截断</h3><p>ereg读到%00的时候，就截止了,那么在字符串里面包括%00即可； 长度小于8但要大于9999999,就想到科学计数法<br>payload：<code>password=1e9%00*-*</code></p>
 <h3 id="0x11-strpos数组绕过"><a href="#0x11-strpos数组绕过" class="headerlink" title="0x11 strpos数组绕过"></a>0x11 strpos数组绕过</h3><p>既要是纯数字,又要有’#biubiubiu’，strpos()找的是字符串,那么传一个数组给它,strpos()出错返回null,null!==false,所以符合要求. 所以输入nctf[]= 那为什么ereg()也能符合呢?因为ereg()在出错时返回的也是null,null!==false,所以符合要求<br>payload:<code>?ctf[]=1</code></p>
 <h3 id="0x12-数字验证正则绕过"><a href="#0x12-数字验证正则绕过" class="headerlink" title="0x12 数字验证正则绕过"></a>0x12 数字验证正则绕过</h3>
-          
-        
       
     </div>
     
@@ -362,159 +359,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/10/BUGKU的一些题目的WP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="The7sins">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The7sins">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/10/BUGKU的一些题目的WP/" itemprop="url">BUGKU的一些题目的WP</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T17:53:33+08:00">
-                2018-04-10
-              </time>
+              <a href="/2018/04/10/BUGKU的一些题目的WP/" rel="next" title="BUGKU的一些题目的WP">
+                <i class="fa fa-chevron-left"></i> BUGKU的一些题目的WP
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Writeup/" itemprop="url" rel="index">
-                    <span itemprop="name">Writeup</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>一些bugku题目上的WP<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/10/BUGKU的一些题目的WP/#espandi" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -524,304 +390,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/03/有关于sql注入题的writeup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="The7sins">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The7sins">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/03/有关于sql注入题的writeup/" itemprop="url">有关于sql注入题的writeup</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-03T20:20:44+08:00">
-                2018-04-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web安全/" itemprop="url" rel="index">
-                    <span itemprop="name">Web安全</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>总结了sql注入的一些知识点，于是就将一些做过的题的sql注入题的wp总结一下。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/03/有关于sql注入题的writeup/#espandi" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/31/菜鸡对sql注入的一些简单总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="The7sins">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The7sins">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/31/菜鸡对sql注入的一些简单总结/" itemprop="url">菜鸡对sql注入的一些简单总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T22:37:05+08:00">
-                2018-03-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web安全/" itemprop="url" rel="index">
-                    <span itemprop="name">Web安全</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>关于sql注入也了解了一些，也做了一些题。所以就想对简单的sql注入进行一些简单的总结，本人菜鸡，所以请各位大佬提出一些建议。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/31/菜鸡对sql注入的一些简单总结/#espandi" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -829,6 +402,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -849,8 +426,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -910,6 +496,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2018-4-23————2018-4-24"><span class="nav-number">1.</span> <span class="nav-text">2018-4-23————2018.4.24</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-extract变量覆盖"><span class="nav-number">1.1.</span> <span class="nav-text">0x01 extract变量覆盖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-strcmp比较字符串"><span class="nav-number">1.2.</span> <span class="nav-text">0x02 strcmp比较字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-urldecode二次编码绕过"><span class="nav-number">1.3.</span> <span class="nav-text">0x03 urldecode二次编码绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-md5-函数"><span class="nav-number">1.4.</span> <span class="nav-text">0x04 md5()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x05-数组返回NULL绕过"><span class="nav-number">1.5.</span> <span class="nav-text">0x05 数组返回NULL绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x06-弱类型整数大小比较绕过"><span class="nav-number">1.6.</span> <span class="nav-text">0x06 弱类型整数大小比较绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x07-sha-函数比较绕过"><span class="nav-number">1.7.</span> <span class="nav-text">0x07 sha()函数比较绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x08-md5加密相等绕过"><span class="nav-number">1.8.</span> <span class="nav-text">0x08 md5加密相等绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x09-十六进制与数字比较"><span class="nav-number">1.9.</span> <span class="nav-text">0x09 十六进制与数字比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x10-ereg正则-00截断"><span class="nav-number">1.10.</span> <span class="nav-text">0x10 ereg正则%00截断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x11-strpos数组绕过"><span class="nav-number">1.11.</span> <span class="nav-text">0x11 strpos数组绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x12-数字验证正则绕过"><span class="nav-number">1.12.</span> <span class="nav-text">0x12 数字验证正则绕过</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1050,6 +652,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
