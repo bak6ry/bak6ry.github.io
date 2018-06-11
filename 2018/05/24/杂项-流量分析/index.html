@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="The7sins">
-<meta property="og:url" content="http://yoursite.com/archives/2018/04/index.html">
+<meta name="description" content="wireshark的基本使用wireshark过滤器过滤器有两种，一种是显示过滤器1，就是主界面上的那一个，用来在捕获的记录中找到所需要的记录一种是捕获过滤器，用来过滤捕获的封包，以免捕获太多的记录   过滤表达式的规则表达式规则1.协议过滤比如tcp，就只显示tcp协议2.ip过滤比如 ip.src==111.111.1.111 显示源地址为111.111.1.111ip.dst==111.11">
+<meta property="og:type" content="article">
+<meta property="og:title" content="杂项--流量分析">
+<meta property="og:url" content="http://yoursite.com/2018/05/24/杂项-流量分析/index.html">
 <meta property="og:site_name" content="The7sins">
+<meta property="og:description" content="wireshark的基本使用wireshark过滤器过滤器有两种，一种是显示过滤器1，就是主界面上的那一个，用来在捕获的记录中找到所需要的记录一种是捕获过滤器，用来过滤捕获的封包，以免捕获太多的记录   过滤表达式的规则表达式规则1.协议过滤比如tcp，就只显示tcp协议2.ip过滤比如 ip.src==111.111.1.111 显示源地址为111.111.1.111ip.dst==111.11">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-11T14:17:12.985Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The7sins">
+<meta name="twitter:title" content="杂项--流量分析">
+<meta name="twitter:description" content="wireshark的基本使用wireshark过滤器过滤器有两种，一种是显示过滤器1，就是主界面上的那一个，用来在捕获的记录中找到所需要的记录一种是捕获过滤器，用来过滤捕获的封包，以免捕获太多的记录   过滤表达式的规则表达式规则1.协议过滤比如tcp，就只显示tcp协议2.ip过滤比如 ip.src==111.111.1.111 显示源地址为111.111.1.111ip.dst==111.11">
 
 
 
@@ -115,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/04/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/24/杂项-流量分析/"/>
 
 
 
@@ -131,7 +135,7 @@
   </script>
 
 
-  <title>归档 | The7sins</title>
+  <title>杂项--流量分析 | The7sins</title>
   
 
 
@@ -150,7 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/The7sins"  class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -245,74 +249,147 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 4 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/杂项-流量分析/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="The7sins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The7sins">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/04/25/第一次周记/" itemprop="url">
-              
-                <span itemprop="name">第一次周记</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">杂项--流量分析</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-25T19:34:38+08:00"
-              content="2018-04-25" >
-          04-25
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T22:22:29+08:00">
+                2018-05-24
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h1 id="wireshark的基本使用"><a href="#wireshark的基本使用" class="headerlink" title="wireshark的基本使用"></a>wireshark的基本使用</h1><h2 id="wireshark过滤器"><a href="#wireshark过滤器" class="headerlink" title="wireshark过滤器"></a>wireshark过滤器</h2><p>过滤器有两种，<br>一种是显示过滤器1，就是主界面上的那一个，用来在捕获的记录中找到所需要的记录<br>一种是捕获过滤器，用来过滤捕获的封包，以免捕获太多的记录  </p>
+<h2 id="过滤表达式的规则"><a href="#过滤表达式的规则" class="headerlink" title="过滤表达式的规则"></a>过滤表达式的规则</h2><p>表达式规则<br>1.协议过滤<br>比如tcp，就只显示tcp协议<br>2.ip过滤<br>比如 ip.src==111.111.1.111 显示源地址为111.111.1.111<br>ip.dst==111.111.1.111 目标地址为111.111.1.111<br>3.端口过滤<br>tcp.port==80端口为80的<br>tcp.srcport==80，只显示tcp协议的愿端口为80的<br>4.http模式过滤<br>http.request,method==”GET”<br>5.逻辑运算符过滤 AND/OR<br>ip.src==192.165.1.102 or ip.dst==192.168.1.102源地址或者目标地址是192.168.1.102</p>
+<h1 id="TCP三次握手过程"><a href="#TCP三次握手过程" class="headerlink" title="TCP三次握手过程"></a>TCP三次握手过程</h1><ul>
+<li>SYN报文：从客户端发送至服务器端的SYN报文，此报文用于与服务器建立同步，确保客户端和服务器端的通信按次序传输。SYN报文的头部有一个32 bit序列号。底端对话框显示了报文一些有用信息如报文类型，序列号。</li>
+<li>SYN/ACK报文：一旦服务器接收到客户端的SYN报文，就读取报文的序列号并且使用此编号作为响应，也就是说它告知客户机，服务器接收到了SYN报文，通过对原SYN报文序列号加一并且作为响应编号来实现，之后客户端就知道服务器能够接收通信。</li>
+<li>ACK报文：客户端对服务器发送的确认报文，告诉服务器客户端接收到了SYN/ACK报文，并且与前一步一样客户端也将序列号加一，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。<br>ARP&amp;ICMP</li>
+</ul>
+<h1 id="如果遇到ping命令的，找到icmp"><a href="#如果遇到ping命令的，找到icmp" class="headerlink" title="如果遇到ping命令的，找到icmp"></a>如果遇到ping命令的，找到icmp</h1>
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/24/杂项-图片隐写/" rel="next" title="杂项--图片隐写">
+                <i class="fa fa-chevron-left"></i> 杂项--图片隐写
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -320,6 +397,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -340,8 +421,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -401,6 +491,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#wireshark的基本使用"><span class="nav-number">1.</span> <span class="nav-text">wireshark的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#wireshark过滤器"><span class="nav-number">1.1.</span> <span class="nav-text">wireshark过滤器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤表达式的规则"><span class="nav-number">1.2.</span> <span class="nav-text">过滤表达式的规则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP三次握手过程"><span class="nav-number">2.</span> <span class="nav-text">TCP三次握手过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如果遇到ping命令的，找到icmp"><span class="nav-number">3.</span> <span class="nav-text">如果遇到ping命令的，找到icmp</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -541,6 +647,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
