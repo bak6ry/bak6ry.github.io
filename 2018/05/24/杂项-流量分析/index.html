@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="wireshark的基本使用wireshark过滤器过滤器有两种，一种是显示过滤器1，就是主界面上的那一个，用来在捕获的记录中找到所需要的记录一种是捕获过滤器，用来过滤捕获的封包，以免捕获太多的记录   过滤表达式的规则表达式规则1.协议过滤比如tcp，就只显示tcp协议2.ip过滤比如 ip.src==111.111.1.111 显示源地址为111.111.1.111ip.dst==111.11">
+<meta name="description" content="前言 对流量分析进行一次总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="杂项--流量分析">
 <meta property="og:url" content="http://yoursite.com/2018/05/24/杂项-流量分析/index.html">
 <meta property="og:site_name" content="The7sins">
-<meta property="og:description" content="wireshark的基本使用wireshark过滤器过滤器有两种，一种是显示过滤器1，就是主界面上的那一个，用来在捕获的记录中找到所需要的记录一种是捕获过滤器，用来过滤捕获的封包，以免捕获太多的记录   过滤表达式的规则表达式规则1.协议过滤比如tcp，就只显示tcp协议2.ip过滤比如 ip.src==111.111.1.111 显示源地址为111.111.1.111ip.dst==111.11">
+<meta property="og:description" content="前言 对流量分析进行一次总结">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-11T14:17:12.985Z">
+<meta property="og:updated_time" content="2018-06-11T14:38:12.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂项--流量分析">
-<meta name="twitter:description" content="wireshark的基本使用wireshark过滤器过滤器有两种，一种是显示过滤器1，就是主界面上的那一个，用来在捕获的记录中找到所需要的记录一种是捕获过滤器，用来过滤捕获的封包，以免捕获太多的记录   过滤表达式的规则表达式规则1.协议过滤比如tcp，就只显示tcp协议2.ip过滤比如 ip.src==111.111.1.111 显示源地址为111.111.1.111ip.dst==111.11">
+<meta name="twitter:description" content="前言 对流量分析进行一次总结">
 
 
 
@@ -330,7 +330,10 @@
       
 
       
-        <h1 id="wireshark的基本使用"><a href="#wireshark的基本使用" class="headerlink" title="wireshark的基本使用"></a>wireshark的基本使用</h1><h2 id="wireshark过滤器"><a href="#wireshark过滤器" class="headerlink" title="wireshark过滤器"></a>wireshark过滤器</h2><p>过滤器有两种，<br>一种是显示过滤器1，就是主界面上的那一个，用来在捕获的记录中找到所需要的记录<br>一种是捕获过滤器，用来过滤捕获的封包，以免捕获太多的记录  </p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>对流量分析进行一次总结<br><a id="more"></a></p>
+</blockquote>
+<h1 id="wireshark的基本使用"><a href="#wireshark的基本使用" class="headerlink" title="wireshark的基本使用"></a>wireshark的基本使用</h1><h2 id="wireshark过滤器"><a href="#wireshark过滤器" class="headerlink" title="wireshark过滤器"></a>wireshark过滤器</h2><p>过滤器有两种，<br>一种是显示过滤器1，就是主界面上的那一个，用来在捕获的记录中找到所需要的记录<br>一种是捕获过滤器，用来过滤捕获的封包，以免捕获太多的记录  </p>
 <h2 id="过滤表达式的规则"><a href="#过滤表达式的规则" class="headerlink" title="过滤表达式的规则"></a>过滤表达式的规则</h2><p>表达式规则<br>1.协议过滤<br>比如tcp，就只显示tcp协议<br>2.ip过滤<br>比如 ip.src==111.111.1.111 显示源地址为111.111.1.111<br>ip.dst==111.111.1.111 目标地址为111.111.1.111<br>3.端口过滤<br>tcp.port==80端口为80的<br>tcp.srcport==80，只显示tcp协议的愿端口为80的<br>4.http模式过滤<br>http.request,method==”GET”<br>5.逻辑运算符过滤 AND/OR<br>ip.src==192.165.1.102 or ip.dst==192.168.1.102源地址或者目标地址是192.168.1.102</p>
 <h1 id="TCP三次握手过程"><a href="#TCP三次握手过程" class="headerlink" title="TCP三次握手过程"></a>TCP三次握手过程</h1><ul>
 <li>SYN报文：从客户端发送至服务器端的SYN报文，此报文用于与服务器建立同步，确保客户端和服务器端的通信按次序传输。SYN报文的头部有一个32 bit序列号。底端对话框显示了报文一些有用信息如报文类型，序列号。</li>
@@ -370,6 +373,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/11/对未来一个月的计划/" rel="prev" title="对未来一个月的计划">
+                对未来一个月的计划 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -446,7 +453,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -501,7 +508,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#wireshark的基本使用"><span class="nav-number">1.</span> <span class="nav-text">wireshark的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#wireshark过滤器"><span class="nav-number">1.1.</span> <span class="nav-text">wireshark过滤器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤表达式的规则"><span class="nav-number">1.2.</span> <span class="nav-text">过滤表达式的规则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP三次握手过程"><span class="nav-number">2.</span> <span class="nav-text">TCP三次握手过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如果遇到ping命令的，找到icmp"><span class="nav-number">3.</span> <span class="nav-text">如果遇到ping命令的，找到icmp</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#wireshark的基本使用"><span class="nav-number">2.</span> <span class="nav-text">wireshark的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#wireshark过滤器"><span class="nav-number">2.1.</span> <span class="nav-text">wireshark过滤器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤表达式的规则"><span class="nav-number">2.2.</span> <span class="nav-text">过滤表达式的规则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP三次握手过程"><span class="nav-number">3.</span> <span class="nav-text">TCP三次握手过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如果遇到ping命令的，找到icmp"><span class="nav-number">4.</span> <span class="nav-text">如果遇到ping命令的，找到icmp</span></a></li></ol></div>
             
 
           </div>
