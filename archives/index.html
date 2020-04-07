@@ -339,6 +339,70 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/03/14/靶机二/" >
+            
+                <span>域渗透靶机二</span>
+        </a>
+        <div class="abstract-content">
+            开启weblogic服务
+CVE-2019-2725
+上传shell
+
+
+冰蝎反弹shell
+
+nslookup -type=SRV _ldap._tcp.corp
+定位域控
+
+procdump64.exe -accepteula -ma lsass.exe lsass.dmp
+mimikatz.exe “sekurlsa::minidump lsass.dmp” “sekurlsa::logonPasswords full”
+
+上传C:/Oracle/Middleware/user_projects/domains/base_domain/servers/AdminServer/tmp...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/14</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/03/10/ntlm请求发起/" >
+            
+                <span>ntlm请求发起</span>
+        </a>
+        <div class="abstract-content">
+            ntlm请求发起deskto.ini文件夹底下都有个文件desktop.ini来指定文件夹图标之类的
+将图标路径改成UNC路径，指向我们的服务器
+当用户访问该文件夹的时候会去访问UNC路径,我们就能获取用户的net-ntlm hash。
+scf 文件只要一个文件底下含有scf后缀的文件,由于scf文件包含了IconFile属性，所以Explore.exe会尝试获取文件的图标。而IconFile是支持UNC路径的。以下是scf后缀的文件的格式
+新建test.scf，写入内容，放在一个文件夹底下，当用户访问该文件夹的时候，我们就会获得用户的net-ntlm hash。
+用户头像适用于Wind...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/10</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/02/23/抓密码/" >
             
                 <span>各种姿势的hash抓取</span>
@@ -371,22 +435,51 @@ win10/win2012 R2用户明文密码###抓取明文：手工修改注册表 + 强�
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/23/ntlm请求发起/" >
+        <a class="abstract-title" href = "/2020/02/12/keberos/" >
             
-                <span>ntlm请求发起</span>
+                <span>keberos协议</span>
         </a>
         <div class="abstract-content">
-            ntlm请求发起deskto.ini文件夹底下都有个文件desktop.ini来指定文件夹图标之类的
-将图标路径改成UNC路径，指向我们的服务器
-当用户访问该文件夹的时候会去访问UNC路径,我们就能获取用户的net-ntlm hash。
-scf 文件只要一个文件底下含有scf后缀的文件,由于scf文件包含了IconFile属性，所以Explore.exe会尝试获取文件的图标。而IconFile是支持UNC路径的。以下是scf后缀的文件的格式
-新建test.scf，写入内容，放在一个文件夹底下，当用户访问该文件夹的时候，我们就会获得用户的net-ntlm hash。
-用户头像适用于Wind...
+            keberos协议 tgsreq&amp;tgsrep1、用户通过AS_REP拿到的TGT票据，去向KDC申请特定服务的访问权限
+2、KDC校验TGT票据，如果校验通过的话，会向用户发送一个TGS票据
+3、用户再拿着TGS去访问特定的服务
+非约束委派访问任何服务
+非约束委派的安全问题就是如果我们找到配置了非约束的委派的账户，比如这里面的JACKSON-PC$，并且通过一定手段拿下该账户的权限，然后诱导域管访问该JACKSON-PC$，这个时候域管会将自己TGT发送到JACKSON-PC$并缓存到LSASS中，那我们就可以从LSASS中导出域管的TGT票据，然后通过PTT，从而拥有域管的权...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/23</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/12</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/14/Matrix1/" >
+            
+                <span>vulnhub|渗透测试Matrix</span>
+        </a>
+        <div class="abstract-content">
+            #vulnhub|渗透测试Matrix 1
+##题记
+最近在打靶机，发现了一个挺有意思的靶机，这里想跟大家分享一下.
+##环境准备vulnhub最近出的一台靶机
+靶机Machine_Matrix.zip (Size: 552 MB)
+Download: https://mega.nz/#!CiwBjRZB!EtKOQvDQjytMq3LkkMgrHDC9EYxEz8mqpOg5M2N1OOk
+Download (Mirror): https://download.vulnhub.com/matrix/Machine_Matrix.zip
+Download (Torrent): https...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/14</span>
             </div>
             <!-- tags  -->
             
@@ -427,44 +520,12 @@ Download (Torrent): https://download.vulnhub.com/devrandom/sleepy.ova.torrent   
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/02/23/Matrix 1/" >
-            
-                <span>vulnhub|渗透测试Matrix 1</span>
-        </a>
-        <div class="abstract-content">
-            #vulnhub|渗透测试Matrix 1
-##题记
-最近在打靶机，发现了一个挺有意思的靶机，这里想跟大家分享一下.
-##环境准备vulnhub最近出的一台靶机
-靶机Machine_Matrix.zip (Size: 552 MB)
-Download: https://mega.nz/#!CiwBjRZB!EtKOQvDQjytMq3LkkMgrHDC9EYxEz8mqpOg5M2N1OOk
-Download (Mirror): https://download.vulnhub.com/matrix/Machine_Matrix.zip
-Download (Torrent): https...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/02/23/Moonraker/" >
+        <a class="abstract-title" href = "/2019/05/22/Moonraker/" >
             
                 <span>渗透测试|Moonraker</span>
         </a>
         <div class="abstract-content">
-            ##渗透测试|Moonraker
-##题记
-靶机描述：你已经收到了一个新的恶棍的情报，他们大量投资太空和激光技术。虽然Villian不为人知，但我们知道动机是不祥的和世界末日的。
+            渗透测试|Moonraker题记靶机描述：你已经收到了一个新的恶棍的情报，他们大量投资太空和激光技术。虽然Villian不为人知，但我们知道动机是不祥的和世界末日的。
 深入了解Moonraker系统，一劳永逸地发现这些威胁计划的背后是谁。在为时已晚之前找到并摧毁恶棍！
 
 难度：具有挑战性
@@ -480,12 +541,12 @@ Download (Torrent): https...
 学习目标：客户端攻击，NoSQL，RESTful，NodeJS，Linux Enumeration和Google-fu。
 
 
-感谢/ u / limbernie在Red...
+感谢/ u / limbernie在Reddit上进行...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/23</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/22</span>
             </div>
             <!-- tags  -->
             
@@ -498,142 +559,78 @@ Download (Torrent): https...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/02/23/SICKOS/" >
+        <a class="abstract-title" href = "/2019/04/11/redis未授权/" >
             
-                <span>SICKOS 1.1 - CTF</span>
+                <span>redis未授权</span>
         </a>
         <div class="abstract-content">
-            #SICKOS 1.1 - CTF
-##环境准备
-sick0s1.1.7z (Size: 623 MB)
+            redis未授权原理利用 Redis 自身的提供的config 命令，可以进行写文件操作
+攻击者可以成功将自己的ssh公钥写入目标服务器的 /root/.ssh 文件夹的authotrized_keys 文件中，进而可以使用对应私钥直接使用ssh服务登录目标服务器
+条件（1）redis绑定在 0.0.0.0:6379，且没有进行添加防火墙规则避免其他非信任来源ip访问等相关安全策略，直接暴露在公网；（2）没有设置密码认证（一般为空），可以免密码远程登录redis服务
+危害1、访问敏感数据2、eval执行lua代码，数据备份写后门3、redis以root身份运行，给root账户写入ssh公...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/11</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/04/03/nginx的秘密wp/" >
+            
+                <span>nginx的秘密wp</span>
+        </a>
+        <div class="abstract-content">
+            nginx的秘密wp
+刚拿到手还以为是sql约束攻击，发现测试未果
+看题目为nginx的秘密想到可能和nginx的配置有关于是百度搜索nginx配置漏洞Nginx不安全配置可能导致的安全漏洞 
+
+目录遍历漏洞Nginx默认是不允许列出整个目录的。如需此功能，打开nginx.conf文件，在location server 或 http段中加入autoindex on;
+$uri导致的CRLF注入漏洞(理论上，只要是可以设置HTTP头的场景都会出现这个问题。)，$uri 和  $document_uri表示的是解码以后的请求路径，不带参数,$request_uri表示的是完整的URI（没有解...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/03</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/03/12/SICKOS/" >
+            
+                <span>SICKOS</span>
+        </a>
+        <div class="abstract-content">
+            SICKOS 1.1 - CTF环境准备sick0s1.1.7z (Size: 623 MB)
 Download (Mirror): https://download.vulnhub.com/sickos/sick0s1.1.7z
 Download (Torrent): https://download.vulnhub.com/sickos/sick0s1.1.7z.torrent     ( Magnet)
 攻击机 Kali IP 192.168.10.128
 靶机在同一C段下 IP  192.168.10.130
-##主机发现
-使用命令nmap -sP 192.168.10...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/01/03/swpu/" >
-            
-                <span>SWPUCTF 2018 Web题和线下赛总结</span>
-        </a>
-        <div class="abstract-content">
-            线上赛前言
-今年第一次打SWPU，发现web题目质量很不错，为了线下赛连续准备了两天，晚上都睡得很晚，这次比赛是西南石油的师傅举办的公益性比赛，学院不支持，自掏腰包办比赛，感谢西南石油的师傅们用心准备的web题和线下赛，以下是详细记录。
-Web
-用优惠码买个X?
-这个题发现www.zip下有个源码泄露，下载来发现代码如下：
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354&lt;?php//生成优惠码$_SESSION[&apos;seed...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/03</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/11/18/hctf马后炮分析/" >
-            
-                <span>hctf马后炮分析</span>
-        </a>
-        <div class="abstract-content">
-            hide and seek再随便输一个非 admin 的用户名即可进入后台，提示上传 ZIP 文件。上传的zip会被解压并读取。   
-一开始还以为要上传 php 代码执行什么的，但php代码都被注释掉了。然后想到 JavaScript ，想通过xss打管理员的cookie，结果发现只能打到自己的cookie
-Linux 的软链接文件就像 Windows 的快捷方式。通过 ln  -s [目标文件] [生成文件] 生成。    
-解题流程首先读取 /proc/self/environ 文件
-什么是proc目录
+主机发现使用命令nmap -sP 192.168.10.0/24
 
-首先，它不是一个真正的文件系统， 而是一个虚拟的文件系统。   
-
-其次，p...
+可...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/18</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/01/lampiao/" >
-            
-                <span>vulnhub|渗透测试lampiao</span>
-        </a>
-        <div class="abstract-content">
-            该文已先在先知社区发表：原文地址：https://xz.aliyun.com/t/2552
-#vulnhub|渗透测试lampiao
-##题记
-最近在打靶机，发现了一个挺有意思的靶机，这里想跟大家分享一下.
-##环境准备vulnhub最近出的一台靶机
-靶机Lampiao.zip (Size: 669 MB)
-Download: https://mega.nz/#!aG4AAaDB!CBLRRYQsAhTOyPJqyjC0Blr-weMH9QMdYbPfMj0LGeM
-Download (Mirror): https://download.vulnhub.com/lampiao/Lampi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/01</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/08/31/ctf入门总结/" >
-            
-                <span>ctf入门总结</span>
-        </a>
-        <div class="abstract-content">
-            下面中实验室指的是网络安全实验室
-题目全部来自bugku，南邮和网络安全实验室，题较基础，实验吧要复杂些，
-文中所有知识点内容并不全，要学习原理及深入得自己去找资源学习，自学与搜集信息的能力是必不可少的
-入门推荐书籍(必看):《白帽子讲web安全 》《代码审计:企业级web代码安全架构》
-什么是CTF？CTF（Capture The Flag）中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术人员之间进行技术竞技的一种比赛形式CTF比赛通常包含的题目类型包括MISC、PPC、CRYPTO、PWN、REVERSE、WEB、STEGA
-1.养成看源代码的习惯(简单)flag在源代码中()...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/31</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/12</span>
             </div>
             <!-- tags  -->
             
@@ -900,9 +897,106 @@ Download (Mirror): https://download.vulnhub.com/lampiao/Lampi...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 13
+        Total : 20
         </div>
         <!-- search  -->
         
@@ -918,7 +1012,22 @@ Download (Mirror): https://download.vulnhub.com/lampiao/Lampi...
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">03/14</span><a class="archive-post-title" href= "/2020/03/14/靶机二/" >域渗透靶机二</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2020/03/10/ntlm请求发起/" >ntlm请求发起</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2020/02/23/抓密码/" >各种姿势的hash抓取</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/12</span><a class="archive-post-title" href= "/2020/02/12/keberos/" >keberos协议</a>
         </li>
     
     
@@ -932,7 +1041,7 @@ Download (Mirror): https://download.vulnhub.com/lampiao/Lampi...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/23</span><a class="archive-post-title" href= "/2019/08/23/ntlm请求发起/" >ntlm请求发起</a>
+            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2019/08/14/Matrix1/" >vulnhub|渗透测试Matrix</a>
         </li>
     
     
@@ -942,22 +1051,37 @@ Download (Mirror): https://download.vulnhub.com/lampiao/Lampi...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/Matrix 1/" >vulnhub|渗透测试Matrix 1</a>
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2019/05/22/Moonraker/" >渗透测试|Moonraker</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/SICKOS/" >SICKOS 1.1 - CTF</a>
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2019/04/11/redis未授权/" >redis未授权</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/Moonraker/" >渗透测试|Moonraker</a>
+            <span class="archive-post-date">04/03</span><a class="archive-post-title" href= "/2019/04/03/nginx的秘密wp/" >nginx的秘密wp</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2019/01/03/swpu/" >SWPUCTF 2018 Web题和线下赛总结</a>
+            <span class="archive-post-date">03/12</span><a class="archive-post-title" href= "/2019/03/12/SICKOS/" >SICKOS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/MERCY/" >渗透测试MERCY</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2019/01/03/swpuctf总结/" >SWPUCTF 2018 Web题和线下赛总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2019/01/01/swpuawd/" >swpuawd赛前准备</a>
         </li>
     
     
@@ -981,17 +1105,22 @@ Download (Mirror): https://download.vulnhub.com/lampiao/Lampi...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/ctf入门总结/" >ctf入门总结</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/23</span><a class="archive-post-title" href= "/2018/07/23/巅峰极客/" >巅峰极客2018第一场部分wp</a>
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/23</span><a class="archive-post-title" href= "/2018/08/23/渗透海康卫视/" >渗透实战</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/28</span><a class="archive-post-title" href= "/2018/07/28/巅峰极客/" >巅峰极客2018第一场部分wp</a>
         </li>
     
     
