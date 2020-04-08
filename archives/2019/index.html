@@ -339,6 +339,126 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/10/21/同源策略与绕过/" >
+            
+                <span>同源策略与绕过</span>
+        </a>
+        <div class="abstract-content">
+            同源策略与绕过##介绍    协议相同    域名相同    端口相同
+##限制
+cookiedomajax请求
+绕过同源策略限制的方法SOP和DOM：同源策略与文档对象模型document.domain
+两个网页一级域名相同，只是二级域名不同，浏览器允许通过设置document.domain共享 Cookie
+1、通过JS设置document.domain属性
+2、服务器也可以在设置Cookie的时候，指定Cookie的所属域名为一级域名
+set-cookie: key=123;doman= .example.com;path=/
+这样的话，二级域名和三级域名不用做任何设置，都可以读取...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/21</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/10/20/cors/" >
+            
+                <span>跨域资源请求</span>
+        </a>
+        <div class="abstract-content">
+            cors同源策略即JavaScript或Cookie只能访问同域下的内容
+简介CORS允许浏览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制
+简单请求（simplerequest）和非简单请求
+只要同时满足以下两大条件，就属于简单请求。
+（1）请求方法是HEAD，GET，POST之一
+（2）HTTP的头信息不超出以下几种字段。
+Accept
+Accept-Language
+Content-Language
+Last-Event-ID
+Content-Type：（只限于三个值application/x-www-form-urlencoded、mu...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/20</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/10/13/python多线程以及线程安全/" >
+            
+                <span>python多线程以及线程安全</span>
+        </a>
+        <div class="abstract-content">
+            python多线程以及线程安全线程简介线程（Thread）也叫轻量级进程，是操作系统能够进行运算调度的最小单位，它被包涵在进程之中，是进程中的实际运作单位。线程自己不拥有系统资源，只拥有一点儿在运行中必不可少的资源，但它可与同属一个进程的其它线程共享进程所拥有的全部资源。一个线程可以创建和撤消另一个线程，同一进程中的多个线程之间可以并发执行。
+进程之间不能共享内存，但线程之间共享内存非常容易
+操作系统在创建进程时，需要为该进程重新分配系统资源，但创建线程的代价则小得多。
+##线程实现
+threading模块
+import threading1234t1 = threading.Threa...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/13</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/10/12/python多进程/" >
+            
+                <span>python多进程</span>
+        </a>
+        <div class="abstract-content">
+            python 多进程multiprocessingpython中的多线程无法利用多核优势，如果想要充分地使用多核CPU的资源，在python中大部分情况需要使用多进程
+multiprocessing支持子进程，通信，共享数据
+from multiprocessing import Process
+p1 = Process(target=run,args=(‘name’))p2 = Process(target=run,args=(‘bbbbb’))p1.start()p2.start()
+join方法from multiprocessing import Process
+p1.start...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/12</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/08/14/Matrix1/" >
             
                 <span>vulnhub|渗透测试Matrix</span>
@@ -514,111 +634,11 @@ Download (Torrent): https://download.vulnhub.com/sickos/sick0s1.1.7z.torrent    
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/02/23/MERCY/" >
-            
-                <span>渗透测试MERCY</span>
-        </a>
-        <div class="abstract-content">
-            vulnhub|渗透测试digitalworld.local: MERCY题记最近在打靶机，发现一个有点东西的靶机，这里跟大家分享一下.
-环境准备vulnhub最近出的一台靶机
-靶机MERCY.zip (Size: 1.9 GB)
-Download: https://drive.google.com/uc?id=1YzsW1lCKjo_WEr6Pk511DXQBFyMMR14y&amp;export=download
-Download (Torrent): https://download.vulnhub.com/digitalworld/MERCY.zip.torrent     ( ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/01/03/swpuctf总结/" >
-            
-                <span>SWPUCTF 2018 Web题和线下赛总结</span>
-        </a>
-        <div class="abstract-content">
-            第九届swpuctf杂项题，web题加线下赛攻防总结
-线上赛MISC流量签到题流量包拖wireshark追TCP包或者直接用文档编辑器打开ctrl加f搜索关键字
-床前明月光,低头…99 9 9 88 11 5 5 66 3 88 3 6 555 9 11 4 33键盘密码 99就代表9那列的第二个值
-look ….. 依次读就行了
-签到题第一个flag在文件末尾
-所以修改高度为FF在底部可以看到另一半flag
-web用优惠码 买个 X ?这个题发现www.zip下有个源码泄露，下载来发现代码如下12345678910111213141516171819202122232425262728...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/03</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/01/01/swpuawd/" >
-            
-                <span>swpuawd赛前准备</span>
-        </a>
-        <div class="abstract-content">
-            awdwaf流量代理还有问题， 静态资源得根据绝对路径和相对路径来分别判断提权脚本批量改密码杀不死马方法测试diff或者compare测试一遍运维流程飞鸽传书
-思路
-改密码ssh(弱口令)
-
-
-进入真终端python -c &quot;import pty;pty.spawn(&#39;/bin/bash&#39;)&quot;
-
-
-web备份
-
-
-备份
-
-tar -zcvf /tmp/web.tar.gz /var/www/html
-一定要用绝对路径
-
-恢复
-
-tar -zxvf /tmp/web.tar.gz
-
-数据库备份
-
-
-备份
-
-mysqldump --all-database...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/01</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">NEXT &#62;</a>
+    </nav>
     
 </main>
             <!-- profile -->
@@ -983,9 +1003,55 @@ mysqldump --all-database...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 20
+        Total : 24
         </div>
         <!-- search  -->
         
@@ -1027,6 +1093,26 @@ mysqldump --all-database...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/21</span><a class="archive-post-title" href= "/2019/10/21/同源策略与绕过/" >同源策略与绕过</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/20</span><a class="archive-post-title" href= "/2019/10/20/cors/" >跨域资源请求</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/13</span><a class="archive-post-title" href= "/2019/10/13/python多线程以及线程安全/" >python多线程以及线程安全</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/12</span><a class="archive-post-title" href= "/2019/10/12/python多进程/" >python多进程</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1094,12 +1180,12 @@ mysqldump --all-database...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/ctf入门总结/" >ctf入门总结</a>
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/ctf入门总结/" >ctf入门总结</a>
         </li>
     
     

@@ -462,6 +462,126 @@ win10/win2012 R2用户明文密码###抓取明文：手工修改注册表 + 强�
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/10/21/同源策略与绕过/" >
+            
+                <span>同源策略与绕过</span>
+        </a>
+        <div class="abstract-content">
+            同源策略与绕过##介绍    协议相同    域名相同    端口相同
+##限制
+cookiedomajax请求
+绕过同源策略限制的方法SOP和DOM：同源策略与文档对象模型document.domain
+两个网页一级域名相同，只是二级域名不同，浏览器允许通过设置document.domain共享 Cookie
+1、通过JS设置document.domain属性
+2、服务器也可以在设置Cookie的时候，指定Cookie的所属域名为一级域名
+set-cookie: key=123;doman= .example.com;path=/
+这样的话，二级域名和三级域名不用做任何设置，都可以读取...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/21</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/10/20/cors/" >
+            
+                <span>跨域资源请求</span>
+        </a>
+        <div class="abstract-content">
+            cors同源策略即JavaScript或Cookie只能访问同域下的内容
+简介CORS允许浏览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制
+简单请求（simplerequest）和非简单请求
+只要同时满足以下两大条件，就属于简单请求。
+（1）请求方法是HEAD，GET，POST之一
+（2）HTTP的头信息不超出以下几种字段。
+Accept
+Accept-Language
+Content-Language
+Last-Event-ID
+Content-Type：（只限于三个值application/x-www-form-urlencoded、mu...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/20</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/10/13/python多线程以及线程安全/" >
+            
+                <span>python多线程以及线程安全</span>
+        </a>
+        <div class="abstract-content">
+            python多线程以及线程安全线程简介线程（Thread）也叫轻量级进程，是操作系统能够进行运算调度的最小单位，它被包涵在进程之中，是进程中的实际运作单位。线程自己不拥有系统资源，只拥有一点儿在运行中必不可少的资源，但它可与同属一个进程的其它线程共享进程所拥有的全部资源。一个线程可以创建和撤消另一个线程，同一进程中的多个线程之间可以并发执行。
+进程之间不能共享内存，但线程之间共享内存非常容易
+操作系统在创建进程时，需要为该进程重新分配系统资源，但创建线程的代价则小得多。
+##线程实现
+threading模块
+import threading1234t1 = threading.Threa...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/13</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/10/12/python多进程/" >
+            
+                <span>python多进程</span>
+        </a>
+        <div class="abstract-content">
+            python 多进程multiprocessingpython中的多线程无法利用多核优势，如果想要充分地使用多核CPU的资源，在python中大部分情况需要使用多进程
+multiprocessing支持子进程，通信，共享数据
+from multiprocessing import Process
+p1 = Process(target=run,args=(‘name’))p2 = Process(target=run,args=(‘bbbbb’))p1.start()p2.start()
+join方法from multiprocessing import Process
+p1.start...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/12</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/08/14/Matrix1/" >
             
                 <span>vulnhub|渗透测试Matrix</span>
@@ -508,128 +628,6 @@ Download (Torrent): https://download.vulnhub.com/devrandom/sleepy.ova.torrent   
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/05/22/Moonraker/" >
-            
-                <span>渗透测试|Moonraker</span>
-        </a>
-        <div class="abstract-content">
-            渗透测试|Moonraker题记靶机描述：你已经收到了一个新的恶棍的情报，他们大量投资太空和激光技术。虽然Villian不为人知，但我们知道动机是不祥的和世界末日的。
-深入了解Moonraker系统，一劳永逸地发现这些威胁计划的背后是谁。在为时已晚之前找到并摧毁恶棍！
-
-难度：具有挑战性
-
-标志是/root/flag.txt
-
-在VMware上测试
-
-启用DCHP
-
-默认情况下除了Kali之外没有额外的工具
-
-学习目标：客户端攻击，NoSQL，RESTful，NodeJS，Linux Enumeration和Google-fu。
-
-
-感谢/ u / limbernie在Reddit上进行...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/22</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/04/11/redis未授权/" >
-            
-                <span>redis未授权</span>
-        </a>
-        <div class="abstract-content">
-            redis未授权原理利用 Redis 自身的提供的config 命令，可以进行写文件操作
-攻击者可以成功将自己的ssh公钥写入目标服务器的 /root/.ssh 文件夹的authotrized_keys 文件中，进而可以使用对应私钥直接使用ssh服务登录目标服务器
-条件（1）redis绑定在 0.0.0.0:6379，且没有进行添加防火墙规则避免其他非信任来源ip访问等相关安全策略，直接暴露在公网；（2）没有设置密码认证（一般为空），可以免密码远程登录redis服务
-危害1、访问敏感数据2、eval执行lua代码，数据备份写后门3、redis以root身份运行，给root账户写入ssh公...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/11</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/03/12/SICKOS/" >
-            
-                <span>SICKOS</span>
-        </a>
-        <div class="abstract-content">
-            SICKOS 1.1 - CTF环境准备sick0s1.1.7z (Size: 623 MB)
-Download (Mirror): https://download.vulnhub.com/sickos/sick0s1.1.7z
-Download (Torrent): https://download.vulnhub.com/sickos/sick0s1.1.7z.torrent     ( Magnet)
-攻击机 Kali IP 192.168.10.128
-靶机在同一C段下 IP  192.168.10.130
-主机发现使用命令nmap -sP 192.168.10.0/24
-
-可...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/12</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/02/23/MERCY/" >
-            
-                <span>渗透测试MERCY</span>
-        </a>
-        <div class="abstract-content">
-            vulnhub|渗透测试digitalworld.local: MERCY题记最近在打靶机，发现一个有点东西的靶机，这里跟大家分享一下.
-环境准备vulnhub最近出的一台靶机
-靶机MERCY.zip (Size: 1.9 GB)
-Download: https://drive.google.com/uc?id=1YzsW1lCKjo_WEr6Pk511DXQBFyMMR14y&amp;export=download
-Download (Torrent): https://download.vulnhub.com/digitalworld/MERCY.zip.torrent     ( ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/23</span>
             </div>
             <!-- tags  -->
             
@@ -1005,9 +1003,55 @@ Download (Torrent): https://download.vulnhub.com/digitalworld/MERCY.zip.torrent 
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 20
+        Total : 24
         </div>
         <!-- search  -->
         
@@ -1049,6 +1093,26 @@ Download (Torrent): https://download.vulnhub.com/digitalworld/MERCY.zip.torrent 
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/21</span><a class="archive-post-title" href= "/2019/10/21/同源策略与绕过/" >同源策略与绕过</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/20</span><a class="archive-post-title" href= "/2019/10/20/cors/" >跨域资源请求</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/13</span><a class="archive-post-title" href= "/2019/10/13/python多线程以及线程安全/" >python多线程以及线程安全</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/12</span><a class="archive-post-title" href= "/2019/10/12/python多进程/" >python多进程</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1116,12 +1180,12 @@ Download (Torrent): https://download.vulnhub.com/digitalworld/MERCY.zip.torrent 
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/ctf入门总结/" >ctf入门总结</a>
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/rwctf/" >rwctf和南电新生平台一题</a>
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/ctf入门总结/" >ctf入门总结</a>
         </li>
     
     
